@@ -10,10 +10,43 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-    <a href="{{ url('homepage') }}">Retour à l'accueil</a>
+    <a href="{{ url('homepage') }}">Retour à l'accueil 2</a>
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+    {{ form_start(addForm) }}
+    {{ form_widget(addForm) }}
+    {{ form_end(addForm) }}*
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        alert("Hello World!");
+      });
+      $("form").change(function() {
+        $('#form_ChiffresAffairesNet').val(Number($('#form_VenteMarchandises').val())
+                                         + Number($('#form_ProductionVendueDeServices').val()));
+
+        $('#form_ProduitsExploitation').val(Number($('#form_ProductionImmobilisee').val())
+                                          + Number($('#form_SubventionsExploitation').val())
+                                          + Number($('#form_RepriseDepreciationProvisionsTransfertCharges').val())
+                                          + Number($('#form_AutresProduits').val()));
+
+         $('#form_ChargesExploitation').val(Number($('#form_AchatsDeMarchandises').val())
+                                           + Number($('#form_AutresAchatEtChargesExternes').val())
+                                           + Number($('#form_ImpotTaxesEtVersementsAssimiles').val())
+                                           + Number($('#form_SalairesEtTraitements').val())
+                                           + Number($('#form_ChargesSociales').val())
+                                           + Number($('#form_DotationAmortissementImmobilisations').val())
+                                           + Number($('#form_DotationDepreciationImmobilisations').val())
+                                           + Number($('#form_DotationDepreciationActifCirculant').val())
+                                           + Number($('#form_DotationProvisions').val())
+                                           + Number($('#form_AutresCharges').val()));
+
+         $('#form_ResultatExploitation').val(Number($('#form_ProduitsExploitation').val())
+                                           - Number($('#form_ChargesExploitation').val()));                                           
+      });
+    </script>
 </div>
 {% endblock %}

@@ -19,6 +19,34 @@ class CompteDeResultat
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Corporate", inversedBy="ComptesDeResultats")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Corporate;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     */
+    private $year;
+
+
+    /***********************
+      Début du compte de résultat
+    ************************/
+
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $VenteMarchandises;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProductionVendueDeServices;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $ChiffresAffairesNet;
@@ -26,7 +54,42 @@ class CompteDeResultat
     /**
      * @ORM\Column(type="integer")
      */
+    private $ProductionImmobilisee;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $SubventionsExploitation;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $RepriseDepreciationProvisionsTransfertCharges;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $AutresProduits;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $ProduitsExploitation;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $AchatsDeMarchandises;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $AutresAchatEtChargesExternes;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ImpotTaxesEtVersementsAssimiles;
 
     /**
      * @ORM\Column(type="integer")
@@ -41,7 +104,42 @@ class CompteDeResultat
     /**
      * @ORM\Column(type="integer")
      */
+    private $DotationAmortissementImmobilisations;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DotationDepreciationImmobilisations;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DotationDepreciationActifCirculant;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DotationProvisions;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $AutresCharges;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $ChargesExploitation;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ResultatExploitation;
+
+
+
+
+
 
     /**
      * @ORM\Column(type="integer")
@@ -53,37 +151,6 @@ class CompteDeResultat
      */
     private $ProduitsFinanciers;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Corporate", inversedBy="ComptesDeResultats")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $Corporate;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @Assert\NotBlank()
-     */
-    private $year;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $ImpotTaxesEtVersementsAssimiles;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $SubventionsExploitation;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $AchatsDeMarchandises;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $ResultatExploitation;
 
     /**
      * @ORM\Column(type="integer")
@@ -104,6 +171,7 @@ class CompteDeResultat
      * @ORM\Column(type="integer")
      */
     private $ImpotsSurLesBenefices;
+
 
     public function getId(): ?int
     {
@@ -310,6 +378,138 @@ class CompteDeResultat
     public function setImpotsSurLesBenefices(int $ImpotsSurLesBenefices): self
     {
         $this->ImpotsSurLesBenefices = $ImpotsSurLesBenefices;
+
+        return $this;
+    }
+
+    public function getVenteMarchandises(): ?int
+    {
+        return $this->VenteMarchandises;
+    }
+
+    public function setVenteMarchandises(int $VenteMarchandises): self
+    {
+        $this->VenteMarchandises = $VenteMarchandises;
+
+        return $this;
+    }
+
+    public function getProductionVendueDeServices(): ?int
+    {
+        return $this->ProductionVendueDeServices;
+    }
+
+    public function setProductionVendueDeServices(int $ProductionVendueDeServices): self
+    {
+        $this->ProductionVendueDeServices = $ProductionVendueDeServices;
+
+        return $this;
+    }
+
+    public function getProductionImmobilisee(): ?int
+    {
+        return $this->ProductionImmobilisee;
+    }
+
+    public function setProductionImmobilisee(int $ProductionImmobilisee): self
+    {
+        $this->ProductionImmobilisee = $ProductionImmobilisee;
+
+        return $this;
+    }
+
+    public function getRepriseDepreciationProvisionsTransfertCharges(): ?int
+    {
+        return $this->RepriseDepreciationProvisionsTransfertCharges;
+    }
+
+    public function setRepriseDepreciationProvisionsTransfertCharges(int $RepriseDepreciationProvisionsTransfertCharges): self
+    {
+        $this->RepriseDepreciationProvisionsTransfertCharges = $RepriseDepreciationProvisionsTransfertCharges;
+
+        return $this;
+    }
+
+    public function getAutresProduits(): ?int
+    {
+        return $this->AutresProduits;
+    }
+
+    public function setAutresProduits(int $AutresProduits): self
+    {
+        $this->AutresProduits = $AutresProduits;
+
+        return $this;
+    }
+
+    public function getAutresAchatEtChargesExternes(): ?int
+    {
+        return $this->AutresAchatEtChargesExternes;
+    }
+
+    public function setAutresAchatEtChargesExternes(int $AutresAchatEtChargesExternes): self
+    {
+        $this->AutresAchatEtChargesExternes = $AutresAchatEtChargesExternes;
+
+        return $this;
+    }
+
+    public function getDotationAmortissementImmobilisations(): ?int
+    {
+        return $this->DotationAmortissementImmobilisations;
+    }
+
+    public function setDotationAmortissementImmobilisations(int $DotationAmortissementImmobilisations): self
+    {
+        $this->DotationAmortissementImmobilisations = $DotationAmortissementImmobilisations;
+
+        return $this;
+    }
+
+    public function getDotationDepreciationImmobilisations(): ?int
+    {
+        return $this->DotationDepreciationImmobilisations;
+    }
+
+    public function setDotationDepreciationImmobilisations(int $DotationDepreciationImmobilisations): self
+    {
+        $this->DotationDepreciationImmobilisations = $DotationDepreciationImmobilisations;
+
+        return $this;
+    }
+
+    public function getDotationDepreciationActifCirculant(): ?int
+    {
+        return $this->DotationDepreciationActifCirculant;
+    }
+
+    public function setDotationDepreciationActifCirculant(int $DotationDepreciationActifCirculant): self
+    {
+        $this->DotationDepreciationActifCirculant = $DotationDepreciationActifCirculant;
+
+        return $this;
+    }
+
+    public function getDotationProvisions(): ?int
+    {
+        return $this->DotationProvisions;
+    }
+
+    public function setDotationProvisions(int $DotationProvisions): self
+    {
+        $this->DotationProvisions = $DotationProvisions;
+
+        return $this;
+    }
+
+    public function getAutresCharges(): ?int
+    {
+        return $this->AutresCharges;
+    }
+
+    public function setAutresCharges(int $AutresCharges): self
+    {
+        $this->AutresCharges = $AutresCharges;
 
         return $this;
     }

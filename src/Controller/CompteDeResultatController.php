@@ -41,7 +41,7 @@ class CompteDeResultatController extends AbstractController
 
         return $this->render('compte_de_resultat/add.html.twig', [
             'controller_name' => 'CompteDeResultatController',
-            'form' => $form->createView(),
+            'addForm' => $form->createView(),
         ]);
     }
 
@@ -95,18 +95,28 @@ class CompteDeResultatController extends AbstractController
                   ->add('Corporate', EntityType::class, array(
                         // looks for choices from this entity
                         'class' => Corporate::class,
-
                         // uses the Corporate.Name property as the visible option string
                         'choice_label' => 'Name',
                         ))
                   ->add('year')
+                  ->add('VenteMarchandises')
+                  ->add('ProductionVendueDeServices')
                   ->add('ChiffresAffairesNet')
-                  ->add('ProduitsExploitation')
+                  ->add('ProductionImmobilisee')
                   ->add('SubventionsExploitation')
+                  ->add('RepriseDepreciationProvisionsTransfertCharges')
+                  ->add('AutresProduits')
+                  ->add('ProduitsExploitation')
                   ->add('AchatsDeMarchandises')
+                  ->add('AutresAchatEtChargesExternes')
                   ->add('ImpotTaxesEtVersementsAssimiles')
                   ->add('SalairesEtTraitements')
                   ->add('ChargesSociales')
+                  ->add('DotationAmortissementImmobilisations')
+                  ->add('DotationDepreciationImmobilisations')
+                  ->add('DotationDepreciationActifCirculant')
+                  ->add('DotationProvisions')
+                  ->add('AutresCharges')
                   ->add('ChargesExploitation')
                   ->add('ResultatExploitation')
                   ->add('ProduitsFinanciers')
