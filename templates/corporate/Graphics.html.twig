@@ -1,0 +1,206 @@
+{% block body %}
+<div class="example-wrapper">
+    Voici le graphique
+    <canvas id="GraphCA"></canvas>
+    <canvas id="GraphPartageRichesse"></canvas>
+    {% block javascripts %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <script>
+      var colors = ['#EAB543',
+                    '#25CCF7',
+                    '#82589F',
+                    '#55E6C1',
+                    '#2C3A47',
+                    '#B33771',
+                    '#3B3B98',
+                    '#F97F51',
+                    '#CAD3C8'];
+
+      var xLabels = [];
+      var effectifsMoyens = [399, 438, 499, 537, 582, 647, 791];
+
+      var CA = [];
+      var achatMarchandises = [];
+      var salaires = [];
+      var cotisationSociale = [];
+      var taxes = [];
+      var subventions = [];
+
+      var resultatExploitation = [];
+      var resultatFinancier = [];
+      var resultatExceptionnel = [];
+
+      var Participation = [];
+      var ImpotsSurLesSocietes = [];
+
+      var resultatPourProprietaire = [];
+      var resultatExceptionnelEtFinancier = [];
+
+      {% for comptesDeResultat in corporate.ComptesDeResultats %}
+        xLabels.push({{ comptesDeResultat.year }});
+        CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
+        salaires.push({{ comptesDeResultat.SalairesEtTraitements}});
+        cotisationSociale.push({{ comptesDeResultat.ChargesSociales}});
+        resultatExploitation.push({{ comptesDeResultat.ProduitsExploitation - comptesDeResultat.ChargesExploitation}});
+
+        taxes.push(666);
+        subventions.push(666);
+        achatMarchandises.push(666);
+
+        resultatFinancier.push(666);
+        resultatExceptionnel.push(666);
+        Participation.push(666);
+        ImpotsSurLesSocietes.push(666);
+
+      {% else %}
+      <li> Pas de comptes de résultats trouvé</li>
+      {% endfor %}
+
+      var autreCharges = [];
+      var taxesMoinsSubventions = [];
+      for(var i = 0; i < xLabels.length; i++){
+          // Mise en forme des données du graphe sur le CA
+          taxesMoinsSubventions.push(taxes[i] - subventions[i])
+          autreCharges.push(CA[i] - salaires[i] - cotisationSociale[i] - taxesMoinsSubventions[i] - achatMarchandises[i] - resultatExploitation[i]);
+
+          // Mise en forme des données sur le graphe de la répartition du résultat d'exploitation
+          resultatPourProprietaire.push(resultatExploitation[i] + resultatFinancier[i] + resultatExceptionnel[i] - Participation[i] - ImpotsSurLesSocietes[i]);
+          resultatExceptionnelEtFinancier.push(-resultatFinancier[i] - resultatExceptionnel[i]);
+
+          var factor = 1000000
+          Participation[i] = Math.round(1000 * Participation[i] / factor) / 1000;
+          ImpotsSurLesSocietes[i] = Math.round(1000 * ImpotsSurLesSocietes[i] / factor) / 1000;
+          resultatPourProprietaire[i] = Math.round(1000 * resultatPourProprietaire[i] / factor) / 1000;
+          resultatExceptionnelEtFinancier[i] = Math.round(1000 * resultatExceptionnelEtFinancier[i] / factor) / 1000;
+
+          // Compute to percentage (%)
+          salaires[i] = Math.round(100 * salaires[i] * 100 / CA[i])/100;
+          cotisationSociale[i] = Math.round(100 * cotisationSociale[i] * 100 / CA[i])/100;
+          taxesMoinsSubventions[i] = Math.round(100 * taxesMoinsSubventions[i] * 100 / CA[i])/100;
+          achatMarchandises[i] = Math.round(100 * achatMarchandises[i] * 100 / CA[i])/100;
+          autreCharges[i] = Math.round(100 * autreCharges[i] * 100 / CA[i])/100;
+          resultatExploitation[i] = Math.round(100 * resultatExploitation[i] * 100 / CA[i])/100;
+      }
+
+      var CAChartData = {
+      	labels: xLabels,
+      	datasets: [{
+      		label: 'Salaires Brutes',
+      		backgroundColor: colors[6],
+      		data: salaires
+      	}, {
+      		label: 'Cotisations Sociales',
+      		backgroundColor: colors[1],
+      		data: cotisationSociale
+      	}, {
+      		label: 'Taxes diverses retranchées des subventions',
+      		backgroundColor: colors[3],
+      		data: taxesMoinsSubventions
+      	}, {
+      		label: 'Achat de marchandises pour projet',
+      		backgroundColor: colors[0],
+      		data: achatMarchandises
+      	}, {
+      		label: 'Autre Charges',
+      		backgroundColor: colors[4],
+      		data: autreCharges
+      	}, {
+      		label: 'Résultat d\'exploitation',
+      		backgroundColor: colors[5],
+      		data: resultatExploitation
+      	}]
+      };
+
+      new Chart(document.getElementById('GraphCA').getContext('2d'), {
+      	type: 'bar',
+      	data: CAChartData,
+      	options: {
+      		title: {
+      			display: true,
+      			text: 'Répartition de l\'utilisation du CA de Smile (en % du CA)'
+      		},
+      		tooltips: {
+      			mode: 'index',
+      			intersect: false
+      		},
+      		responsive: true,
+      		scales: {
+      			xAxes: [{
+      			    scaleLabel:{
+      	                display:true,
+      	                labelString: 'Année'
+      	            },
+      				stacked: true,
+      			}],
+      			yAxes: [{
+      		        scaleLabel:{
+      		            display:true,
+      		            labelString: '% du CA'
+      		        },
+      			    ticks: {
+      			        max: 100,
+      			        min: 0
+      			    },
+      				stacked: true
+      			}]
+      		}
+      	}
+      });
+
+      var ResultatExploitationChartData = {
+      	labels: xLabels,
+      	datasets: [{
+      		label: 'Participation',
+      		backgroundColor: colors[1],
+      		data: Participation
+      	}, {
+      		label: 'Impôts',
+      		backgroundColor: colors[0],
+      		data: ImpotsSurLesSocietes
+      	},{
+      		label: 'Résultat pour les propriétaires de l\'entreprise',
+      		backgroundColor: colors[5],
+      		data: resultatPourProprietaire
+      	}, {
+      		label: 'Résultat financier et exceptionnel',
+      		backgroundColor: colors[7],
+      		data: resultatExceptionnelEtFinancier
+      	}]
+      };
+
+      new Chart(document.getElementById('GraphPartageRichesse').getContext('2d'), {
+      	type: 'bar',
+      	data: ResultatExploitationChartData,
+      	options: {
+      		title: {
+      			display: true,
+      			text: 'Répartition du résultat d\'exploitation de Smile (en %)'
+      		},
+      		tooltips: {
+      			mode: 'index',
+      			intersect: false
+      		},
+      		responsive: true,
+      		scales: {
+      			xAxes: [{
+      			    scaleLabel:{
+      	                display:true,
+      	                labelString: 'Année'
+      	            },
+      				stacked: false,
+      			}],
+      			yAxes: [{
+      			    scaleLabel:{
+      	                display:true,
+      	                labelString: 'millions d\'euros'
+      	            },
+      				stacked: false
+      			}]
+      		}
+      	}
+      });
+      </script>
+     {% endblock %}
+</div>
+Fin du template treeview
+{% endblock %}

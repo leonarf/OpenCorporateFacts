@@ -1,0 +1,114 @@
+{% block treeview %}
+<div class="example-wrapper">
+    Voici les détails du compte de résultat
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <div id="jstree_demo">
+    <div id="TreeData"></div>
+
+    <script>
+    $('#TreeData').jstree({
+    	'core' : {
+    		'data' : [
+          {
+           'text' : 'Résultat d\'exploitation : ',
+           'children' : [
+              {
+                'text' : 'Produits d\'exploitation',
+                'children' : [
+                  {
+                    'text' : 'Chiffres d\'affaires nets',
+                    'children' :
+                    [
+                      'Ventes de marchandises : ',
+                      'Production vendues de biens : ',
+                      'Production vendue de services : '
+                    ]
+                  },
+                  'Production stockée',
+                  'Production immobilisée',
+                  'Subvention d\'exploitation',
+                  'Reprises sur dépréciations, provisions (et amortissements), transfert de charges',
+                  'Autres produits'
+                ]
+              },
+              {
+                'text' : 'Charges d\'exploitation',
+                'children' : [
+                    'Achats de marchandise (y compris droits de douane)',
+                    'Variation de stock (marchandises)',
+                    'Achat de matières premières et autres approvisionnements (et droit de douane)',
+                    'Variation de stock (matières premières et approvisionnements)',
+                    'Autres achats et charges externes',
+                    'Impôts, taxes et versements assimilés',
+                    'Salaires et traitements',
+                    'Charges sociales',
+                    {
+                      'text' : 'DOTATIONS D\'EXPLOITATION',
+                      'children' : [
+                        'Sur immobilisations : dotations aux amortissements',
+                        'Sur immobilisations : dotations aux dépréciations',
+                        'Sur actif circulant : dotations aux dépréciations',
+                        'Dotations aux provisions'
+                      ]
+                    },
+                    'Autres charges'
+                  ]
+              },
+            ]
+          },
+          {
+            'text' : 'Résultat financier : 100000€',
+            'children' : [
+              {
+                'text' : 'Produits financiers',
+                'children' : [
+                  'Produits financiers de participations',
+                  'Produits des autres valeurs mobilières et créances de l\'actif immobilisé',
+                  'Autres intérêts et produits assimilés',
+                  'Reprises sur dépréciations et provisions, transferts de charges',
+                  'Différences positives de change',
+                  'Produits nets sur cessions de valeurs mobilières de placement'
+                ]
+              },
+              {
+                'text' : 'Charges financières',
+                'children' : [
+                  'Dotations financières aux amortissements, dépréciations et provisions',
+                  'Intérêts et charges assimilées',
+                  'Différences négatives de change',
+                  'Charges nettes sur cessions de valeurs mobilières de placement',
+                ]
+              }
+            ]
+          },
+          {
+            'text' : 'Résultat exceptionnel : 100000€',
+            'children' : [
+              {
+                'text' : 'Produits exceptionnels',
+                'children' : [
+                  'Produits exceptionnels sur opérations de gestion',
+                  'Produits exceptionnels sur opérations en capital',
+                  'Reprises sur dépréciations et provisions, transferts de charges',
+                ]
+              },
+              {
+                'text' : 'Charges exceptionnelles',
+                'children' : [
+                  'Charges exceptionnelles sur opérations de gestion',
+                  'Charges exceptionnelles sur opérations en capital',
+                  'Dotations exceptionnelles aux amortissements, dépréciations et provisions',
+                ]
+              }
+            ]
+          },
+          'Participation des salariés aux résultats de l\'entreprise : ',
+          'Impôts sur les bénéfices :'
+    		]
+    	}
+    });
+    </script>
+    </div>
+</div>
+Fin du template treeview
+{% endblock %}
