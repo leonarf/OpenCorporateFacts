@@ -136,10 +136,55 @@ class CompteDeResultat
      */
     private $ResultatExploitation;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProduitsFinanciersParticipations;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProduitsAutresValeursMobiliereEtCreancesActifImmobilise;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $AutreInteretEtProduitAssimile;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $RepriseDepreciationEtProvisionTransfertsCharges;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DifferencesPositivesChange;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProduitsFinanciers;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DotationsFinancieresAmortissementDepreciationProvision;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $InteretEtChargeAssimilees;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DifferenceNegativeChange;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ChargesNetteCessionValeurMobiliereDePlacement;
 
     /**
      * @ORM\Column(type="integer")
@@ -149,13 +194,37 @@ class CompteDeResultat
     /**
      * @ORM\Column(type="integer")
      */
-    private $ProduitsFinanciers;
-
+    private $ResultatFinancier;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $ResultatFinancier;
+    private $ProduitExceptionnelOperationGestion;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProduitExceptionnelOperationCapital;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $RepriseDepreciationProvisionTransfertCharge;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ChargesExceptionnelleOperationGestion;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ChargesExceptionnelleOperationCapital;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $DotationExceptionnelleAmortissementDepreciationProvision;
 
     /**
      * @ORM\Column(type="integer")
@@ -172,6 +241,10 @@ class CompteDeResultat
      */
     private $ImpotsSurLesBenefices;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Benefice;
 
     public function getId(): ?int
     {
@@ -510,6 +583,198 @@ class CompteDeResultat
     public function setAutresCharges(int $AutresCharges): self
     {
         $this->AutresCharges = $AutresCharges;
+
+        return $this;
+    }
+
+    public function getProduitsFinanciersParticipations(): ?int
+    {
+        return $this->ProduitsFinanciersParticipations;
+    }
+
+    public function setProduitsFinanciersParticipations(int $ProduitsFinanciersParticipations): self
+    {
+        $this->ProduitsFinanciersParticipations = $ProduitsFinanciersParticipations;
+
+        return $this;
+    }
+
+    public function getProduitsAutresValeursMobiliereEtCreancesActifImmobilise(): ?int
+    {
+        return $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise;
+    }
+
+    public function setProduitsAutresValeursMobiliereEtCreancesActifImmobilise(int $ProduitsAutresValeursMobiliereEtCreancesActifImmobilise): self
+    {
+        $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise = $ProduitsAutresValeursMobiliereEtCreancesActifImmobilise;
+
+        return $this;
+    }
+
+    public function getRepriseDepreciationEtProvisionTransfertsCharges(): ?int
+    {
+        return $this->RepriseDepreciationEtProvisionTransfertsCharges;
+    }
+
+    public function setRepriseDepreciationEtProvisionTransfertsCharges(int $RepriseDepreciationEtProvisionTransfertsCharges): self
+    {
+        $this->RepriseDepreciationEtProvisionTransfertsCharges = $RepriseDepreciationEtProvisionTransfertsCharges;
+
+        return $this;
+    }
+
+    public function getDifferencesPositivesChange(): ?int
+    {
+        return $this->DifferencesPositivesChange;
+    }
+
+    public function setDifferencesPositivesChange(int $DifferencesPositivesChange): self
+    {
+        $this->DifferencesPositivesChange = $DifferencesPositivesChange;
+
+        return $this;
+    }
+
+    public function getDotationsFinancieresAmortissementDepreciationProvision(): ?int
+    {
+        return $this->DotationsFinancieresAmortissementDepreciationProvision;
+    }
+
+    public function setDotationsFinancieresAmortissementDepreciationProvision(int $DotationsFinancieresAmortissementDepreciationProvision): self
+    {
+        $this->DotationsFinancieresAmortissementDepreciationProvision = $DotationsFinancieresAmortissementDepreciationProvision;
+
+        return $this;
+    }
+
+    public function getInteretEtChargeAssimilees(): ?int
+    {
+        return $this->InteretEtChargeAssimilees;
+    }
+
+    public function setInteretEtChargeAssimilees(int $InteretEtChargeAssimilees): self
+    {
+        $this->InteretEtChargeAssimilees = $InteretEtChargeAssimilees;
+
+        return $this;
+    }
+
+    public function getDifferenceNegativeChange(): ?int
+    {
+        return $this->DifferenceNegativeChange;
+    }
+
+    public function setDifferenceNegativeChange(int $DifferenceNegativeChange): self
+    {
+        $this->DifferenceNegativeChange = $DifferenceNegativeChange;
+
+        return $this;
+    }
+
+    public function getChargesNetteCessionValeurMobiliereDePlacement(): ?int
+    {
+        return $this->ChargesNetteCessionValeurMobiliereDePlacement;
+    }
+
+    public function setChargesNetteCessionValeurMobiliereDePlacement(int $ChargesNetteCessionValeurMobiliereDePlacement): self
+    {
+        $this->ChargesNetteCessionValeurMobiliereDePlacement = $ChargesNetteCessionValeurMobiliereDePlacement;
+
+        return $this;
+    }
+
+    public function getProduitExceptionnelOperationGestion(): ?int
+    {
+        return $this->ProduitExceptionnelOperationGestion;
+    }
+
+    public function setProduitExceptionnelOperationGestion(int $ProduitExceptionnelOperationGestion): self
+    {
+        $this->ProduitExceptionnelOperationGestion = $ProduitExceptionnelOperationGestion;
+
+        return $this;
+    }
+
+    public function getProduitExceptionnelOperationCapital(): ?int
+    {
+        return $this->ProduitExceptionnelOperationCapital;
+    }
+
+    public function setProduitExceptionnelOperationCapital(int $ProduitExceptionnelOperationCapital): self
+    {
+        $this->ProduitExceptionnelOperationCapital = $ProduitExceptionnelOperationCapital;
+
+        return $this;
+    }
+
+    public function getRepriseDepreciationProvisionTransfertCharge(): ?int
+    {
+        return $this->RepriseDepreciationProvisionTransfertCharge;
+    }
+
+    public function setRepriseDepreciationProvisionTransfertCharge(int $RepriseDepreciationProvisionTransfertCharge): self
+    {
+        $this->RepriseDepreciationProvisionTransfertCharge = $RepriseDepreciationProvisionTransfertCharge;
+
+        return $this;
+    }
+
+    public function getChargesExceptionnelleOperationGestion(): ?int
+    {
+        return $this->ChargesExceptionnelleOperationGestion;
+    }
+
+    public function setChargesExceptionnelleOperationGestion(int $ChargesExceptionnelleOperationGestion): self
+    {
+        $this->ChargesExceptionnelleOperationGestion = $ChargesExceptionnelleOperationGestion;
+
+        return $this;
+    }
+
+    public function getChargesExceptionnelleOperationCapital(): ?int
+    {
+        return $this->ChargesExceptionnelleOperationCapital;
+    }
+
+    public function setChargesExceptionnelleOperationCapital(int $ChargesExceptionnelleOperationCapital): self
+    {
+        $this->ChargesExceptionnelleOperationCapital = $ChargesExceptionnelleOperationCapital;
+
+        return $this;
+    }
+
+    public function getDotationExceptionnelleAmortissementDepreciationProvision(): ?int
+    {
+        return $this->DotationExceptionnelleAmortissementDepreciationProvision;
+    }
+
+    public function setDotationExceptionnelleAmortissementDepreciationProvision(int $DotationExceptionnelleAmortissementDepreciationProvision): self
+    {
+        $this->DotationExceptionnelleAmortissementDepreciationProvision = $DotationExceptionnelleAmortissementDepreciationProvision;
+
+        return $this;
+    }
+
+    public function getBenefice(): ?int
+    {
+        return $this->Benefice;
+    }
+
+    public function setBenefice(int $Benefice): self
+    {
+        $this->Benefice = $Benefice;
+
+        return $this;
+    }
+
+    public function getAutreInteretEtProduitAssimile(): ?int
+    {
+        return $this->AutreInteretEtProduitAssimile;
+    }
+
+    public function setAutreInteretEtProduitAssimile(int $AutreInteretEtProduitAssimile): self
+    {
+        $this->AutreInteretEtProduitAssimile = $AutreInteretEtProduitAssimile;
 
         return $this;
     }
