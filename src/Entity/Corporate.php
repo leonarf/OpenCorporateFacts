@@ -32,9 +32,14 @@ class Corporate
     private $ComptesDeResultats;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $Country;
+    private $OpenCorporateURL;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $CompanyNumber;
 
     public function __construct()
     {
@@ -104,5 +109,29 @@ class Corporate
     public function __toString()
     {
        return $this->Name;
+    }
+
+    public function getOpenCorporateURL(): ?string
+    {
+        return $this->OpenCorporateURL;
+    }
+
+    public function setOpenCorporateURL(string $OpenCorporateURL): self
+    {
+        $this->OpenCorporateURL = $OpenCorporateURL;
+
+        return $this;
+    }
+
+    public function getCompanyNumber(): ?string
+    {
+        return $this->CompanyNumber;
+    }
+
+    public function setCompanyNumber(string $CompanyNumber): self
+    {
+        $this->CompanyNumber = $CompanyNumber;
+
+        return $this;
     }
 }
