@@ -31,16 +31,17 @@
                                           + Number($('#form_RepriseDepreciationProvisionsTransfertCharges').val())
                                           + Number($('#form_AutresProduits').val()));
 
-         $('#form_ChargesExploitation').val(Number($('#form_AchatsDeMarchandises').val())
-                                           + Number($('#form_AutresAchatEtChargesExternes').val())
-                                           + Number($('#form_ImpotTaxesEtVersementsAssimiles').val())
-                                           + Number($('#form_SalairesEtTraitements').val())
-                                           + Number($('#form_ChargesSociales').val())
-                                           + Number($('#form_DotationAmortissementImmobilisations').val())
-                                           + Number($('#form_DotationDepreciationImmobilisations').val())
-                                           + Number($('#form_DotationDepreciationActifCirculant').val())
-                                           + Number($('#form_DotationProvisions').val())
-                                           + Number($('#form_AutresCharges').val()));
+        $('#form_ChargesExploitation').val(Number($('#form_AchatsDeMarchandises').val())
+                                         + Number($('#form_AchatMatierePremiereAutreAppro').val())
+                                         + Number($('#form_AutresAchatEtChargesExternes').val())
+                                         + Number($('#form_ImpotTaxesEtVersementsAssimiles').val())
+                                         + Number($('#form_SalairesEtTraitements').val())
+                                         + Number($('#form_ChargesSociales').val())
+                                         + Number($('#form_DotationAmortissementImmobilisations').val())
+                                         + Number($('#form_DotationDepreciationImmobilisations').val())
+                                         + Number($('#form_DotationDepreciationActifCirculant').val())
+                                         + Number($('#form_DotationProvisions').val())
+                                         + Number($('#form_AutresCharges').val()));
 
          $('#form_ResultatExploitation').val(Number($('#form_ProduitsExploitation').val())
                                            - Number($('#form_ChargesExploitation').val()));

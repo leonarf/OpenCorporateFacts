@@ -13,11 +13,17 @@ $(document).ready(function(){
   var openCorporatesData;
   $("button").click(function(){
     $("#DivToFill").empty();
-    var searchParameter = "q=" + $('#form_Name').val() + "*&fields=name"
-                        + "&jurisdiction_code=" + $('#formCountry').val()
-                        + "&inactive=" + $('input[name=formInactive]:checked').val()
-                        + "&nonprofit=" + $('input[name=formNonProfit]:checked').val()
-                        + "&order=score";
+    var searchParameter;
+    if ($('#form_Name').val()) {
+      searchParameter = "q=" + $('#form_Name').val() + "*&fields=name";
+    }
+    else if ($('#form_CompanyNumber').val())  {
+      searchParameter = "q=" + $('#form_CompanyNumber').val() + "&fields=company_number";
+    }
+    searchParameter += "&jurisdiction_code=" + $('#formCountry').val()
+                     + "&inactive=" + $('input[name=formInactive]:checked').val()
+                     + "&nonprofit=" + $('input[name=formNonProfit]:checked').val()
+                     + "&order=score";
     if ($('#formAddress').val()) {
       searchParameter += "&registered_address=" + $('#formAddress').val();
     }

@@ -108,6 +108,7 @@ class CompteDeResultatController extends AbstractController
                   ->add('AutresProduits')
                   ->add('ProduitsExploitation')
                   ->add('AchatsDeMarchandises')
+                  ->add('AchatMatierePremiereAutreAppro')
                   ->add('AutresAchatEtChargesExternes')
                   ->add('ImpotTaxesEtVersementsAssimiles')
                   ->add('SalairesEtTraitements')

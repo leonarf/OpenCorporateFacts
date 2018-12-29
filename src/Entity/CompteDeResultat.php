@@ -84,6 +84,11 @@ class CompteDeResultat
     /**
      * @ORM\Column(type="integer")
      */
+    private $AchatMatierePremiereAutreAppro;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $AutresAchatEtChargesExternes;
 
     /**
@@ -775,6 +780,18 @@ class CompteDeResultat
     public function setAutreInteretEtProduitAssimile(int $AutreInteretEtProduitAssimile): self
     {
         $this->AutreInteretEtProduitAssimile = $AutreInteretEtProduitAssimile;
+
+        return $this;
+    }
+
+    public function getAchatMatierePremiereAutreAppro(): ?int
+    {
+        return $this->AchatMatierePremiereAutreAppro;
+    }
+
+    public function setAchatMatierePremiereAutreAppro(int $AchatMatierePremiereAutreAppro): self
+    {
+        $this->AchatMatierePremiereAutreAppro = $AchatMatierePremiereAutreAppro;
 
         return $this;
     }
