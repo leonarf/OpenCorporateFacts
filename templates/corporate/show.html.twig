@@ -12,17 +12,19 @@
     <h1>Hello, here are the information about the selected corporate✅</h1>
     <a href="{{ url('homepage') }}">Retour à l'accueil</a>
     <ul>
-      <li> id : {{ corporate.id }}</li>
+      <li> Company Number : {{ corporate.CompanyNumber }}</li>
       <li> Name : {{ corporate.Name }}</li>
-      <li> Country : {{ corporate.Country }}</li>
+      <li> link on OpenCorporates.com : <a href="{{ corporate.OpenCorporateURL }}">{{ corporate.OpenCorporateURL }}</a></li>
     </ul>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+{% if corporate.ComptesDeResultats is not empty %}
+  {{ include('compte_de_resultat/treeview.html.twig', { 'compteDeResultat': corporate.ComptesDeResultats[0] }) }}
 
-{{ include('compte_de_resultat/treeview.html.twig', {  }) }}
+  {{ include('corporate/Graphics.html.twig', { 'corporate': corporate }) }}
+{% endif %}
 
-{{ include('corporate/Graphics.html.twig', { 'corporate': corporate }) }}
 
 </div>
 {% endblock %}

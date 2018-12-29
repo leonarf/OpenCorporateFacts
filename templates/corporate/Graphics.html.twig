@@ -1,7 +1,8 @@
 {% block body %}
 <div class="example-wrapper">
-    Voici le graphique
+    Voici le graphique de répartition du chiffre d'affaire
     <canvas id="GraphCA"></canvas>
+    Voici le graphique de répartition du résultat d'exploitation
     <canvas id="GraphPartageRichesse"></canvas>
     {% block javascripts %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
@@ -43,14 +44,14 @@
         cotisationSociale.push({{ comptesDeResultat.ChargesSociales}});
         resultatExploitation.push({{ comptesDeResultat.ProduitsExploitation - comptesDeResultat.ChargesExploitation}});
 
-        taxes.push(666);
-        subventions.push(666);
-        achatMarchandises.push(666);
+        taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
+        subventions.push({{ comptesDeResultat.SubventionsExploitation }});
+        achatMarchandises.push({{ comptesDeResultat.AchatsDeMarchandises }});
 
-        resultatFinancier.push(666);
-        resultatExceptionnel.push(666);
-        Participation.push(666);
-        ImpotsSurLesSocietes.push(666);
+        resultatFinancier.push({{ comptesDeResultat.ResultatFinancier }});
+        resultatExceptionnel.push({{ comptesDeResultat.ResultatExceptionnel }});
+        Participation.push({{ comptesDeResultat.ParticipationSalariesAuxResultats }});
+        ImpotsSurLesSocietes.push({{ comptesDeResultat.ImpotsSurLesBenefices }});
 
       {% else %}
       <li> Pas de comptes de résultats trouvé</li>
@@ -85,7 +86,7 @@
       var CAChartData = {
       	labels: xLabels,
       	datasets: [{
-      		label: 'Salaires Brutes',
+      		label: 'Salaires Bruts',
       		backgroundColor: colors[6],
       		data: salaires
       	}, {
@@ -202,5 +203,4 @@
       </script>
      {% endblock %}
 </div>
-Fin du template treeview
 {% endblock %}
