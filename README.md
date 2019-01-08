@@ -22,3 +22,11 @@ On a linux distro :
   * `php bin/console doctrine:database:create` pour créer la base de donnée
   * `php bin/console doctrine:migrations:migrate` pour créer les tables dans la base
   * `php bin/console server:run`
+
+# How to load sample database locally
+On a linux distro :
+  * install phpMyAdmin
+  * run `systemctl restart httpd.service`
+  * go to http://localhost/phpmyadmin/ with your favourite browser (firefox)
+  * Import the file databaseBackupSample.sql
+  
