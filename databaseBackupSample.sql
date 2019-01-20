@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  Dim 06 jan. 2019 à 19:04
+-- Généré le :  Dim 20 jan. 2019 à 17:37
 -- Version du serveur :  10.3.11-MariaDB
--- Version de PHP :  7.2.13
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,61 +22,6 @@ SET time_zone = "+00:00";
 -- Base de données :  `capitalism`
 --
 
--- --------------------------------------------------------
-
---
--- Structure de la table `compte_de_resultat`
---
-
-CREATE TABLE `compte_de_resultat` (
-  `id` int(11) NOT NULL,
-  `corporate_id` int(11) NOT NULL,
-  `chiffres_affaires_net` int(11) NOT NULL,
-  `produits_exploitation` int(11) NOT NULL,
-  `salaires_et_traitements` int(11) NOT NULL,
-  `charges_sociales` int(11) NOT NULL,
-  `charges_exploitation` int(11) NOT NULL,
-  `charges_financieres` int(11) NOT NULL,
-  `produits_financiers` int(11) NOT NULL,
-  `year` int(11) NOT NULL,
-  `impot_taxes_et_versements_assimiles` int(11) NOT NULL,
-  `subventions_exploitation` int(11) NOT NULL,
-  `achats_de_marchandises` int(11) NOT NULL,
-  `resultat_exploitation` int(11) NOT NULL,
-  `resultat_financier` int(11) NOT NULL,
-  `resultat_exceptionnel` int(11) NOT NULL,
-  `participation_salaries_aux_resultats` int(11) NOT NULL,
-  `impots_sur_les_benefices` int(11) NOT NULL,
-  `vente_marchandises` int(11) NOT NULL,
-  `production_vendue_de_services` int(11) NOT NULL,
-  `production_immobilisee` int(11) NOT NULL,
-  `reprise_depreciation_provisions_transfert_charges` int(11) NOT NULL,
-  `autres_produits` int(11) NOT NULL,
-  `autres_achat_et_charges_externes` int(11) NOT NULL,
-  `dotation_amortissement_immobilisations` int(11) NOT NULL,
-  `dotation_depreciation_immobilisations` int(11) NOT NULL,
-  `dotation_depreciation_actif_circulant` int(11) NOT NULL,
-  `dotation_provisions` int(11) NOT NULL,
-  `autres_charges` int(11) NOT NULL,
-  `produits_financiers_participations` int(11) NOT NULL,
-  `produits_autres_valeurs_mobiliere_et_creances_actif_immobilise` int(11) NOT NULL,
-  `reprise_depreciation_et_provision_transferts_charges` int(11) NOT NULL,
-  `differences_positives_change` int(11) NOT NULL,
-  `dotations_financieres_amortissement_depreciation_provision` int(11) NOT NULL,
-  `interet_et_charge_assimilees` int(11) NOT NULL,
-  `difference_negative_change` int(11) NOT NULL,
-  `charges_nette_cession_valeur_mobiliere_de_placement` int(11) NOT NULL,
-  `produit_exceptionnel_operation_gestion` int(11) NOT NULL,
-  `produit_exceptionnel_operation_capital` int(11) NOT NULL,
-  `reprise_depreciation_provision_transfert_charge` int(11) NOT NULL,
-  `charges_exceptionnelle_operation_gestion` int(11) NOT NULL,
-  `charges_exceptionnelle_operation_capital` int(11) NOT NULL,
-  `dotation_exceptionnelle_amortissement_depreciation_provision` int(11) NOT NULL,
-  `benefice` int(11) NOT NULL,
-  `autre_interet_et_produit_assimile` int(11) NOT NULL,
-  `achat_matiere_premiere_autre_appro` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Déchargement des données de la table `compte_de_resultat`
 --
@@ -90,19 +35,6 @@ INSERT INTO `compte_de_resultat` (`id`, `corporate_id`, `chiffres_affaires_net`,
 (11, 12, 48351240, 48877203, 21145677, 9265452, 44613189, 650257, 249896, 2014, 1606106, 31469, 1045595, 4264014, -400361, -1779781, 103212, -144540, 1320731, 47030509, 90886, 403523, 85, 10508273, 500432, 0, 495261, 32622, 13771, 0, 32790, 173244, 9, 428670, 220672, 915, 0, 2905, 746, 31520, 111974, 1227895, 475083, 2125200, 43853, 0),
 (12, 12, 43251815, 43825555, 20652632, 9870437, 41818463, 2968924, 120999, 2013, 1503401, 5883, 1095762, 2007092, -2847925, -133495, 0, -177325, 1402852, 41848963, 95530, 472285, 42, 7657498, 534353, 0, 350256, 23467, 130657, 0, 54987, 5405, 2104, 2844659, 124173, 92, 0, 42103, 162182, 541731, 458016, 80729, 340766, -797003, 58503, 0);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `corporate`
---
-
-CREATE TABLE `corporate` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `open_corporate_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `company_number` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Déchargement des données de la table `corporate`
 --
@@ -111,81 +43,6 @@ INSERT INTO `corporate` (`id`, `name`, `open_corporate_url`, `company_number`) V
 (11, 'SMILE CORP.', 'https://opencorporates.com/companies/fr/829681634', '829681634'),
 (12, 'SMILE', 'https://opencorporates.com/companies/fr/378615363', '378615363'),
 (13, 'ENERCOOP', 'https://opencorporates.com/companies/fr/484223094', '484223094');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `migration_versions`
---
-
-CREATE TABLE `migration_versions` (
-  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `migration_versions`
---
-
-INSERT INTO `migration_versions` (`version`) VALUES
-('20181013131446'),
-('20181013164543'),
-('20181101152413'),
-('20181225213459'),
-('20181226161929'),
-('20181226163054'),
-('20181226171023'),
-('20181228172150'),
-('20181228172232'),
-('20181229115231');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `compte_de_resultat`
---
-ALTER TABLE `compte_de_resultat`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_BF471D1ACD147EEF` (`corporate_id`);
-
---
--- Index pour la table `corporate`
---
-ALTER TABLE `corporate`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `migration_versions`
---
-ALTER TABLE `migration_versions`
-  ADD PRIMARY KEY (`version`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `compte_de_resultat`
---
-ALTER TABLE `compte_de_resultat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT pour la table `corporate`
---
-ALTER TABLE `corporate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `compte_de_resultat`
---
-ALTER TABLE `compte_de_resultat`
-  ADD CONSTRAINT `FK_BF471D1ACD147EEF` FOREIGN KEY (`corporate_id`) REFERENCES `corporate` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

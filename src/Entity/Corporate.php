@@ -28,7 +28,7 @@ class Corporate
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\CompteDeResultat", mappedBy="Corporate", orphanRemoval=true)
-     * @ORM\OrderBy({"year" = "DESC"})
+     * @ORM\OrderBy({"year" = "ASC"})
      */
     private $ComptesDeResultats;
 
