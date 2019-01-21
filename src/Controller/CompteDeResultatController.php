@@ -144,6 +144,5 @@ class CompteDeResultatController extends AbstractController
                   ->add('Benefice')
                   ->add('save', SubmitType::class)
                   ->getForm();
-       ;
     }
 }

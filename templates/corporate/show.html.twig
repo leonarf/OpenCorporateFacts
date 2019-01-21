@@ -17,6 +17,14 @@
       <li> link on OpenCorporates.com : <a href="{{ corporate.OpenCorporateURL }}">{{ corporate.OpenCorporateURL }}</a></li>
     </ul>
 
+    {% if corporate.CorporateShareholders is not empty %}
+      {% for shareholders in corporate.CorporateShareholders %}
+        <li>{{ shareholders.OwningCorporate.Name }} possède {{ shareholders.OwningPercentage }}% le {{ shareholders.OwningDate|date("d/m/Y") }}</li>
+      {% else %}
+        <li>Pas d'actionnaires trouvés</li>
+      {% endfor %}
+    {% endif %}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
 {% if corporate.ComptesDeResultats is not empty %}

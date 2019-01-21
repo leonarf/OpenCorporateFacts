@@ -42,9 +42,21 @@ class Corporate
      */
     private $CompanyNumber;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Shareholding", mappedBy="OwningCorporate")
+     */
+    private $shareholdings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Shareholding", mappedBy="OwnedCorporate")
+     */
+    private $CorporateShareholders;
+
     public function __construct()
     {
         $this->ComptesDeResultats = new ArrayCollection();
+        $this->shareholdings = new ArrayCollection();
+        $this->CorporateShareholders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -132,6 +144,68 @@ class Corporate
     public function setCompanyNumber(string $CompanyNumber): self
     {
         $this->CompanyNumber = $CompanyNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Shareholding[]
+     */
+    public function getShareholdings(): Collection
+    {
+        return $this->shareholdings;
+    }
+
+    public function addShareholding(Shareholding $shareholding): self
+    {
+        if (!$this->shareholdings->contains($shareholding)) {
+            $this->shareholdings[] = $shareholding;
+            $shareholding->setOwningCorporate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShareholding(Shareholding $shareholding): self
+    {
+        if ($this->shareholdings->contains($shareholding)) {
+            $this->shareholdings->removeElement($shareholding);
+            // set the owning side to null (unless already changed)
+            if ($shareholding->getOwningCorporate() === $this) {
+                $shareholding->setOwningCorporate(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Shareholding[]
+     */
+    public function getCorporateShareholders(): Collection
+    {
+        return $this->CorporateShareholders;
+    }
+
+    public function addCorporateShareholder(Shareholding $corporateShareholder): self
+    {
+        if (!$this->CorporateShareholders->contains($corporateShareholder)) {
+            $this->CorporateShareholders[] = $corporateShareholder;
+            $corporateShareholder->setOwnedCorporate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCorporateShareholder(Shareholding $corporateShareholder): self
+    {
+        if ($this->CorporateShareholders->contains($corporateShareholder)) {
+            $this->CorporateShareholders->removeElement($corporateShareholder);
+            // set the owning side to null (unless already changed)
+            if ($corporateShareholder->getOwnedCorporate() === $this) {
+                $corporateShareholder->setOwnedCorporate(null);
+            }
+        }
 
         return $this;
     }
