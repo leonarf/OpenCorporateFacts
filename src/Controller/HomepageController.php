@@ -25,7 +25,6 @@ class HomepageController extends AbstractController
             ->add('Name', EntityType::class, array(
                   // looks for choices from this entity
                   'class' => Corporate::class,
-
                   // uses the Corporate.Name property as the visible option string
                   'choice_label' => 'Name',
                   ))
@@ -35,7 +34,6 @@ class HomepageController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // $form->getData() holds the submitted values
             $corporate = $entityManager->getRepository(Corporate::class)
                   ->findByName($form->getData()->getName());
             if ($corporate) {

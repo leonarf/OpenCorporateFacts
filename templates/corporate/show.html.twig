@@ -9,7 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello, here are the information about the selected corporate✅</h1>
+    <h1>Here are the information about {{ corporate.Name }}</h1>
     <a href="{{ url('homepage') }}">Retour à l'accueil</a>
     <ul>
       <li> Company Number : {{ corporate.CompanyNumber }}</li>
@@ -19,7 +19,7 @@
 
     {% if corporate.CorporateShareholders is not empty %}
       {% for shareholders in corporate.CorporateShareholders %}
-        <li>{{ shareholders.OwningCorporate.Name }} possède {{ shareholders.OwningPercentage }}% le {{ shareholders.OwningDate|date("d/m/Y") }}</li>
+        <li><a href="{{ url('corporate_show', {'id': shareholders.OwningCorporate.Id}) }}">{{ shareholders.OwningCorporate.Name }}</a> possède {{ shareholders.OwningPercentage }}% le {{ shareholders.OwningDate|date("d/m/Y") }}</li>
       {% else %}
         <li>Pas d'actionnaires trouvés</li>
       {% endfor %}

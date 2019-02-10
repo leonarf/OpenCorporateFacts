@@ -9,15 +9,17 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Le {{ controller_name }} génère cette page pour ajouter une entreprise ou voir une existante ✅</h1>
-
+    <h1>Welcome to OpenCorporateFacts</h1>
+    <p>On this page, you can select the corporation that you want to see data:
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
+        </p>
+    <p>But also add new data :</p>
 <ul>
-<li><a href="{{ url('add_corporate') }}">Add a new corporate</a></li>
-<li><a href="{{ url('add_compte_de_resultat') }}">Add a new Compte de résultat to an existing corporate</a></li>
-<li><a href="{{ url('add_shareholding') }}">Add a new shareholding link between two corporates</a></li>
+    <li><a href="{{ url('add_corporate') }}">Add a new corporate</a></li>
+    <li><a href="{{ url('add_compte_de_resultat') }}">Add a new Compte de résultat to an existing corporate</a></li>
+    <li><a href="{{ url('add_shareholding') }}">Add a new shareholding link between two corporates</a></li>
 </ul>
 </div>
 {% endblock %}
