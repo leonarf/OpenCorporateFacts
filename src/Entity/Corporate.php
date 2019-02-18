@@ -52,11 +52,17 @@ class Corporate
      */
     private $CorporateShareholders;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\DocumentDeReference", mappedBy="Corporation", orphanRemoval=true)
+     */
+    private $documentDeReferences;
+
     public function __construct()
     {
         $this->ComptesDeResultats = new ArrayCollection();
         $this->shareholdings = new ArrayCollection();
         $this->CorporateShareholders = new ArrayCollection();
+        $this->documentDeReferences = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -204,6 +210,37 @@ class Corporate
             // set the owning side to null (unless already changed)
             if ($corporateShareholder->getOwnedCorporate() === $this) {
                 $corporateShareholder->setOwnedCorporate(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DocumentDeReference[]
+     */
+    public function getDocumentDeReferences(): Collection
+    {
+        return $this->documentDeReferences;
+    }
+
+    public function addDocumentDeReference(DocumentDeReference $documentDeReference): self
+    {
+        if (!$this->documentDeReferences->contains($documentDeReference)) {
+            $this->documentDeReferences[] = $documentDeReference;
+            $documentDeReference->setCorporation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocumentDeReference(DocumentDeReference $documentDeReference): self
+    {
+        if ($this->documentDeReferences->contains($documentDeReference)) {
+            $this->documentDeReferences->removeElement($documentDeReference);
+            // set the owning side to null (unless already changed)
+            if ($documentDeReference->getCorporation() === $this) {
+                $documentDeReference->setCorporation(null);
             }
         }
 

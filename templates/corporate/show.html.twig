@@ -8,6 +8,37 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  var corporationURL = "{{ corporate.OpenCorporateURL }}";
+  var apiURL = corporationURL.replace(new RegExp("^https://"), "https://api.");
+
+  $.get(apiURL,
+        function(serverData, status){
+          openCorporationData = serverData.results.company;
+          $("#DataFromOpenCorporateFacts").append("<h2>Data retrieved from <a href=\"https://opencorporates.com\">OpenCorporates.com</a></h2>");
+          $("#DataFromOpenCorporateFacts").append(
+          "<ul><li>Name : " + openCorporationData.name + "</li>"
+          + "<li>Jurisdiction Code : " + openCorporationData.jurisdiction_code + "</li>"
+          + "<li>Incorporation date : " + openCorporationData.incorporation_date + "</li>"
+          + "<li>Company Type : " + openCorporationData.company_type + "</li>"
+          + "<li>Number of employees: " + openCorporationData.number_of_employees + "</li>"
+          + "<li>Registered address: " + openCorporationData.registered_address_in_full + "</li>"
+          + "<li>Industry codes :<ul>");
+
+          var industryCodesLength = openCorporationData.industry_codes.length;
+          for (var i = 0; i < industryCodesLength; i++) {
+             var industryCode = openCorporationData.industry_codes[i].industry_code;
+             $("#DataFromOpenCorporateFacts").append("<li>" + industryCode.description + "(" + industryCode.code + ")</li>");
+          }
+          $("#DataFromOpenCorporateFacts").append("</ul></li></ul>");
+          console.log(serverData);
+        },
+        "json");
+});
+</script>
+
 <div class="example-wrapper">
     <h1>Here are the information about {{ corporate.Name }}</h1>
     <a href="{{ url('homepage') }}">Retour à l'accueil</a>
@@ -16,13 +47,10 @@
       <li> Name : {{ corporate.Name }}</li>
       <li> link on OpenCorporates.com : <a href="{{ corporate.OpenCorporateURL }}">{{ corporate.OpenCorporateURL }}</a></li>
     </ul>
+    <div id="DataFromOpenCorporateFacts"></div>
 
-    {% if corporate.CorporateShareholders is not empty %}
-      {% for shareholders in corporate.CorporateShareholders %}
-        <li><a href="{{ url('corporate_show', {'id': shareholders.OwningCorporate.Id}) }}">{{ shareholders.OwningCorporate.Name }}</a> possède {{ shareholders.OwningPercentage }}% le {{ shareholders.OwningDate|date("d/m/Y") }}</li>
-      {% else %}
-        <li>Pas d'actionnaires trouvés</li>
-      {% endfor %}
+    {% if corporate.shareholdings is not empty or corporate.CorporateShareholders is not empty %}
+      {{ include('corporate/CorporationsGraph.html.twig', { 'corporate': corporate }) }}
     {% endif %}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />

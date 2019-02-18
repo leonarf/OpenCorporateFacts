@@ -1,0 +1,60 @@
+{% block body %}
+<div class="example-wrapper">
+
+  <div id="mynetwork"></div>
+  {% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            border: 1px solid lightgray;
+        }
+    </style>
+<script type="text/javascript">
+  var corporations = [ {id: {{ corporate.Id }}, label: '{{ corporate.Name }}' }];
+  var links = [];
+
+  {% for corporationsLink in corporate.CorporateShareholders %}
+    corporations.push({id: {{ corporationsLink.OwningCorporate.Id }}, label: '{{ corporationsLink.OwningCorporate.Name }}' });
+    links.push({from: {{ corporationsLink.OwningCorporate.Id }}, to: {{ corporationsLink.OwnedCorporate.Id }}, label: '{{corporationsLink.OwningPercentage }}%'  });
+  {% endfor %}
+
+  {% for corporationsLink in corporate.shareholdings %}
+    corporations.push( {id: {{ corporationsLink.OwnedCorporate.Id }}, label: '{{ corporationsLink.OwnedCorporate.Name }}' } );
+    links.push({from: {{ corporationsLink.OwningCorporate.Id }}, to: {{ corporationsLink.OwnedCorporate.Id }}, label: '{{corporationsLink.OwningPercentage }}%' });
+  {% endfor %}
+
+  // create an array with nodes
+  var nodes = new vis.DataSet(corporations);
+
+  // create an array with edges
+  var edges = new vis.DataSet(links);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+
+  var options = {
+                  layout: {
+                    hierarchical: {
+                      direction: "DU"
+                    }
+                  }
+                };
+  var network = new vis.Network(container, data, options);
+
+  network.on("doubleClick", function (params) {
+      params.event = "[original event]";
+      var baseURL = "{{ url('corporate_show', {'id': corporate.Id}) }}";
+      var newURL = baseURL.replace(new RegExp("/{{ corporate.Id }}$"), "/" + params.nodes[0]);
+      window.location.replace(newURL);
+  });
+</script>
+     {% endblock %}
+</div>
+{% endblock %}

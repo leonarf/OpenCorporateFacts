@@ -45,50 +45,6 @@ class CompteDeResultatController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/compte/de/resultat/{id}", name="compte_de_resultat_show")
-     */
-    public function show($id)
-    {
-        $compteDeResultat = $this->getDoctrine()
-            ->getRepository(CompteDeResultat::class)
-            ->find($id);
-
-        if (!$compteDeResultat) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        // return new Response('Check out this great product: '.$compteDeResultat->getProduitsExploitation());
-
-        // or render a template
-        // in the template, print things with {{ product.name }}
-        return $this->render('compte_de_resultat/show.html.twig', ['chiffre_affaire' => $compteDeResultat->getChiffresAffairesNet()]);
-    }
-
-    /**
-     * @Route("/compte/de/resultat/edit/{id}")
-     */
-    public function update($id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $compteDeResultat = $entityManager->getRepository(CompteDeResultat::class)->find($id);
-
-        if (!$compteDeResultat) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        $compteDeResultat->setChargesSociales(88888);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('compte_de_resultat_show', [
-            'id' => $compteDeResultat->getId()
-        ]);
-    }
-
     public function buildForm(CompteDeResultat $compteDeResultat)
     {
       return $this->createFormBuilder($compteDeResultat)

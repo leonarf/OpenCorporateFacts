@@ -11,7 +11,7 @@
 <script>
 $(document).ready(function(){
   var openCorporatesData;
-  $("button").click(function(){
+  $("#searchButton").click(function(){
     $("#DivToFill").empty();
     var searchParameter;
     if ($('#form_Name').val()) {
@@ -48,7 +48,7 @@ $(document).ready(function(){
                                 + " <a href='" + company.opencorporates_url + "'>OpenCorporates Link</a></li>";
             }
             propertyPrinted += "</ul>";
-            $("#chooseCompanyForm").append(propertyPrinted);
+            $("#DivToFill").append(propertyPrinted);
             console.log(serverData);
           },
           "json");
@@ -87,7 +87,7 @@ $(document).ready(function(){
             <label>no</label><input type="radio" id="false" name="formNonProfit" value="false" checked>
           </p>
         </div>
-        <button id="">Search corporate on OpenCorporates.com</button>
+        <button id="searchButton">Search corporate on OpenCorporates.com</button>
         <div id="DivToFill"></div>
         <form name="chooseCompanyForm" method="post" id="chooseCompanyForm">
         </form>
