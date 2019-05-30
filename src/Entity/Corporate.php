@@ -54,6 +54,7 @@ class Corporate
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\DocumentDeReference", mappedBy="Corporation", orphanRemoval=true)
+     * @ORM\OrderBy({"Year" = "ASC"})
      */
     private $documentDeReferences;
 

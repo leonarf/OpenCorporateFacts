@@ -13,6 +13,7 @@ On a linux distro :
   * `systemctl enable mariadb.service` pour que le service démarre automatiquement au boot
   * install symfony4
   * install php-mysql
+  * install composer
   * clone the git repo
   * `composer install` in the local git repo pour installer des trucs symfony
   * `composer require symfony/orm-pack` pour installer l'ORM doctrine

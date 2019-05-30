@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use App\Entity\DocumentDeReference;
@@ -27,7 +28,7 @@ class DocumentDeReferenceController extends AbstractController
                                               // uses the Corporate.Name property as the visible option string
                                               'choice_label' => 'Name',
                                               ))
-                                        ->add('Year')
+                                        ->add('Year', DateType::class, [ 'years' => range(2009,2019)])
                                         ->add('ChiffreAffaire')
                                         ->add('BeneficesGroupe')
                                         ->add('Dividend')
