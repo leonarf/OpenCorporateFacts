@@ -32,15 +32,3 @@ On a linux distro :
   * go to http://localhost/phpmyadmin/ with your favourite browser (firefox)
   * Select the database
   * Import the file databaseBackupSample.sql
-
-# How to install on a fedora server
-## Update fedora
-dnf install dnf-plugin-system-upgrade
-dnf system-upgrade download --refresh --releasever=
-dnf system-upgrade reboot
-## install step more or less
-dnf install mariadb php-symfony4 php-mysqlnd git httpd unzip mariadb-server php
-systemctl start httpd.service
-systemctl enable httpd.service
-setsebool -P httpd_unified 1
-setsebool -P httpd_can_network_connect_db 1

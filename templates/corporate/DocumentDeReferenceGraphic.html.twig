@@ -1,0 +1,125 @@
+{% block body %}
+<div class="example-wrapper">
+    Voici le graphique
+    <canvas id="GraphCA"></canvas>
+    {% block javascripts %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <script>
+      var colors = ['#EAB543',
+                    '#25CCF7',
+                    '#82589F',
+                    '#55E6C1',
+                    '#2C3A47',
+                    '#B33771',
+                    '#3B3B98',
+                    '#F97F51',
+                    '#CAD3C8'];
+
+      var xLabels = [];
+
+      var CA = [];
+      var beneficesGroupe = [];
+      var dividends = [];
+      var onProfitTaxPaid = [];
+
+      {% for documentDeReference in corporate.documentDeReferences %}
+        xLabels.push({{ documentDeReference.Year|date('Y') }});
+        CA.push({{ documentDeReference.ChiffreAffaire}});
+        beneficesGroupe.push({{ documentDeReference.BeneficesGroupe}});
+        dividends.push({{ documentDeReference.Dividend}});
+        onProfitTaxPaid.push({{ documentDeReference.OnProfitTaxPaid }});
+      {% endfor %}
+
+      for(var i = 0; i < xLabels.length; i++){
+          var factor = 1000000
+          CA[i] = Math.round(1000 * CA[i] / factor) / 1000;
+          beneficesGroupe[i] = Math.round(1000 * beneficesGroupe[i] / factor) / 1000;
+          dividends[i] = Math.round(1000 * dividends[i] / factor) / 1000;
+          onProfitTaxPaid[i] = Math.round(1000 * onProfitTaxPaid[i] / factor) / 1000;
+      }
+
+      var ChartData = {
+      	labels: xLabels,
+      	datasets: [{
+      		label: 'Chiffre d\'affaire',
+      		backgroundColor: colors[6],
+          borderColor: colors[6],
+      		data: CA,
+					fill: false,
+          yAxisID: 'y-axis-CA',
+      	}, {
+      		label: 'Bénéfices',
+      		backgroundColor: colors[1],
+          borderColor: colors[1],
+      		data: beneficesGroupe,
+					fill: false,
+          yAxisID: 'y-axis-Profits',
+      	}, {
+      		label: 'Dividendes',
+      		backgroundColor: colors[3],
+          borderColor: colors[3],
+      		data: dividends,
+					fill: false,
+          yAxisID: 'y-axis-Profits',
+      	}, {
+      		label: 'Impôts sur les profits',
+      		backgroundColor: colors[0],
+          borderColor: colors[0],
+      		data: onProfitTaxPaid,
+					fill: false,
+          yAxisID: 'y-axis-Profits',
+      	}]
+      };
+
+      new Chart(document.getElementById('GraphCA').getContext('2d'), {
+      	type: 'line',
+      	data: ChartData,
+      	options: {
+      		title: {
+      			display: true,
+      			text: 'Répartition de l\'utilisation du CA de Smile (en % du CA)'
+      		},
+      		tooltips: {
+      			mode: 'index',
+      			intersect: false
+      		},
+      		responsive: true,
+      		scales: {
+      			xAxes: [{
+      			    scaleLabel:{
+      	                display:true,
+      	                labelString: 'Année'
+      	            },
+      				stacked: true,
+      			}],
+
+            yAxes: [{
+  		        scaleLabel:{
+  		            display:true,
+  		            labelString: 'CA en millions d\'€'
+  		        },
+							type: 'linear',
+							display: true,
+							position: 'left',
+							id: 'y-axis-CA',
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}, {
+  		        scaleLabel:{
+  		            display:true,
+  		            labelString: 'millions d\'€'
+  		        },
+							type: 'linear',
+							display: true,
+							position: 'right',
+							id: 'y-axis-Profits'
+						}]
+      		}
+      	}
+      });
+      </script>
+     {% endblock %}
+</div>
+{% endblock %}
