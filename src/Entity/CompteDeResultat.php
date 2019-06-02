@@ -5,12 +5,74 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompteDeResultatRepository")
  */
 class CompteDeResultat
 {
+  /**
+   * @Assert\Callback
+   */
+  public function validate(ExecutionContextInterface $context, $payload)
+  {
+      if ($this->ChiffresAffairesNet != ($this->VenteMarchandises + $this->ProductionVendueDeServices))
+      {
+        $context->buildViolation('le Chiffres Affaires Net ne correspond pas à la somme')
+                ->atPath('ChiffresAffairesNet')
+                ->addViolation();
+      }
+      if ($this->ProduitsExploitation != ($this->ChiffresAffairesNet + $this->ProductionImmobilisee + $this->SubventionsExploitation + $this->RepriseDepreciationProvisionsTransfertCharges + $this->AutresProduits))
+      {
+        $context->buildViolation("les produits d'exploitations ne correspondent pas à la somme des produits")
+                ->atPath('ProduitsExploitation')
+                ->addViolation();
+      }
+      if ($this->ChargesExploitation != ($this->AchatsDeMarchandises + $this->AutresAchatEtChargesExternes + $this->ImpotTaxesEtVersementsAssimiles + $this->SalairesEtTraitements + $this->ChargesSociales + $this->DotationAmortissementImmobilisations + $this->DotationDepreciationImmobilisations + $this->DotationDepreciationActifCirculant + $this->DotationProvisions + $this->AutresCharges ))
+      {
+        $context->buildViolation("les charges d'exploitations ne correspondent pas à la somme des charges")
+                ->atPath('ChargesExploitation')
+                ->addViolation();
+      }
+      if ($this->ResultatExploitation != ($this->ProduitsExploitation - $this->ChargesExploitation))
+      {
+        $context->buildViolation("le résultat d'exploitation ne correspondent pas à la différence entre les produits et les charges")
+                ->atPath('ResultatExploitation')
+                ->addViolation();
+      }
+      if ($this->ProduitsFinanciers != ($this->ProduitsFinanciersParticipations + $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise + $this->AutreInteretEtProduitAssimile + $this->RepriseDepreciationProvisionsTransfertCharges + $this->DifferencesPositivesChange))
+      {
+        $context->buildViolation("le produit financier ne correspond pas à la somme des produits financiers")
+                ->atPath('ProduitsFinanciers')
+                ->addViolation();
+      }
+      if ($this->ChargesFinancieres != ($this->DotationsFinancieresAmortissementDepreciationProvision + $this->InteretEtChargeAssimilees + $this->DifferenceNegativeChange + $this->ChargesNetteCessionValeurMobiliereDePlacement))
+      {
+        $context->buildViolation("la charge financière ne correspond pas à la somme des charges financières")
+                ->atPath('ChargesFinancieres')
+                ->addViolation();
+      }
+      if ($this->ResultatFinancier != ($this->ProduitsFinanciers - $this->ChargesFinancieres))
+      {
+        $context->buildViolation("le résultat financier ne correspond pas à la différence entre les produits financiers et les charges financières")
+                ->atPath('ResultatFinancier')
+                ->addViolation();
+      }
+      if ($this->ResultatExceptionnel != ($this->ProduitExceptionnelOperationGestion + $this->ProduitExceptionnelOperationCapital + $this->RepriseDepreciationProvisionsTransfertCharges - $this->ChargesExceptionnelleOperationGestion - $this->ChargesExceptionnelleOperationCapital - $this->DotationExceptionnelleAmortissementDepreciationProvision))
+      {
+        $context->buildViolation("le résultat exceptionnel ne correspond pas à la différence entre les produits exceptionnels et les charges exceptionnelles")
+                ->atPath('ResultatExceptionnel')
+                ->addViolation();
+      }
+      if ($this->Benefice != ($this->ResultatExploitation + $this->ResultatFinancier + $this->ResultatExceptionnel - $this->ParticipationSalariesAuxResultats - $this->ImpotsSurLesBenefices))
+      {
+        $context->buildViolation("le bénéfice ne correspond pas à la somme des 3 résultats moins la participation et les impôts")
+                ->atPath('Benefice')
+                ->addViolation();
+      }
+  }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

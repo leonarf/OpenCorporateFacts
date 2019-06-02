@@ -27,8 +27,9 @@ class Corporate
     private $Name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CompteDeResultat", mappedBy="Corporate", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\CompteDeResultat", mappedBy="Corporate", orphanRemoval=true, cascade={"persist"})
      * @ORM\OrderBy({"year" = "ASC"})
+     * @Assert\Valid
      */
     private $ComptesDeResultats;
 

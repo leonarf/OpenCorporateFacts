@@ -5,26 +5,40 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use App\Form\CompteDeResultatFormType;
 use App\Entity\Corporate;
 class CorporateController extends AbstractController
 {
+  public function buildForm(FormBuilderInterface $builder)
+  {
+    $builder->add('Name', TextType::class)
+            ->add('OpenCorporateURL', UrlType::class)
+            ->add('CompanyNumber', TextType::class)
+            ->add('ComptesDeResultats', CollectionType::class, [
+            'entry_type' => CompteDeResultatFormType::class,
+            'entry_options' => ['label' => false],
+            'allow_add' => true,
+            'by_reference' => false])
+            ->add('save', SubmitType::class, array('label' => 'Save corporate'));
+  }
+
     /**
      * @Route("/add_corporate", name="add_corporate")
      */
     public function add(Request $request)
     {
         $newCorporate = new Corporate();
-        $newCorporateForm = $this->createFormBuilder($newCorporate)
-            ->add('Name', TextType::class)
-            ->add('OpenCorporateURL', UrlType::class)
-            ->add('CompanyNumber', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Save corporate'))
-            ->getForm();
+        $formBuilder = $this->createFormBuilder($newCorporate);
+        $this->buildForm($formBuilder);
+        $newCorporateForm = $formBuilder->getForm();
 
         $newCorporateForm->handleRequest($request);
 
@@ -48,6 +62,42 @@ class CorporateController extends AbstractController
         }
 
         return $this->render('corporate/add.html.twig', [
+            'controller_name' => 'CorporateController',
+            'NewCorporateForm' => $newCorporateForm->createView(),
+        ]);
+    }
+    /**
+     * @Route("/import", name="import")
+     */
+    public function import(Request $request)
+    {
+        $newCorporate = new Corporate();
+        $formBuilder = $this->createFormBuilder($newCorporate);
+        $this->buildForm($formBuilder);
+        $newCorporateForm = $formBuilder->getForm();
+
+        $newCorporateForm->handleRequest($request);
+
+        if ($newCorporateForm->isSubmitted() && $newCorporateForm->isValid()) {
+            // $form->getData() holds the submitted values
+            $newCorporate = $newCorporateForm->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $oldCorporate = $entityManager->getRepository(Corporate::class)
+                ->findByName($newCorporate->getName());
+
+            if ($oldCorporate) {
+              $oldCorporate = $newCorporate;
+            }
+            else {
+              $entityManager->persist($newCorporate);
+            }
+            $entityManager->flush();
+
+            // return $this->redirectToRoute('task_success');
+        }
+
+        return $this->render('corporate/import.html.twig', [
             'controller_name' => 'CorporateController',
             'NewCorporateForm' => $newCorporateForm->createView(),
         ]);
