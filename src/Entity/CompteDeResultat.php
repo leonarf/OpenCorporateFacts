@@ -17,57 +17,67 @@ class CompteDeResultat
    */
   public function validate(ExecutionContextInterface $context, $payload)
   {
-      if ($this->ChiffresAffairesNet != ($this->VenteMarchandises + $this->ProductionVendueDeServices))
+      $diff = $this->ChiffresAffairesNet - ($this->VenteMarchandises + $this->ProductionVendueDeBiens + $this->ProductionVendueDeServices);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation('le Chiffres Affaires Net ne correspond pas à la somme')
+        $context->buildViolation('le Chiffres Affaires Net ne correspond pas à la somme, différence de ' . $diff)
                 ->atPath('ChiffresAffairesNet')
                 ->addViolation();
       }
-      if ($this->ProduitsExploitation != ($this->ChiffresAffairesNet + $this->ProductionImmobilisee + $this->SubventionsExploitation + $this->RepriseDepreciationProvisionsTransfertCharges + $this->AutresProduits))
+      $diff = $this->ProduitsExploitation - ($this->ChiffresAffairesNet + $this->ProductionStocked + $this->ProductionImmobilisee + $this->SubventionsExploitation + $this->RepriseDepreciationProvisionsTransfertCharges + $this->AutresProduits);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("les produits d'exploitations ne correspondent pas à la somme des produits")
+        $context->buildViolation("les produits d'exploitations ne correspondent pas à la somme des produits, différence de " . $diff)
                 ->atPath('ProduitsExploitation')
                 ->addViolation();
       }
-      if ($this->ChargesExploitation != ($this->AchatsDeMarchandises + $this->AutresAchatEtChargesExternes + $this->ImpotTaxesEtVersementsAssimiles + $this->SalairesEtTraitements + $this->ChargesSociales + $this->DotationAmortissementImmobilisations + $this->DotationDepreciationImmobilisations + $this->DotationDepreciationActifCirculant + $this->DotationProvisions + $this->AutresCharges ))
+
+      $diff = $this->ChargesExploitation - ($this->AchatsDeMarchandises + $this->VariationStockMarchandise + $this->AchatMatierePremiereAutreAppro + $this->VariationStockMatierePremiereEtAppro + $this->AutresAchatEtChargesExternes + $this->ImpotTaxesEtVersementsAssimiles + $this->SalairesEtTraitements + $this->ChargesSociales + $this->DotationAmortissementImmobilisations + $this->DotationDepreciationImmobilisations + $this->DotationDepreciationActifCirculant + $this->DotationProvisions + $this->AutresCharges );
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("les charges d'exploitations ne correspondent pas à la somme des charges")
+        $context->buildViolation("les charges d'exploitations ne correspondent pas à la somme des charges, différence de " . $diff)
                 ->atPath('ChargesExploitation')
                 ->addViolation();
       }
-      if ($this->ResultatExploitation != ($this->ProduitsExploitation - $this->ChargesExploitation))
+      $diff = $this->ResultatExploitation - ($this->ProduitsExploitation - $this->ChargesExploitation);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("le résultat d'exploitation ne correspondent pas à la différence entre les produits et les charges")
+        $context->buildViolation("le résultat d'exploitation ne correspondent pas à la différence entre les produits et les charges, différence de " . $diff)
                 ->atPath('ResultatExploitation')
                 ->addViolation();
       }
-      if ($this->ProduitsFinanciers != ($this->ProduitsFinanciersParticipations + $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise + $this->AutreInteretEtProduitAssimile + $this->RepriseDepreciationProvisionsTransfertCharges + $this->DifferencesPositivesChange))
+      $diff = $this->ProduitsFinanciers - ($this->ProduitsFinanciersParticipations + $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise + $this->AutreInteretEtProduitAssimile + $this->RepriseDepreciationEtProvisionTransfertsCharges + $this->DifferencesPositivesChange + $this->ProduitsNetsCessionsValeursMobilesPlacement);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("le produit financier ne correspond pas à la somme des produits financiers")
+        $context->buildViolation("le produit financier ne correspond pas à la somme des produits financiers, différence de " . $diff)
                 ->atPath('ProduitsFinanciers')
                 ->addViolation();
       }
-      if ($this->ChargesFinancieres != ($this->DotationsFinancieresAmortissementDepreciationProvision + $this->InteretEtChargeAssimilees + $this->DifferenceNegativeChange + $this->ChargesNetteCessionValeurMobiliereDePlacement))
+      $diff = $this->ChargesFinancieres - ($this->DotationsFinancieresAmortissementDepreciationProvision + $this->InteretEtChargeAssimilees + $this->DifferenceNegativeChange + $this->ChargesNetteCessionValeurMobiliereDePlacement);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("la charge financière ne correspond pas à la somme des charges financières")
+        $context->buildViolation("la charge financière ne correspond pas à la somme des charges financières, différence de " . $diff)
                 ->atPath('ChargesFinancieres')
                 ->addViolation();
       }
-      if ($this->ResultatFinancier != ($this->ProduitsFinanciers - $this->ChargesFinancieres))
+      $diff = $this->ResultatFinancier - ($this->ProduitsFinanciers - $this->ChargesFinancieres);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("le résultat financier ne correspond pas à la différence entre les produits financiers et les charges financières")
+        $context->buildViolation("le résultat financier ne correspond pas à la différence entre les produits financiers et les charges financières, différence de " . $diff)
                 ->atPath('ResultatFinancier')
                 ->addViolation();
       }
-      if ($this->ResultatExceptionnel != ($this->ProduitExceptionnelOperationGestion + $this->ProduitExceptionnelOperationCapital + $this->RepriseDepreciationProvisionsTransfertCharges - $this->ChargesExceptionnelleOperationGestion - $this->ChargesExceptionnelleOperationCapital - $this->DotationExceptionnelleAmortissementDepreciationProvision))
+      $diff = $this->ResultatExceptionnel - ($this->ProduitExceptionnelOperationGestion + $this->ProduitExceptionnelOperationCapital + $this->RepriseDepreciationProvisionTransfertCharge - $this->ChargesExceptionnelleOperationGestion - $this->ChargesExceptionnelleOperationCapital - $this->DotationExceptionnelleAmortissementDepreciationProvision);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("le résultat exceptionnel ne correspond pas à la différence entre les produits exceptionnels et les charges exceptionnelles")
+        $context->buildViolation("le résultat exceptionnel ne correspond pas à la différence entre les produits exceptionnels et les charges exceptionnelles, différence de " . $diff)
                 ->atPath('ResultatExceptionnel')
                 ->addViolation();
       }
-      if ($this->Benefice != ($this->ResultatExploitation + $this->ResultatFinancier + $this->ResultatExceptionnel - $this->ParticipationSalariesAuxResultats - $this->ImpotsSurLesBenefices))
+      $diff = $this->Benefice - ($this->ResultatExploitation + $this->ResultatFinancier + $this->ResultatExceptionnel - $this->ParticipationSalariesAuxResultats - $this->ImpotsSurLesBenefices);
+      if (abs($diff) > 1)
       {
-        $context->buildViolation("le bénéfice ne correspond pas à la somme des 3 résultats moins la participation et les impôts")
+        $context->buildViolation("le bénéfice ne correspond pas à la somme des 3 résultats moins la participation et les impôts, différence de " . $diff)
                 ->atPath('Benefice')
                 ->addViolation();
       }
@@ -312,6 +322,31 @@ class CompteDeResultat
      * @ORM\Column(type="integer")
      */
     private $Benefice;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $VariationStockMarchandise;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProduitsNetsCessionsValeursMobilesPlacement;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProductionVendueDeBiens;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ProductionStocked;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $VariationStockMatierePremiereEtAppro;
 
     public function getId(): ?int
     {
@@ -854,6 +889,78 @@ class CompteDeResultat
     public function setAchatMatierePremiereAutreAppro(int $AchatMatierePremiereAutreAppro): self
     {
         $this->AchatMatierePremiereAutreAppro = $AchatMatierePremiereAutreAppro;
+
+        return $this;
+    }
+
+    public function getVariationStockMarchandise(): ?int
+    {
+        return $this->VariationStockMarchandise;
+    }
+
+    public function setVariationStockMarchandise(int $VariationStockMarchandise): self
+    {
+        $this->VariationStockMarchandise = $VariationStockMarchandise;
+
+        return $this;
+    }
+
+    public function getProduitsNetsCessionsValeursMobilesPlacement(): ?int
+    {
+        return $this->ProduitsNetsCessionsValeursMobilesPlacement;
+    }
+
+    public function setProduitsNetsCessionsValeursMobilesPlacement(int $ProduitsNetsCessionsValeursMobilesPlacement): self
+    {
+        $this->ProduitsNetsCessionsValeursMobilesPlacement = $ProduitsNetsCessionsValeursMobilesPlacement;
+
+        return $this;
+    }
+
+    public function getProductionVendueDeBiens(): ?int
+    {
+        return $this->ProductionVendueDeBiens;
+    }
+
+    public function setProductionVendueDeBiens(int $ProductionVendueDeBiens): self
+    {
+        $this->ProductionVendueDeBiens = $ProductionVendueDeBiens;
+
+        return $this;
+    }
+
+    public function getProductionStocked(): ?int
+    {
+        return $this->ProductionStocked;
+    }
+
+    public function setProductionStocked(int $ProductionStocked): self
+    {
+        $this->ProductionStocked = $ProductionStocked;
+
+        return $this;
+    }
+
+    public function getVariationStockMatierePremiereEtAppro(): ?int
+    {
+        return $this->VariationStockMatierePremiereEtAppro;
+    }
+
+    public function setVariationStockMatierePremiereEtAppro(int $VariationStockMatierePremiereEtAppro): self
+    {
+        $this->VariationStockMatierePremiereEtAppro = $VariationStockMatierePremiereEtAppro;
+
+        return $this;
+    }
+
+    public function getRepriseAmortissementProvisionTransfertChargesEnExploitation(): ?int
+    {
+        return $this->RepriseAmortissementProvisionTransfertChargesEnExploitation;
+    }
+
+    public function setRepriseAmortissementProvisionTransfertChargesEnExploitation(int $RepriseAmortissementProvisionTransfertChargesEnExploitation): self
+    {
+        $this->RepriseAmortissementProvisionTransfertChargesEnExploitation = $RepriseAmortissementProvisionTransfertChargesEnExploitation;
 
         return $this;
     }

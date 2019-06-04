@@ -1,571 +1,571 @@
-"ordre originel";"code";"description";"colonnes remplies";"page";"type compte"
-1;"AA";"Capital souscrit non appelé";"1‐3‐4";"""01""";"Complet"
-2;"AB";"Frais d’établissement";"1‐2‐3‐4";"""01""";"Complet"
-3;"CX";"Frais de développement ou de recherche et développement";"1‐2‐3‐4";"""01""";"Complet"
-4;"AF";"Concessions, brevets et droits similaires";"1‐2‐3‐4";"""01""";"Complet"
-5;"AH";"Fonds commercial";"1‐2‐3‐4";"""01""";"Complet"
-6;"AJ";"Autres immobilisations incorporelles";"1‐2‐3‐4";"""01""";"Complet"
-7;"AL";"Avances et acomptes sur immobilisations incorporelles.";"1‐2‐3‐4";"""01""";"Complet"
-8;"AN";"Terrains";"1‐2‐3‐4";"""01""";"Complet"
-9;"AP";"Constructions";"1‐2‐3‐4";"""01""";"Complet"
-10;"AR";"Installations techniques, matériel et outillage industriels";"1‐2‐3‐4";"""01""";"Complet"
-11;"AT";"Autres immobilisations corporelles";"1‐2‐3‐4";"""01""";"Complet"
-12;"AV";"Immobilisations en cours";"1‐2‐3‐4";"""01""";"Complet"
-13;"AX";"Avances et acomptes";"1‐2‐3‐4";"""01""";"Complet"
-14;"CS";"Participations évaluées ‐ mise en équivalence";"1‐2‐3‐4";"""01""";"Complet"
-15;"CU";"Autres participations";"1‐2‐3‐4";"""01""";"Complet"
-16;"BB";"Créances rattachées à des participations";"1‐2‐3‐4";"""01""";"Complet"
-17;"BD";"Autres titres immobilisés";"1‐2‐3‐4";"""01""";"Complet"
-18;"BF";"Prêts";"1‐2‐3‐4";"""01""";"Complet"
-19;"BH";"Autres immobilisations financières";"1‐2‐3‐4";"""01""";"Complet"
-20;"BJ";"TOTAL I";"1‐2‐3‐4";"""01""";"Complet"
-21;"BL";"Matières premières, approvisionnements";"1‐2‐3‐4";"""01""";"Complet"
-22;"BN";"En cours de production de biens";"1‐2‐3‐4";"""01""";"Complet"
-23;"BP";"En cours de production de services";"1‐2‐3‐4";"""01""";"Complet"
-24;"BR";"Produits intermédiaires et finis";"1‐2‐3‐4";"""01""";"Complet"
-25;"BT";"Marchandises";"1‐2‐3‐4";"""01""";"Complet"
-26;"BV";"Avances et acomptes versés sur commandes";"1‐2‐3‐4";"""01""";"Complet"
-27;"BX";"Clients et comptes rattachés";"1‐2‐3‐4";"""01""";"Complet"
-28;"BZ";"Autres créances";"1‐2‐3‐4";"""01""";"Complet"
-29;"CB";"Capital souscrit et appelé, non versé";"1‐2‐3‐4";"""01""";"Complet"
-30;"CD";"Valeurs mobilières de placement";"1‐2‐3‐4";"""01""";"Complet"
-31;"CF";"Disponibilités";"1‐2‐3‐4";"""01""";"Complet"
-32;"CH";"Charges constatées d’avance";"1‐2‐3‐4";"""01""";"Complet"
-33;"CJ";"TOTAL II";"1‐2‐3‐4";"""01""";"Complet"
-34;"CW";"Charges à répartir ou frais d’émission d’emprunt";"1‐3‐4";"""01""";"Complet"
-35;"CM";"Primes de remboursement des obligations IV";"1‐2‐3‐4";"""01""";"Complet"
-36;"CN";"Ecarts de conversion actif V";"1‐3‐4";"""01""";"Complet"
-37;"CO";"TOTAL GENERAL 0 à V";"1‐2‐3‐4";"""01""";"Complet"
-38;"CP";"Parts à moins d’un an";1;"""01""";"Complet"
-39;"CR";"Parts à plus d’un an";1;"""01""";"Complet"
-40;"DA";"Capital social ou individuel";"1‐2";"""02""";"Complet"
-41;"DB";"Primes d’émission, de fusion, d’apport, ...";"1‐2";"""02""";"Complet"
-42;"EK";"(dont écart d’équivalence)";1;"""02""";"Complet"
-43;"DC";"Ecarts de réévaluation";"1‐2";"""02""";"Complet"
-44;"DD";"Réserve légale (1)";"1‐2";"""02""";"Complet"
-45;"DE";"Réserves statutaires ou contractuelles";"1‐2";"""02""";"Complet"
-46;"B1";"(dont réserve spéciale des provisions pour fluctuation des cours)";1;"""02""";"Complet"
-47;"DF";"Réserves réglementées (1)";"1‐2";"""02""";"Complet"
-48;"EJ";"(dont réserve relative à l’achat d’œuvres originales d’artistes vivants)";1;"""02""";"Complet"
-49;"DG";"Autres réserves";"1‐2";"""02""";"Complet"
-50;"DH";"Report à nouveau";"1‐2";"""02""";"Complet"
-51;"DI";"RESULTAT DE L’EXERCICE (bénéfice ou perte)";"1‐2";"""02""";"Complet"
-52;"DJ";"Subventions d’investissement";"1‐2";"""02""";"Complet"
-53;"DK";"Provisions réglementées";"1‐2";"""02""";"Complet"
-54;"DL";"TOTAL (I)";"1‐2";"""02""";"Complet"
-55;"DM";"Produit des émissions de titres participatifs";"1‐2";"""02""";"Complet"
-56;"DN";"Avances conditionnées";"1‐2";"""02""";"Complet"
-57;"DO";"TOTAL (II)";"1‐2";"""02""";"Complet"
-58;"DP";"Provisions pour risques";"1‐2";"""02""";"Complet"
-59;"DQ";"Provisions pour charges";"1‐2";"""02""";"Complet"
-60;"DR";"TOTAL (III)";"1‐2";"""02""";"Complet"
-61;"DS";"Emprunts obligataires convertibles";"1‐2";"""02""";"Complet"
-62;"DT";"Autres emprunts obligataires";"1‐2";"""02""";"Complet"
-63;"DU";"Emprunts et dettes auprès des établissements de crédit (3)";"1‐2";"""02""";"Complet"
-64;"DV";"Emprunts et dettes financières divers (4)";"1‐2";"""02""";"Complet"
-65;"DW";"Avances et acomptes reçus sur commandes en cours";"1‐2";"""02""";"Complet"
-66;"DX";"Dettes fournisseurs et comptes rattachés";"1‐2";"""02""";"Complet"
-67;"DY";"Dettes fiscales et sociales";"1‐2";"""02""";"Complet"
-68;"DZ";"Dettes sur immobilisations et comptes rattachés";"1‐2";"""02""";"Complet"
-69;"EA";"Autres dettes";"1‐2";"""02""";"Complet"
-70;"EB";"Produits constatés d’avance (2)";"1‐2";"""02""";"Complet"
-71;"EC";"TOTAL (IV)";"1‐2";"""02""";"Complet"
-72;"ED";"(V)";"1‐2";"""02""";"Complet"
-73;"EE";"TOTAL GENERAL (I à V)";"1‐2";"""02""";"Complet"
-74;"EF";"Dont réserve réglementée des plus‐values à long terme";"1‐2";"""02""";"Complet"
-75;"EG";"Dettes et produits constatés d’avance à moins d’un an";"1‐2";"""02""";"Complet"
-76;"EH";"Dont concours bancaires courants, et soldes créditeurs de banques et C.C.P.";"1‐2";"""02""";"Complet"
-77;"EI";"Dont emprunts participatifs";1;"""02""";"Complet"
-78;"FA";"Ventes de marchandises";"1‐2‐3‐4";"""03""";"Complet"
-79;"FD";"Production vendue biens";"1‐2‐3‐4";"""03""";"Complet"
-80;"FG";"Production vendue services";"1‐2‐3‐4";"""03""";"Complet"
-81;"FJ";"Chiffres d’affaires nets";"1‐2‐3‐4";"""03""";"Complet"
-82;"FM";"Production stockée";"3‐4";"""03""";"Complet"
-83;"FN";"Production immobilisée";"3‐4";"""03""";"Complet"
-84;"FO";"Subventions d’exploitation";"3‐4";"""03""";"Complet"
-85;"FP";"Reprises sur amortissements et provisions, transfert de charges";"3‐4";"""03""";"Complet"
-86;"FQ";"Autres produits";"3‐4";"""03""";"Complet"
-87;"FR";"Total des produits d’exploitation (I)";"3‐4";"""03""";"Complet"
-88;"FS";"Achats de marchandises (y compris droits de douane)";"3‐4";"""03""";"Complet"
-89;"FT";"Variation de stock (marchandises)";"3‐4";"""03""";"Complet"
-90;"FU";"Achats de matières premières et autres approvisionnements";"3‐4";"""03""";"Complet"
-91;"FV";"Variation de stock (matières premières et approvisionnements)";"3‐4";"""03""";"Complet"
-92;"FW";"Autres achats et charges externes";"3‐4";"""03""";"Complet"
-93;"FX";"Impôts, taxes et versements assimilés";"3‐4";"""03""";"Complet"
-94;"FY";"Salaires et traitements";"3‐4";"""03""";"Complet"
-95;"FZ";"Charges sociales";"3‐4";"""03""";"Complet"
-96;"GA";"Dot. d’exploit. ‐ Dotations aux amortissements";"3‐4";"""03""";"Complet"
-97;"GB";"Dot. d’exploit. ‐ Dotations aux provisions";"3‐4";"""03""";"Complet"
-98;"GC";"Dot. d’exploit. Sur actif circulant : dotations aux provisions";"3‐4";"""03""";"Complet"
-99;"GD";"Dot. d’exploit. Pour risques et charges : dotations aux provisions";"3‐4";"""03""";"Complet"
-100;"GE";"Autres charges";"3‐4";"""03""";"Complet"
-101;"GF";"Total des charges d’exploitation (II)";"3‐4";"""03""";"Complet"
-102;"GG";"‐ RESULTAT D’EXPLOITATION (I ‐ II)";"3‐4";"""03""";"Complet"
-103;"GH";"Bénéfice attribué ou perte transférée";"3‐4";"""03""";"Complet"
-104;"GI";"Perte supportée ou bénéfice transféré";"3‐4";"""03""";"Complet"
-105;"GJ";"Produits financiers de participations";"3‐4";"""03""";"Complet"
-106;"GK";"Produits des autres valeurs mobilières et créances de l’actif immobilisé";"3‐4";"""03""";"Complet"
-107;"GL";"Autres intérêts et produits assimilés";"3‐4";"""03""";"Complet"
-108;"GM";"Reprises sur provisions et transferts de charges";"3‐4";"""03""";"Complet"
-109;"GN";"Différences positives de change";"3‐4";"""03""";"Complet"
-110;"GO";"Produits nets sur cessions de valeurs mobilières de placement";"3‐4";"""03""";"Complet"
-111;"GP";"Total des produits financiers (V)";"3‐4";"""03""";"Complet"
-112;"GQ";"Dotations financières sur amortissements et provisions";"3‐4";"""03""";"Complet"
-113;"GR";"Intérêts et charges assimilées";"3‐4";"""03""";"Complet"
-114;"GS";"Différences négatives de change";"3‐4";"""03""";"Complet"
-115;"GT";"Charges nettes sur cessions de valeurs mobilières de placement";"3‐4";"""03""";"Complet"
-116;"GU";"Total des charges financières (VI)";"3‐4";"""03""";"Complet"
-117;"GV";"‐ RESULTAT FINANCIER (V ‐ VI)";"3‐4";"""03""";"Complet"
-118;"GW";"‐ RESULTAT COURANT AVANT IMPOTS (I ‐ II + III ‐ IV + V ‐ VI)";"3‐4";"""03""";"Complet"
-119;"HA";"Produits exceptionnels sur opérations de gestion";"1‐2";"""04""";"Complet"
-120;"HB";"Produits exceptionnels sur opérations en capital";"1‐2";"""04""";"Complet"
-121;"HC";"Reprises sur provisions et transferts de charges";"1‐2";"""04""";"Complet"
-122;"HD";"Total des produits exceptionnels (VII)";"1‐2";"""04""";"Complet"
-123;"HE";"Charges exceptionnelles sur opérations de gestion";"1‐2";"""04""";"Complet"
-124;"HF";"Charges exceptionnelles sur opérations en capital";"1‐2";"""04""";"Complet"
-125;"HG";"Dotations exceptionnelles aux amortissements et provisions";"1‐2";"""04""";"Complet"
-126;"HH";"Total des charges exceptionnelles (VIII)";"1‐2";"""04""";"Complet"
-127;"HI";"‐ RESULTAT EXCEPTIONNEL (VII ‐ VIII)";"1‐2";"""04""";"Complet"
-128;"HJ";"Participation des salariés aux résultats de l’entreprise";"1‐2";"""04""";"Complet"
-129;"HK";"Impôts sur les bénéfices";"1‐2";"""04""";"Complet"
-130;"HL";"TOTAL DES PRODUITS (I + III + V +VII)";"1‐2";"""04""";"Complet"
-131;"HM";"TOTAL DES CHARGES (II + IV + VI + VIII + IX + X)";"1‐2";"""04""";"Complet"
-132;"HN";"BENEFICE OU PERTE (Total des produits ‐ Total des charges)";"1‐2";"""04""";"Complet"
-133;"HP";"Renvois : Crédit‐bail mobilier";"1‐2";"""04""";"Complet"
-134;"HQ";"Renvois : Crédit‐bail immobilier";"1‐2";"""04""";"Complet"
-135;"A1";"Renvois : Transfert de charges";"1‐2";"""04""";"Complet"
-136;"A2";"Renvois : Cotisations personnelles de l’exploitant";"1‐2";"""04""";"Complet"
-137;"A3";"Renvois : Redevances pour concessions de brevets, de licences (produits)";"1‐2";"""04""";"Complet"
-138;"A4";"Renvois : Redevances pour concessions de brevets, de licences (charges)";"1‐2";"""04""";"Complet"
-139;"CZ";"ACQUISITIONS Frais d’établissement, et de développement ou de recherche";"1‐2‐3";"""05""";"Complet"
-140;"KD";"ACQUISITIONS Total dont autres postes d’immobilisations incorporelles";"1‐2‐3";"""05""";"Complet"
-141;"LN";"ACQUISITIONS Total Immobilisations corporelles";"1‐2‐3";"""05""";"Complet"
-142;"LQ";"ACQUISITIONS Total Immobilisations financières";"1‐2‐3";"""05""";"Complet"
-143;"0G";"ACQUISITIONS Total Général";"1‐2‐3";"""05""";"Complet"
-144;"IN";"DIMINUTIONS Frais d’établissement, et de développement ou de recherche";"1‐2‐3";"""05""";"Complet"
-145;"IO";"DIMINUTIONS Total dont autres postes d’immobilisations incorporelles";"1‐2‐3";"""05""";"Complet"
-146;"MY";"DIMINUTIONS Virement postes immobilisations corporelles en cours";1;"""05""";"Complet"
-147;"NC";"DIMINUTIONS Virement postes ‐ Avances et acomptes";1;"""05""";"Complet"
-148;"IY";"DIMINUTIONS Total Immobilisations corporelles";"1‐2‐3";"""05""";"Complet"
-149;"I2";"DIMINUTIONS Prêts et immobilisations financières";2;"""05""";"Complet"
-150;"I3";"DIMINUTIONS Total Immobilisations financières";"1‐2‐3";"""05""";"Complet"
-151;"I4";"DIMINUTIONS Total Général";"1‐2‐3";"""05""";"Complet"
-152;"CY";"AMORTISSEMENTS Frais d’établissement, et de développement ou de recherche";"1‐2‐3‐4";"""06""";"Complet"
-153;"PE";"AMORTISSEMENTS Total dont autres immobilisations incorporelles";"1‐2‐3‐4";"""06""";"Complet"
-154;"QU";"AMORTISSEMENTS Total Immobilisations corporelles";"1‐2‐3‐4";"""06""";"Complet"
-155;"0N";"AMORTISSEMENTS Total Général";"1‐2‐3‐4";"""06""";"Complet"
-156;"Z9";"Charges à répartir ou frais d’émission d’emprunt";"1‐2‐3‐4";"""06""";"Complet"
-157;"SP";"mvt. sur charges rép. ‐ Primes de remboursement des obligations";"1‐2‐3‐4";"""06""";"Complet"
-158;"3X";"Amortissements dérogatoires";4;"""07""";"Complet"
-159;"3Z";"Total Provisions réglementées";"1‐2‐3‐4";"""07""";"Complet"
-160;"4A";"Provisions pour litiges";4;"""07""";"Complet"
-161;"4E";"Provisions pour garanties données aux clients";4;"""07""";"Complet"
-162;"4J";"Provisions pour perte sur marchés à terme";4;"""07""";"Complet"
-163;"4N";"Provisions pour amendes et pénalités";4;"""07""";"Complet"
-164;"4T";"Provisions pour perte de change";4;"""07""";"Complet"
-165;"4X";"Provisions pour pensions et obligations similaires";4;"""07""";"Complet"
-166;"5B";"Provisions pour impôts";4;"""07""";"Complet"
-167;"5F";"Provisions pour renouvellement des immobilisations";4;"""07""";"Complet"
-168;"EO";"Provisions pour gros entretien et grandes révisions ou grosses réparations";4;"""07""";"Complet"
-169;"5R";"Provisions pour charges sociales et fiscales sur congés à payer";"1‐2‐3‐4";"""07""";"Complet"
-170;"5V";"Autres provisions pour risques et charges";4;"""07""";"Complet"
-171;"5Z";"Total Provisions pour risques et charges";"1‐2‐3‐4";"""07""";"Complet"
-172;"6A";"sur immobilisations – incorporelles";"1‐2‐3‐4";"""07""";"Complet"
-173;"6E";"sur immobilisations – corporelles";"1‐2‐3‐4";"""07""";"Complet"
-174;2;"sur immobilisations – titres mis en équivalence";"1‐2‐3‐4";"""07""";"Complet"
-175;"9U";"sur immobilisations – titres de participation";4;"""07""";"Complet"
-176;6;"sur immobilisations –autres immobilisations financières";"1‐2‐3‐4";"""07""";"Complet"
-177;"6N";"Sur stocks et en cours";"1‐2‐3‐4";"""07""";"Complet"
-178;"6T";"Sur comptes clients";"1‐2‐3‐4";"""07""";"Complet"
-179;"6X";"Autres provisions pour dépréciation";"1‐2‐3‐4";"""07""";"Complet"
-180;"7B";"Total Provisions pour dépréciation";"1‐2‐3‐4";"""07""";"Complet"
-181;"7C";"TOTAL GENERAL";"1‐2‐3‐4";"""07""";"Complet"
-182;"UE";"dont dotations et reprises : ‐ d’Exploitation";"1‐2‐3‐4";"""07""";"Complet"
-183;"UG";"‐ Financières";"1‐2‐3‐4";"""07""";"Complet"
-184;"UJ";"‐ Exceptionnelles";"1‐2‐3‐4";"""07""";"Complet"
-185;"UL";"Créances rattachées à des participations";"1‐2‐3";"""08""";"Complet"
-186;"UP";"Prêts";"1‐2‐3";"""08""";"Complet"
-187;"UT";"Autres immobilisations financières";"1‐2‐3";"""08""";"Complet"
-188;"VA";"Clients douteux ou litigieux";"1‐2‐3";"""08""";"Complet"
-189;"UX";"Autres créances clients";"1‐2‐3";"""08""";"Complet"
-190;"UO";"(provision pour dépréciation antérieurement constituée)";1;"""08""";"Complet"
-191;"Z1";"Créances représentatives de titres prêtés";"1‐2‐3";"""08""";"Complet"
-192;"UY";"Personnel et comptes rattachés";"1‐2‐3";"""08""";"Complet"
-193;"UZ";"Sécurité Sociale, autres organismes sociaux";"1‐2‐3";"""08""";"Complet"
-194;"VM";"Impôts sur les bénéfices";"1‐2‐3";"""08""";"Complet"
-195;"VB";"T. V. A.";"1‐2‐3";"""08""";"Complet"
-196;"VN";"Autres impôts, taxes versements assimilés";"1‐2‐3";"""08""";"Complet"
-197;"VP";"Divers";"1‐2‐3";"""08""";"Complet"
-198;"VC";"Groupe et associés";"1‐2‐3";"""08""";"Complet"
-199;"VR";"Débiteurs divers (dont créances relatives à des opérations de pension de titres)";"1‐2‐3";"""08""";"Complet"
-200;"VS";"Charges constatées d’avance";"1‐2‐3";"""08""";"Complet"
-201;"VT";"TOTAL – ETAT DES CREANCES";"1‐2‐3";"""08""";"Complet"
-202;"7Y";"Emprunts obligataires convertibles brut à un an au plus";"1‐2‐3‐4";"""08""";"Complet"
-203;"7Z";"Autres emprunts obligataires brut à un an au plus";"1‐2‐3‐4";"""08""";"Complet"
-204;"VG";"Emprunts à 1 an maximum à l’origine";"1‐2‐3‐4";"""08""";"Complet"
-205;"VH";"Emprunts à plus d’1 an à l’origine";"1‐2‐3‐4";"""08""";"Complet"
-206;"8A";"Emprunts et dettes financières divers";"1‐2‐3‐4";"""08""";"Complet"
-207;"8B";"Fournisseurs et comptes rattachés";"1‐2‐3‐4";"""08""";"Complet"
-208;"8C";"Personnel et comptes rattachés";"1‐2‐3‐4";"""08""";"Complet"
-209;"8D";"Sécurité sociale et autres organismes sociaux";"1‐2‐3‐4";"""08""";"Complet"
-210;"8E";"Impôts sur les bénéfices";"1‐2‐3‐4";"""08""";"Complet"
-211;"VW";"T.V.A.";"1‐2‐3‐4";"""08""";"Complet"
-212;"VX";"Obligations cautionnées";"1‐2‐3‐4";"""08""";"Complet"
-213;"VQ";"Autres impôts, taxes et assimilés";"1‐2‐3‐4";"""08""";"Complet"
-214;"8J";"Dettes sur immobilisations et comptes rattachés";"1‐2‐3‐4";"""08""";"Complet"
-215;"VI";"Groupe et associés";"1‐2‐3‐4";"""08""";"Complet"
-216;"8K";"Autres dettes (dont dettes relatives à des opérations de pension de titre)";"1‐2‐3‐4";"""08""";"Complet"
-217;"Z2";"Dette représentative de titres empruntés";"1‐2‐3‐4";"""08""";"Complet"
-218;"8L";"Produits constatés d’avance";"1‐2‐3‐4";"""08""";"Complet"
-219;"VY";"TOTAL – ETAT DES DETTES";"1‐2‐3‐4";"""08""";"Complet"
-220;"VJ";"Emprunts souscrits en cours d’exercice";"1‐2‐3‐4";"""08""";"Complet"
-221;"VK";"Emprunts remboursés en cours d’exercice";1;"""08""";"Complet"
-222;"ZE";"Dividendes";"1‐2";"""11""";"Complet"
-223;"YQ";"Engagement de crédit‐bail mobilier";"1‐2";"""11""";"Complet"
-224;"YR";"Engagement de crédit‐bail immobilier";"1‐2";"""11""";"Complet"
-225;"YS";"Effets portés à l’escompte et non échus";"1‐2";"""11""";"Complet"
-226;"YT";"Sous‐traitance";"1‐2";"""11""";"Complet"
-227;"XQ";"Location, charges locatives et de copropriété";"1‐2";"""11""";"Complet"
-228;"YU";"Personnel extérieur à l’entreprise";"1‐2";"""11""";"Complet"
-229;"SS";"Rémunération d’intermédiaires et honoraires (hors rétrocessions)";"1‐2";"""11""";"Complet"
-230;"YV";"Rétrocessions d’honoraires, commissions et courtages";"1‐2";"""11""";"Complet"
-231;"ST";"Autres comptes";"1‐2";"""11""";"Complet"
-232;"ZJ";"Total du poste correspondant à la ligne FW du tableau n° 2052";"1‐2";"""11""";"Complet"
-233;"YW";"Taxe professionnelle";"1‐2";"""11""";"Complet"
-234;"9Z";"Autres impôts, taxes et versements assimilés";"1‐2";"""11""";"Complet"
-235;"YX";"Total du compte correspondant à la ligne FX du tableau n° 2052";"1‐2";"""11""";"Complet"
-236;"YY";"Montant de la TVA. collectée";"1‐2";"""11""";"Complet"
-237;"YZ";"Total TVA. déductible sur biens et services";"1‐2";"""11""";"Complet"
-238;"YP";"Effectif moyen du personnel";"1‐2";"""11""";"Complet"
-239;"ZR";"Filiales et participations";1;"""11""";"Complet"
-240;"YP";"Effectif moyen du personnel";"1-2";"""16""";"Complet"
-241;10;"Immobilisations incorporelles ‐ Fonds commercial";"1‐2‐3‐4";"""01""";"Simplifié"
-242;14;"Immobilisations incorporelles – Autres";"1‐2‐3‐4";"""01""";"Simplifié"
-243;28;"Immobilisations corporelles";"1‐2‐3‐4";"""01""";"Simplifié"
-244;40;"Immobilisations financières";"1‐2‐3‐4";"""01""";"Simplifié"
-245;44;"Total Actif Immobilisé";"1‐2‐3‐4";"""01""";"Simplifié"
-246;50;"Matières premières, approvisionnements, en cours de production";"1‐2‐3‐4";"""01""";"Simplifié"
-247;60;"Stock marchandises";"1‐2‐3‐4";"""01""";"Simplifié"
-248;64;"Avances et acomptes versés sur commandes";"1‐2‐3‐4";"""01""";"Simplifié"
-249;68;"Créances – Clients et comptes rattachés";"1‐2‐3‐4";"""01""";"Simplifié"
-250;72;"Créances – Autres";"1‐2‐3‐4";"""01""";"Simplifié"
-251;80;"Valeurs mobilières de placement";"1‐2‐3‐4";"""01""";"Simplifié"
-252;84;"Disponibilités";"1‐2‐3‐4";"""01""";"Simplifié"
-253;88;"Caisse";"1‐2‐3‐4";"""01""";"Simplifié"
-254;92;"Charges constatées d’avance";"1‐2‐3‐4";"""01""";"Simplifié"
-255;96;"Total Actif circulant + Charges constatées d’avance";"1‐2‐3‐4";"""01""";"Simplifié"
-256;110;"Total général Actif";"1‐2‐3‐4";"""01""";"Simplifié"
-257;120;"Capital social ou individuel";"3‐4";"""01""";"Simplifié"
-258;124;"Ecarts de réévaluation";"3‐4";"""01""";"Simplifié"
-259;126;"Réserve légale";"3‐4";"""01""";"Simplifié"
-260;130;"Réserves réglementées";"3‐4";"""01""";"Simplifié"
-261;132;"Autres réserves";"3‐4";"""01""";"Simplifié"
-262;134;"Report à nouveau";"3‐4";"""01""";"Simplifié"
-263;136;"Résultat de l’exercice";"3‐4";"""01""";"Simplifié"
-264;140;"Provisions réglementées";"3‐4";"""01""";"Simplifié"
-265;142;"Total des capitaux propres ‐ Total I";"3‐4";"""01""";"Simplifié"
-266;154;"Provisions pour risques et charges ‐ Total II";"3‐4";"""01""";"Simplifié"
-267;156;"Emprunts et dettes assimilées";"3‐4";"""01""";"Simplifié"
-268;164;"Avances et acomptes reçus sur commandes en cours";"3‐4";"""01""";"Simplifié"
-269;166;"Fournisseurs et comptes rattachés";"3‐4";"""01""";"Simplifié"
-270;169;"Autres dettes dont comptes courant d’associés de l’exercice N";2;"""01""";"Simplifié"
-271;172;"Autres dettes";"3‐4";"""01""";"Simplifié"
-272;174;"Produits constatés d’avance";"3‐4";"""01""";"Simplifié"
-273;176;"Total des dettes";"3‐4";"""01""";"Simplifié"
-274;180;"Total général Passif";"3‐4";"""01""";"Simplifié"
-275;193;"Dont immobilisations financières à moins d’un an";3;"""01""";"Simplifié"
-276;195;"Dont dettes à plus d’un an";"3‐4";"""01""";"Simplifié"
-277;197;"Dont créances à plus d’un an";3;"""01""";"Simplifié"
-278;182;"Coût de revient des immobilisations acquises ou créées au cours de l’exercice";"3‐4";"""01""";"Simplifié"
-279;199;"Dont comptes courant d’associés débiteurs";3;"""01""";"Simplifié"
-280;184;"Prix de vente hors T.V.A. des immobilisations cédées au cours de l’exercice";"3‐4";"""01""";"Simplifié"
-281;209;"Ventes de marchandises – Export";1;"""02""";"Simplifié"
-282;215;"Production vendue de biens ‐ Export";1;"""02""";"Simplifié"
-283;217;"Production vendue de services ‐ Export";1;"""02""";"Simplifié"
-284;210;"Ventes de marchandises – France";"1‐2";"""02""";"Simplifié"
-285;214;"Production vendue de biens – France";"1‐2";"""02""";"Simplifié"
-286;218;"Production vendue de services ‐ France";"1‐2";"""02""";"Simplifié"
-287;222;"Production stockée";"1‐2";"""02""";"Simplifié"
-288;224;"Production immobilisée";"1‐2";"""02""";"Simplifié"
-289;226;"Subventions d’exploitation reçues";"1‐2";"""02""";"Simplifié"
-290;230;"Autres produits";"1‐2";"""02""";"Simplifié"
-291;232;"Total des produits d’exploitation hors T.V.A.";"1‐2";"""02""";"Simplifié"
-292;234;"Achats de marchandises (y compris droits de douane)";"1‐2";"""02""";"Simplifié"
-293;236;"Variation de stock (marchandises)";"1‐2";"""02""";"Simplifié"
-294;238;"Achats de matières premières et autres approvisionnements (y compris droits de";"1‐2";"""02""";"Simplifié"
-295;240;"Variation de stock (matières premières et approvisionnement)";"1‐2";"""02""";"Simplifié"
-296;"24B";"(dont crédit bail mobilier)*";1;"""02""";"Simplifié"
-297;"24A";"(dont crédit bail immobilier)*";1;"""02""";"Simplifié"
-298;242;"Autres charges externes*";"1‐2";"""02""";"Simplifié"
-299;243;"(dont taxe professionnelle)";1;"""02""";"Simplifié"
-300;244;"Impôts, taxes et versements assimilés";"1‐2";"""02""";"Simplifié"
-301;250;"Rémunérations du personnel";"1‐2";"""02""";"Simplifié"
-302;252;"Charges sociales";"1‐2";"""02""";"Simplifié"
-303;254;"Dotations aux amortissements";"1‐2";"""02""";"Simplifié"
-304;256;"Dotations aux provisions";"1‐2";"""02""";"Simplifié"
-305;259;"(dont provisions fiscales pour implantations commerciales à l’étranger)";1;"""02""";"Simplifié"
-306;262;"Autres charges";"1‐2";"""02""";"Simplifié"
-307;264;"Total des charges d’exploitation";"1‐2";"""02""";"Simplifié"
-308;270;"Résultat d’exploitation";"1‐2";"""02""";"Simplifié"
-309;280;"Produits financiers";"1‐2";"""02""";"Simplifié"
-310;290;"Produits exceptionnels";"1‐2";"""02""";"Simplifié"
-311;294;"Charges financières";"1‐2";"""02""";"Simplifié"
-312;300;"Charges exceptionnelles";"1‐2";"""02""";"Simplifié"
-313;306;"Impôts sur les bénéfices";"1‐2";"""02""";"Simplifié"
-314;310;"Bénéfice ou perte";"1‐2";"""02""";"Simplifié"
-315;316;"Rémunération et avantages personnels non déductibles";1;"""02""";"Simplifié"
-316;374;"Montant de la T.V.A. collectée";1;"""02""";"Simplifié"
-317;376;"Effectif moyen du personnel";1;"""02""";"Simplifié"
-318;378;"Montant de la T.V.A. déductible sur biens et services";1;"""02""";"Simplifié"
-319;402;"AUGMENTATIONS Immobilisations incorporelles – Fonds commercial";1;"""03""";"Simplifié"
-320;404;"DIMINUTIONS Immobilisations incorporelles – Fonds commercial";1;"""03""";"Simplifié"
-321;412;"AUGMENTATIONS Immobilisations incorporelles –Autres immobilisations";1;"""03""";"Simplifié"
-322;414;"DIMINUTIONS Immobilisations incorporelles –Autres immobilisations incorporelles";1;"""03""";"Simplifié"
-323;422;"AUGMENTATIONS Imm. corporelles – Terrains";1;"""03""";"Simplifié"
-324;432;"AUGMENTATIONS Imm. corporelles – Constructions";1;"""03""";"Simplifié"
-325;442;"AUGMENTATIONS Imm. corporelles – Installations techniques matériel et outillage";1;"""03""";"Simplifié"
-326;452;"AUGMENTATIONS Imm. corporelles – Installations générales, agencements divers";1;"""03""";"Simplifié"
-327;462;"AUGMENTATIONS Imm. corporelles – Matériel de transport";1;"""03""";"Simplifié"
-328;472;"AUGMENTATIONS Imm. corporelles – Autres immobilisations corporelles";1;"""03""";"Simplifié"
-329;482;"AUGMENTATIONS Immobilisations financières";1;"""03""";"Simplifié"
-330;484;"DIMINUTIONS Immobilisations financières";1;"""03""";"Simplifié"
-331;490;"Total Immobilisations (Valeur brute)";1;"""03""";"Simplifié"
-332;492;"Total Immobilisations (Augmentations)";1;"""03""";"Simplifié"
-333;494;"Total Immobilisations (Diminutions)";1;"""03""";"Simplifié"
-334;582;"Total Plus‐values, Moins‐values (Valeur résiduelle)";1;"""03""";"Simplifié"
-335;584;"Total Plus‐values, Moins‐values (Prix de cession)";1;"""03""";"Simplifié"
-336;585;"Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Long terme ‐";1;"""03""";"Simplifié"
-337;596;"Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Court terme)";1;"""03""";"Simplifié"
-338;597;"Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Long terme ‐";1;"""03""";"Simplifié"
-339;599;"Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Long terme ‐";1;"""03""";"Simplifié"
-340;602;"AUGMENTATIONS Provisions réglementées – Amortissements dérogatoires";1;"""04""";"Simplifié"
-341;603;"AUGMENTATIONS Provisions réglementées – Dont majorations exceptionnelles de";1;"""04""";"Simplifié"
-342;612;"AUGMENTATIONS Provisions réglementées – Autres provisions réglementées";1;"""04""";"Simplifié"
-343;622;"AUGMENTATIONS Provisions pour risques et charges";1;"""04""";"Simplifié"
-344;632;"AUGMENTATIONS Provisions pour dépréciation – Sur immobilisations";1;"""04""";"Simplifié"
-345;642;"AUGMENTATIONS Provisions pour dépréciation – Sur stocks et en cours";1;"""04""";"Simplifié"
-346;652;"AUGMENTATIONS Provisions pour dépréciation – Sur clients et comptes rattachés";1;"""04""";"Simplifié"
-347;662;"AUGMENTATIONS Provisions pour dépréciation – Autres provisions pour";1;"""04""";"Simplifié"
-348;682;"AUGMENTATIONS Total Relevé des provisions";1;"""04""";"Simplifié"
-349;604;"DIMINUTIONS Provisions réglementées – Amortissements dérogatoires";1;"""04""";"Simplifié"
-350;605;"DIMINUTIONS Provisions réglementées – Dont majorations exceptionnelles de 30%";1;"""04""";"Simplifié"
-351;614;"DIMINUTIONS Provisions réglementées – Autres provisions réglementées";1;"""04""";"Simplifié"
-352;624;"DIMINUTIONS Provisions pour risques et charges";1;"""04""";"Simplifié"
-353;634;"DIMINUTIONS Provisions pour dépréciation – Sur immobilisations";1;"""04""";"Simplifié"
-354;644;"DIMINUTIONS Provisions pour dépréciation – Sur stocks et en cours";1;"""04""";"Simplifié"
-355;654;"DIMINUTIONS Provisions pour dépréciation – Sur clients et comptes rattachés";1;"""04""";"Simplifié"
-356;664;"DIMINUTIONS Provisions pour dépréciation – Autres provisions pour dépréciation";1;"""04""";"Simplifié"
-357;684;"DIMINUTIONS Total Relevé des provisions";1;"""04""";"Simplifié"
-358;374;"DIVERS Montant de la TVA collectée";1;"""04""";"Simplifié"
-359;378;"DIVERS Montant de la TVA déductible sur biens et services (sauf immobilisations)";1;"""04""";"Simplifié"
-360;376;"Effectifs moyens du personnel";"1‐2";"""05""";"Simplifié"
-361;"AA";"Capital souscrit non appelé";"1‐3‐4";"""01""";"Consolidé"
-362;"AB";"Frais d’établissement";"1‐2‐3‐4";"""01""";"Consolidé"
-363;"CX";"Frais de développement ou de recherche et développement";"1‐2‐3‐4";"""01""";"Consolidé"
-364;"AF";"Concessions, brevets et droits similaires";"1‐2‐3‐4";"""01""";"Consolidé"
-365;"AH";"Fonds commercial";"1‐2‐3‐4";"""01""";"Consolidé"
-366;"AJ";"Autres immobilisations incorporelles";"1‐2‐3‐4";"""01""";"Consolidé"
-367;"AL";"Avances et acomptes sur immobilisations incorporelles.";"1‐2‐3‐4";"""01""";"Consolidé"
-368;"A1";"Ecarts d’acquisition";"1‐2‐3‐4";"""01""";"Consolidé"
-369;"A2";"Sur valeurs ‐ goodwill";"1‐2‐3‐4";"""01""";"Consolidé"
-370;"A3";"Différence de première consolidation";"1‐2‐3‐4";"""01""";"Consolidé"
-371;"AN";"Terrains";"1‐2‐3‐4";"""01""";"Consolidé"
-372;"AP";"Constructions";"1‐2‐3‐4";"""01""";"Consolidé"
-373;"AR";"Installations techniques, matériel et outillage industriels";"1‐2‐3‐4";"""01""";"Consolidé"
-374;"AT";"Autres immobilisations corporelles";"1‐2‐3‐4";"""01""";"Consolidé"
-375;"AV";"Immobilisations en cours";"1‐2‐3‐4";"""01""";"Consolidé"
-376;"AX";"Avances et acomptes";"1‐2‐3‐4";"""01""";"Consolidé"
-377;"CS";"Participations évaluées ‐ mise en équivalence";"1‐2‐3‐4";"""01""";"Consolidé"
-378;"CU";"Autres participations";"1‐2‐3‐4";"""01""";"Consolidé"
-379;"BB";"Créances rattachées à des participations";"1‐2‐3‐4";"""01""";"Consolidé"
-380;"BD";"Autres titres immobilisés";"1‐2‐3‐4";"""01""";"Consolidé"
-381;"BF";"Prêts";"1‐2‐3‐4";"""01""";"Consolidé"
-382;"BH";"Autres immobilisations financières";"1‐2‐3‐4";"""01""";"Consolidé"
-383;"A4";"Titres mis en équivalence";"1‐2‐3‐4";"""01""";"Consolidé"
-384;"BJ";"TOTAL (I)";"1‐2‐3‐4";"""01""";"Consolidé"
-385;"BL";"Matières premières, approvisionnements";"1‐2‐3‐4";"""01""";"Consolidé"
-386;"BN";"En cours de production de biens";"1‐2‐3‐4";"""01""";"Consolidé"
-387;"BP";"En cours de production de services";"1‐2‐3‐4";"""01""";"Consolidé"
-388;"BR";"Produits intermédiaires et finis";"1‐2‐3‐4";"""01""";"Consolidé"
-389;"BT";"Marchandises";"1‐2‐3‐4";"""01""";"Consolidé"
-390;"BV";"Avances et acomptes versés sur commandes";"1‐2‐3‐4";"""01""";"Consolidé"
-391;"BX";"Clients et comptes rattachés";"1‐2‐3‐4";"""01""";"Consolidé"
-392;"BZ";"Autres créances";"1‐2‐3‐4";"""01""";"Consolidé"
-393;"CB";"Capital souscrit et appelé, non versé";"1‐2‐3‐4";"""01""";"Consolidé"
-394;"CD";"Valeurs mobilières de placement";"1‐2‐3‐4";"""01""";"Consolidé"
-395;"CF";"Disponibilités";"1‐2‐3‐4";"""01""";"Consolidé"
-396;"CH";"Charges constatées d’avance";"1‐2‐3‐4";"""01""";"Consolidé"
-397;"CJ";"TOTAL (II)";"1‐2‐3‐4";"""01""";"Consolidé"
-398;"CW";"Charges à répartir ou frais d’émission d’emprunt";"1‐3‐4";"""01""";"Consolidé"
-399;"CM";"Primes de remboursement des obligations (IV)";"1‐2‐3‐4";"""01""";"Consolidé"
-400;"CN";"Ecarts de conversion actif (V)";"1‐3‐4";"""01""";"Consolidé"
-401;"CO";"TOTAL GENERAL (0 à V)";"1‐2‐3‐4";"""01""";"Consolidé"
-402;"CP";"Parts à moins d’un an";1;"""01""";"Consolidé"
-403;"CR";"Parts à plus d’un an";1;"""01""";"Consolidé"
-404;"DA";"Capital social ou individuel";"1‐2";"""02""";"Consolidé"
-405;"DB";"Primes d’émission, de fusion, d’apport, ...";"1‐2";"""02""";"Consolidé"
-406;"EK";"(dont écart d’équivalence)";"1‐2";"""02""";"Consolidé"
-407;"DC";"Ecarts de réévaluation";"1‐2";"""02""";"Consolidé"
-408;"DD";"Réserve légale (1)";"1‐2";"""02""";"Consolidé"
-409;"DE";"Réserves statutaires ou contractuelles";"1‐2";"""02""";"Consolidé"
-410;"DF";"Réserves réglementées (1)";"1‐2";"""02""";"Consolidé"
-411;"DG";"Autres réserves";"1‐2";"""02""";"Consolidé"
-412;"DH";"Report à nouveau";"1‐2";"""02""";"Consolidé"
-413;"P1";"Ecarts de conversion";"1‐2";"""02""";"Consolidé"
-414;"P2";"Résultat consolidé part du groupe";"1‐2";"""02""";"Consolidé"
-415;"DJ";"Subventions d’investissement";"1‐2";"""02""";"Consolidé"
-416;"DK";"Provisions réglementées";"1‐2";"""02""";"Consolidé"
-417;"DL";"TOTAL (I)";"1‐2";"""02""";"Consolidé"
-418;"DM";"Produit des émissions de titres participatifs";"1‐2";"""02""";"Consolidé"
-419;"DN";"Avances conditionnées";"1‐2";"""02""";"Consolidé"
-420;"P3";"Autres";"1‐2";"""02""";"Consolidé"
-421;"DO";"TOTAL (II)";"1‐2";"""02""";"Consolidé"
-422;"P4";"Ecarts de conversion";"1‐2";"""02""";"Consolidé"
-423;"P5";"Dans les réserves";"1‐2";"""02""";"Consolidé"
-424;"P6";"Dans les résultats";"1‐2";"""02""";"Consolidé"
-425;"P7";"TOTAL (III)";"1‐2";"""02""";"Consolidé"
-426;"P8";"Impôts différés";"1‐2";"""02""";"Consolidé"
-427;"P9";"Ecarts d’acquisition";"1‐2";"""02""";"Consolidé"
-428;"DP";"Provisions pour risques";"1‐2";"""02""";"Consolidé"
-429;"DQ";"Provisions pour charges";"1‐2";"""02""";"Consolidé"
-430;"DR";"TOTAL (IV)";"1‐2";"""02""";"Consolidé"
-431;"DS";"Emprunts obligataires convertibles";"1‐2";"""02""";"Consolidé"
-432;"DT";"Autres emprunts obligataires";"1‐2";"""02""";"Consolidé"
-433;"DU";"Emprunts et dettes auprès des établissements de crédit (3)";"1‐2";"""02""";"Consolidé"
-434;"DV";"Emprunts et dettes financières divers (4)";"1‐2";"""02""";"Consolidé"
-435;"DW";"Avances et acomptes reçus sur commandes en cours";"1‐2";"""02""";"Consolidé"
-436;"DX";"Dettes fournisseurs et comptes rattachés";"1‐2";"""02""";"Consolidé"
-437;"DY";"Dettes fiscales et sociales";"1‐2";"""02""";"Consolidé"
-438;"DZ";"Dettes sur immobilisations et comptes rattachés";"1‐2";"""02""";"Consolidé"
-439;"EA";"Autres dettes";"1‐2";"""02""";"Consolidé"
-440;"EB";"Produits constatés d’avance (2)";"1‐2";"""02""";"Consolidé"
-441;"EC";"TOTAL (IV)";"1‐2";"""02""";"Consolidé"
-442;"ED";"(V)";"1‐2";"""02""";"Consolidé"
-443;"EE";"TOTAL GENERAL (I à V)";"1‐2";"""02""";"Consolidé"
-444;"EF";"Dont réserve réglementée des plus‐values à long terme";"1‐2";"""02""";"Consolidé"
-445;"EG";"Dettes et produits constatés d’avance à moins d’un an";"1‐2";"""02""";"Consolidé"
-446;"EH";"Dont concours bancaires courants, et soldes créditeurs de banques et C.C.P.";"1‐2";"""02""";"Consolidé"
-447;"EI";"Dont emprunts participatifs";"1‐2";"""02""";"Consolidé"
-448;"FA";"Ventes de marchandises";"1‐2‐3‐4";"""03""";"Consolidé"
-449;"FD";"Production vendue biens";"1‐2‐3‐4";"""03""";"Consolidé"
-450;"FG";"Production vendue services";"1‐2‐3‐4";"""03""";"Consolidé"
-451;"FJ";"Chiffres d’affaires nets";"1‐2‐3‐4";"""03""";"Consolidé"
-452;"FM";"Production stockée";"3‐4";"""03""";"Consolidé"
-453;"FN";"Production immobilisée";"3‐4";"""03""";"Consolidé"
-454;"FO";"Subventions d’exploitation";"3‐4";"""03""";"Consolidé"
-455;"FP";"Reprises sur amortissements et provisions, transfert de charges";"3‐4";"""03""";"Consolidé"
-456;"FQ";"Autres produits";"3‐4";"""03""";"Consolidé"
-457;"FR";"Total des produits d’exploitation (I)";"3‐4";"""03""";"Consolidé"
-458;"FS";"Achats de marchandises (y compris droits de douane)";"3‐4";"""03""";"Consolidé"
-459;"FT";"Variation de stock (marchandises)";"3‐4";"""03""";"Consolidé"
-460;"FU";"Achats de matières premières et autres approvisionnements";"3‐4";"""03""";"Consolidé"
-461;"FV";"Variation de stock (matières premières et approvisionnements)";"3‐4";"""03""";"Consolidé"
-462;"FW";"Autres achats et charges externes";"3‐4";"""03""";"Consolidé"
-463;"FX";"Impôts, taxes et versements assimilés";"3‐4";"""03""";"Consolidé"
-464;"FY";"Salaires et traitements";"3‐4";"""03""";"Consolidé"
-465;"FZ";"Charges sociales";"3‐4";"""03""";"Consolidé"
-466;"GA";"Dot. d’exploit. ‐ Dotations aux amortissements";"3‐4";"""03""";"Consolidé"
-467;"GB";"Dot. d’exploit. ‐ Dotations aux provisions";"3‐4";"""03""";"Consolidé"
-468;"GC";"Dot. d’exploit. Sur actif circulant : dotations aux provisions";"3‐4";"""03""";"Consolidé"
-469;"GD";"Dot. d’exploit. Pour risques et charges : dotations aux provisions";"3‐4";"""03""";"Consolidé"
-470;"GE";"Autres charges";"3‐4";"""03""";"Consolidé"
-471;"GF";"Total des charges d’exploitation (II)";"3‐4";"""03""";"Consolidé"
-472;"GG";"‐ RESULTAT D’EXPLOITATION (I ‐ II)";"3‐4";"""03""";"Consolidé"
-473;"GH";"Bénéfice attribué ou perte transférée (III)";"3‐4";"""03""";"Consolidé"
-474;"GI";"Perte supportée ou bénéfice transféré (IV)";"3‐4";"""03""";"Consolidé"
-475;"GJ";"Produits financiers de participations";"3‐4";"""03""";"Consolidé"
-476;"GK";"Produits des autres valeurs mobilières et créances de l’actif immobilisé";"3‐4";"""03""";"Consolidé"
-477;"GL";"Autres intérêts et produits assimilés";"3‐4";"""03""";"Consolidé"
-478;"GM";"Reprises sur provisions et transferts de charges";"3‐4";"""03""";"Consolidé"
-479;"GN";"Différences positives de change";"3‐4";"""03""";"Consolidé"
-480;"GO";"Produits nets sur cessions de valeurs mobilières de placement";"3‐4";"""03""";"Consolidé"
-481;"GP";"Total des produits financiers (V)";"3‐4";"""03""";"Consolidé"
-482;"GQ";"Dotations financières sur amortissements et provisions";"3‐4";"""03""";"Consolidé"
-483;"GR";"Intérêts et charges assimilées";"3‐4";"""03""";"Consolidé"
-484;"GS";"Différences négatives de change";"3‐4";"""03""";"Consolidé"
-485;"GT";"Charges nettes sur cessions de valeurs mobilières de placement";"3‐4";"""03""";"Consolidé"
-486;"GU";"Total des charges financières (VI)";"3‐4";"""03""";"Consolidé"
-487;"GV";"‐ RESULTAT FINANCIER (V ‐ VI)";"3‐4";"""03""";"Consolidé"
-488;"GW";"‐ RESULTAT COURANT AVANT IMPOTS (I ‐ II + III ‐ IV + V ‐ VI)";"3‐4";"""03""";"Consolidé"
-489;"HA";"Produits exceptionnels sur opérations de gestion";"1‐2";"""04""";"Consolidé"
-490;"HB";"Produits exceptionnels sur opérations en capital";"1‐2";"""04""";"Consolidé"
-491;"HC";"Reprises sur provisions et transferts de charges";"1‐2";"""04""";"Consolidé"
-492;"HD";"Total des produits exceptionnels (VII)";"1‐2";"""04""";"Consolidé"
-493;"HE";"Charges exceptionnelles sur opérations de gestion";"1‐2";"""04""";"Consolidé"
-494;"HF";"Charges exceptionnelles sur opérations en capital";"1‐2";"""04""";"Consolidé"
-495;"HG";"Dotations exceptionnelles aux amortissements et provisions";"1‐2";"""04""";"Consolidé"
-496;"HH";"Total des charges exceptionnelles (VIII)";"1‐2";"""04""";"Consolidé"
-497;"HI";"‐ RESULTAT EXCEPTIONNEL (VII ‐ VIII)";"1‐2";"""04""";"Consolidé"
-498;"HJ";"Participation des salariés aux résultats de l’entreprise";"1‐2";"""04""";"Consolidé"
-499;"HK";"Impôts sur les bénéfices";"1‐2";"""04""";"Consolidé"
-500;"R1";"Impôts différés";"1‐2";"""04""";"Consolidé"
-501;"R2";"‐ RESULTAT NET AVANT AMORTISSEMENT DES ECARTS D’ACQUISITION";"1‐2";"""04""";"Consolidé"
-502;"R3";"Dotation aux amortissements des écarts d’acquisition";"1‐2";"""04""";"Consolidé"
-503;"R4";"Résultat net des sociétés mises en équivalence";"1‐2";"""04""";"Consolidé"
-504;"R5";"Résultat net des entreprises intégrées";"1‐2";"""04""";"Consolidé"
-505;"R6";"Résultat Groupe (Résultat net consolidé)";"1‐2";"""04""";"Consolidé"
-506;"R7";"Part des intérêts minoritaires (Résultat hors groupe)";"1‐2";"""04""";"Consolidé"
-507;"R8";"Résultat net part du groupe (part de la société mère)";"1‐2";"""04""";"Consolidé"
-508;"HP";"Renvois : Crédit‐bail mobilier";"1‐2";"""04""";"Consolidé"
-509;"HQ";"Renvois : Crédit‐bail immobilier";"1‐2";"""04""";"Consolidé"
-510;"A1";"ACTIF ‐ Créances sur les Ets de crédit";"1‐2";"""01""";"Banque"
-511;"A2";"ACTIF ‐ Créances sur la clientèle";"1‐2";"""01""";"Banque"
-512;"A3";"TOTAL ACTIF";"1‐2";"""01""";"Banque"
-513;"P1";"PASSIF ‐ Dettes envers les Ets de crédit";"1‐2";"""01""";"Banque"
-514;"P2";"PASSIF ‐ Comptes créditeurs à la clientèle";"1‐2";"""01""";"Banque"
-515;"P3";"PASSIF ‐ Capital souscrit";"1‐2";"""01""";"Banque"
-516;"P4";"PASSIF ‐ Primes d’émission";"1‐2";"""01""";"Banque"
-517;"P5";"PASSIF ‐ Réserves";"1‐2";"""01""";"Banque"
-518;"P6";"PASSIF ‐ Ecarts de réévaluation";"1‐2";"""01""";"Banque"
-519;"P7";"PASSIF ‐ Report à nouveau";"1‐2";"""01""";"Banque"
-520;"P8";"PASSIF ‐ Résultat de l’exercice";"1‐2";"""01""";"Banque"
-521;"P9";"TOTAL PASSIF";"1‐2";"""01""";"Banque"
-522;"R1";"Compte de résultat ‐ Intérêts et produits assimilés";"1‐2";"""01""";"Banque"
-523;"R2";"Compte de résultat ‐ Intérêts et charges assimilées";"1‐2";"""01""";"Banque"
-524;"R3";"Compte de résultat ‐ Résultat de l’exercice";"1‐2";"""01""";"Banque"
-525;"A1";"ACTIF ‐ Placements";"1‐2";"""01""";"Assurance"
-526;"A2";"TOTAL ACTIF";"1‐2";"""01""";"Assurance"
-527;"P1";"PASSIF ‐ Capitaux propres";"1‐2";"""01""";"Assurance"
-528;"P2";"PASSIF ‐ Provisions techniques brutes";"1‐2";"""01""";"Assurance"
-529;"P3";"TOTAL PASSIF";"1‐2";"""01""";"Assurance"
-530;"R1";"Compte de résultat ‐ Primes ‐ Cotisations acquises";"1‐2";"""01""";"Assurance"
-531;"R2";"Compte de résultat ‐ Charges des sinistres";"1‐2";"""01""";"Assurance"
-532;"R3";"Compte de résultat ‐ Résultat technique";"1‐2";"""01""";"Assurance"
-533;"R4";"Compte de résultat ‐ Résultat de l’exercice";"1‐2";"""01""";"Assurance"
-534;209;"Ventes de marchandises – Export";1;"""02""";"Complet"
-535;215;"Production vendue de biens ‐ Export";1;"""02""";"Complet"
-536;217;"Production vendue de services ‐ Export";1;"""02""";"Complet"
-537;210;"Ventes de marchandises – France";"1‐2";"""02""";"Complet"
-538;214;"Production vendue de biens – France";"1‐2";"""02""";"Complet"
-539;218;"Production vendue de services ‐ France";"1‐2";"""02""";"Complet"
-540;222;"Production stockée";"1‐2";"""02""";"Complet"
-541;224;"Production immobilisée";"1‐2";"""02""";"Complet"
-542;226;"Subventions d’exploitation reçues";"1‐2";"""02""";"Complet"
-543;230;"Autres produits";"1‐2";"""02""";"Complet"
-544;232;"Total des produits d’exploitation hors T.V.A.";"1‐2";"""02""";"Complet"
-545;234;"Achats de marchandises (y compris droits de douane)";"1‐2";"""02""";"Complet"
-546;236;"Variation de stock (marchandises)";"1‐2";"""02""";"Complet"
-547;238;"Achats de matières premières et autres approvisionnements (y compris droits de";"1‐2";"""02""";"Complet"
-548;240;"Variation de stock (matières premières et approvisionnement)";"1‐2";"""02""";"Complet"
-549;"24B";"(dont crédit bail mobilier)*";1;"""02""";"Complet"
-550;"24A";"(dont crédit bail immobilier)*";1;"""02""";"Complet"
-551;242;"Autres charges externes*";"1‐2";"""02""";"Complet"
-552;243;"(dont taxe professionnelle)";1;"""02""";"Complet"
-553;244;"Impôts, taxes et versements assimilés";"1‐2";"""02""";"Complet"
-554;250;"Rémunérations du personnel";"1‐2";"""02""";"Complet"
-555;252;"Charges sociales";"1‐2";"""02""";"Complet"
-556;254;"Dotations aux amortissements";"1‐2";"""02""";"Complet"
-557;256;"Dotations aux provisions";"1‐2";"""02""";"Complet"
-558;259;"(dont provisions fiscales pour implantations commerciales à l’étranger)";1;"""02""";"Complet"
-559;262;"Autres charges";"1‐2";"""02""";"Complet"
-560;264;"Total des charges d’exploitation";"1‐2";"""02""";"Complet"
-561;270;"Résultat d’exploitation";"1‐2";"""02""";"Complet"
-562;280;"Produits financiers";"1‐2";"""02""";"Complet"
-563;290;"Produits exceptionnels";"1‐2";"""02""";"Complet"
-564;294;"Charges financières";"1‐2";"""02""";"Complet"
-565;300;"Charges exceptionnelles";"1‐2";"""02""";"Complet"
-566;306;"Impôts sur les bénéfices";"1‐2";"""02""";"Complet"
-567;310;"Bénéfice ou perte";"1‐2";"""02""";"Complet"
-568;316;"Rémunération et avantages personnels non déductibles";1;"""02""";"Complet"
-569;374;"Montant de la T.V.A. collectée";1;"""02""";"Complet"
-570;378;"Montant de la T.V.A. déductible sur biens et services";1;"""02""";"Complet"
+ordre originel;code;description;colonnes remplies;page;type compte
+1;AA;Capital souscrit non appelé;1‐3‐4;"""01""";Complet
+2;AB;Frais d’établissement;1‐2‐3‐4;"""01""";Complet
+3;CX;Frais de développement ou de recherche et développement;1‐2‐3‐4;"""01""";Complet
+4;AF;Concessions, brevets et droits similaires;1‐2‐3‐4;"""01""";Complet
+5;AH;Fonds commercial;1‐2‐3‐4;"""01""";Complet
+6;AJ;Autres immobilisations incorporelles;1‐2‐3‐4;"""01""";Complet
+7;AL;Avances et acomptes sur immobilisations incorporelles.;1‐2‐3‐4;"""01""";Complet
+8;AN;Terrains;1‐2‐3‐4;"""01""";Complet
+9;AP;Constructions;1‐2‐3‐4;"""01""";Complet
+10;AR;Installations techniques, matériel et outillage industriels;1‐2‐3‐4;"""01""";Complet
+11;AT;Autres immobilisations corporelles;1‐2‐3‐4;"""01""";Complet
+12;AV;Immobilisations en cours;1‐2‐3‐4;"""01""";Complet
+13;AX;Avances et acomptes;1‐2‐3‐4;"""01""";Complet
+14;CS;Participations évaluées ‐ mise en équivalence;1‐2‐3‐4;"""01""";Complet
+15;CU;Autres participations;1‐2‐3‐4;"""01""";Complet
+16;BB;Créances rattachées à des participations;1‐2‐3‐4;"""01""";Complet
+17;BD;Autres titres immobilisés;1‐2‐3‐4;"""01""";Complet
+18;BF;Prêts;1‐2‐3‐4;"""01""";Complet
+19;BH;Autres immobilisations financières;1‐2‐3‐4;"""01""";Complet
+20;BJ;TOTAL I;1‐2‐3‐4;"""01""";Complet
+21;BL;Matières premières, approvisionnements;1‐2‐3‐4;"""01""";Complet
+22;BN;En cours de production de biens;1‐2‐3‐4;"""01""";Complet
+23;BP;En cours de production de services;1‐2‐3‐4;"""01""";Complet
+24;BR;Produits intermédiaires et finis;1‐2‐3‐4;"""01""";Complet
+25;BT;Marchandises;1‐2‐3‐4;"""01""";Complet
+26;BV;Avances et acomptes versés sur commandes;1‐2‐3‐4;"""01""";Complet
+27;BX;Clients et comptes rattachés;1‐2‐3‐4;"""01""";Complet
+28;BZ;Autres créances;1‐2‐3‐4;"""01""";Complet
+29;CB;Capital souscrit et appelé, non versé;1‐2‐3‐4;"""01""";Complet
+30;CD;Valeurs mobilières de placement;1‐2‐3‐4;"""01""";Complet
+31;CF;Disponibilités;1‐2‐3‐4;"""01""";Complet
+32;CH;Charges constatées d’avance;1‐2‐3‐4;"""01""";Complet
+33;CJ;TOTAL II;1‐2‐3‐4;"""01""";Complet
+34;CW;Charges à répartir ou frais d’émission d’emprunt;1‐3‐4;"""01""";Complet
+35;CM;Primes de remboursement des obligations IV;1‐2‐3‐4;"""01""";Complet
+36;CN;Ecarts de conversion actif V;1‐3‐4;"""01""";Complet
+37;CO;TOTAL GENERAL 0 à V;1‐2‐3‐4;"""01""";Complet
+38;CP;Parts à moins d’un an;1;"""01""";Complet
+39;CR;Parts à plus d’un an;1;"""01""";Complet
+40;DA;Capital social ou individuel;1‐2;"""02""";Complet
+41;DB;Primes d’émission, de fusion, d’apport, ...;1‐2;"""02""";Complet
+42;EK;(dont écart d’équivalence);1;"""02""";Complet
+43;DC;Ecarts de réévaluation;1‐2;"""02""";Complet
+44;DD;Réserve légale (1);1‐2;"""02""";Complet
+45;DE;Réserves statutaires ou contractuelles;1‐2;"""02""";Complet
+46;B1;(dont réserve spéciale des provisions pour fluctuation des cours);1;"""02""";Complet
+47;DF;Réserves réglementées (1);1‐2;"""02""";Complet
+48;EJ;(dont réserve relative à l’achat d’œuvres originales d’artistes vivants);1;"""02""";Complet
+49;DG;Autres réserves;1‐2;"""02""";Complet
+50;DH;Report à nouveau;1‐2;"""02""";Complet
+51;DI;RESULTAT DE L’EXERCICE (bénéfice ou perte);1‐2;"""02""";Complet
+52;DJ;Subventions d’investissement;1‐2;"""02""";Complet
+53;DK;Provisions réglementées;1‐2;"""02""";Complet
+54;DL;TOTAL (I);1‐2;"""02""";Complet
+55;DM;Produit des émissions de titres participatifs;1‐2;"""02""";Complet
+56;DN;Avances conditionnées;1‐2;"""02""";Complet
+57;DO;TOTAL (II);1‐2;"""02""";Complet
+58;DP;Provisions pour risques;1‐2;"""02""";Complet
+59;DQ;Provisions pour charges;1‐2;"""02""";Complet
+60;DR;TOTAL (III);1‐2;"""02""";Complet
+61;DS;Emprunts obligataires convertibles;1‐2;"""02""";Complet
+62;DT;Autres emprunts obligataires;1‐2;"""02""";Complet
+63;DU;Emprunts et dettes auprès des établissements de crédit (3);1‐2;"""02""";Complet
+64;DV;Emprunts et dettes financières divers (4);1‐2;"""02""";Complet
+65;DW;Avances et acomptes reçus sur commandes en cours;1‐2;"""02""";Complet
+66;DX;Dettes fournisseurs et comptes rattachés;1‐2;"""02""";Complet
+67;DY;Dettes fiscales et sociales;1‐2;"""02""";Complet
+68;DZ;Dettes sur immobilisations et comptes rattachés;1‐2;"""02""";Complet
+69;EA;Autres dettes;1‐2;"""02""";Complet
+70;EB;Produits constatés d’avance (2);1‐2;"""02""";Complet
+71;EC;TOTAL (IV);1‐2;"""02""";Complet
+72;ED;(V);1‐2;"""02""";Complet
+73;EE;TOTAL GENERAL (I à V);1‐2;"""02""";Complet
+74;EF;Dont réserve réglementée des plus‐values à long terme;1‐2;"""02""";Complet
+75;EG;Dettes et produits constatés d’avance à moins d’un an;1‐2;"""02""";Complet
+76;EH;Dont concours bancaires courants, et soldes créditeurs de banques et C.C.P.;1‐2;"""02""";Complet
+77;EI;Dont emprunts participatifs;1;"""02""";Complet
+78;FA;Ventes de marchandises;1‐2‐3‐4;"""03""";Complet
+79;FD;Production vendue biens;1‐2‐3‐4;"""03""";Complet
+80;FG;Production vendue services;1‐2‐3‐4;"""03""";Complet
+81;FJ;Chiffres d’affaires nets;1‐2‐3‐4;"""03""";Complet
+82;FM;Production stockée;3‐4;"""03""";Complet
+83;FN;Production immobilisée;3‐4;"""03""";Complet
+84;FO;Subventions d’exploitation;3‐4;"""03""";Complet
+85;FP;Reprises sur amortissements et provisions, transfert de charges;3‐4;"""03""";Complet
+86;FQ;Autres produits;3‐4;"""03""";Complet
+87;FR;Total des produits d’exploitation (I);3‐4;"""03""";Complet
+88;FS;Achats de marchandises (y compris droits de douane);3‐4;"""03""";Complet
+89;FT;Variation de stock (marchandises);3‐4;"""03""";Complet
+90;FU;Achats de matières premières et autres approvisionnements;3‐4;"""03""";Complet
+91;FV;Variation de stock (matières premières et approvisionnements);3‐4;"""03""";Complet
+92;FW;Autres achats et charges externes;3‐4;"""03""";Complet
+93;FX;Impôts, taxes et versements assimilés;3‐4;"""03""";Complet
+94;FY;Salaires et traitements;3‐4;"""03""";Complet
+95;FZ;Charges sociales;3‐4;"""03""";Complet
+96;GA;Dot. d’exploit. ‐ Dotations aux amortissements;3‐4;"""03""";Complet
+97;GB;Dot. d’exploit. ‐ Dotations aux provisions;3‐4;"""03""";Complet
+98;GC;Dot. d’exploit. Sur actif circulant : dotations aux provisions;3‐4;"""03""";Complet
+99;GD;Dot. d’exploit. Pour risques et charges : dotations aux provisions;3‐4;"""03""";Complet
+100;GE;Autres charges;3‐4;"""03""";Complet
+101;GF;Total des charges d’exploitation (II);3‐4;"""03""";Complet
+102;GG;‐ RESULTAT D’EXPLOITATION (I ‐ II);3‐4;"""03""";Complet
+103;GH;Bénéfice attribué ou perte transférée;3‐4;"""03""";Complet
+104;GI;Perte supportée ou bénéfice transféré;3‐4;"""03""";Complet
+105;GJ;Produits financiers de participations;3‐4;"""03""";Complet
+106;GK;Produits des autres valeurs mobilières et créances de l’actif immobilisé;3‐4;"""03""";Complet
+107;GL;Autres intérêts et produits assimilés;3‐4;"""03""";Complet
+108;GM;Reprises sur provisions et transferts de charges financier;3‐4;"""03""";Complet
+109;GN;Différences positives de change;3‐4;"""03""";Complet
+110;GO;Produits nets sur cessions de valeurs mobilières de placement;3‐4;"""03""";Complet
+111;GP;Total des produits financiers (V);3‐4;"""03""";Complet
+112;GQ;Dotations financières sur amortissements et provisions;3‐4;"""03""";Complet
+113;GR;Intérêts et charges assimilées;3‐4;"""03""";Complet
+114;GS;Différences négatives de change;3‐4;"""03""";Complet
+115;GT;Charges nettes sur cessions de valeurs mobilières de placement;3‐4;"""03""";Complet
+116;GU;Total des charges financières (VI);3‐4;"""03""";Complet
+117;GV;‐ RESULTAT FINANCIER (V ‐ VI);3‐4;"""03""";Complet
+118;GW;‐ RESULTAT COURANT AVANT IMPOTS (I ‐ II + III ‐ IV + V ‐ VI);3‐4;"""03""";Complet
+119;HA;Produits exceptionnels sur opérations de gestion;1‐2;"""04""";Complet
+120;HB;Produits exceptionnels sur opérations en capital;1‐2;"""04""";Complet
+121;HC;Reprises sur provisions et transferts de charges exceptionnel;1‐2;"""04""";Complet
+122;HD;Total des produits exceptionnels (VII);1‐2;"""04""";Complet
+123;HE;Charges exceptionnelles sur opérations de gestion;1‐2;"""04""";Complet
+124;HF;Charges exceptionnelles sur opérations en capital;1‐2;"""04""";Complet
+125;HG;Dotations exceptionnelles aux amortissements et provisions;1‐2;"""04""";Complet
+126;HH;Total des charges exceptionnelles (VIII);1‐2;"""04""";Complet
+127;HI;‐ RESULTAT EXCEPTIONNEL (VII ‐ VIII);1‐2;"""04""";Complet
+128;HJ;Participation des salariés aux résultats de l’entreprise;1‐2;"""04""";Complet
+129;HK;Impôts sur les bénéfices;1‐2;"""04""";Complet
+130;HL;TOTAL DES PRODUITS (I + III + V +VII);1‐2;"""04""";Complet
+131;HM;TOTAL DES CHARGES (II + IV + VI + VIII + IX + X);1‐2;"""04""";Complet
+132;HN;BENEFICE OU PERTE (Total des produits ‐ Total des charges);1‐2;"""04""";Complet
+133;HP;Renvois : Crédit‐bail mobilier;1‐2;"""04""";Complet
+134;HQ;Renvois : Crédit‐bail immobilier;1‐2;"""04""";Complet
+135;A1;Renvois : Transfert de charges;1‐2;"""04""";Complet
+136;A2;Renvois : Cotisations personnelles de l’exploitant;1‐2;"""04""";Complet
+137;A3;Renvois : Redevances pour concessions de brevets, de licences (produits);1‐2;"""04""";Complet
+138;A4;Renvois : Redevances pour concessions de brevets, de licences (charges);1‐2;"""04""";Complet
+139;CZ;ACQUISITIONS Frais d’établissement, et de développement ou de recherche;1‐2‐3;"""05""";Complet
+140;KD;ACQUISITIONS Total dont autres postes d’immobilisations incorporelles;1‐2‐3;"""05""";Complet
+141;LN;ACQUISITIONS Total Immobilisations corporelles;1‐2‐3;"""05""";Complet
+142;LQ;ACQUISITIONS Total Immobilisations financières;1‐2‐3;"""05""";Complet
+143;0G;ACQUISITIONS Total Général;1‐2‐3;"""05""";Complet
+144;IN;DIMINUTIONS Frais d’établissement, et de développement ou de recherche;1‐2‐3;"""05""";Complet
+145;IO;DIMINUTIONS Total dont autres postes d’immobilisations incorporelles;1‐2‐3;"""05""";Complet
+146;MY;DIMINUTIONS Virement postes immobilisations corporelles en cours;1;"""05""";Complet
+147;NC;DIMINUTIONS Virement postes ‐ Avances et acomptes;1;"""05""";Complet
+148;IY;DIMINUTIONS Total Immobilisations corporelles;1‐2‐3;"""05""";Complet
+149;I2;DIMINUTIONS Prêts et immobilisations financières;2;"""05""";Complet
+150;I3;DIMINUTIONS Total Immobilisations financières;1‐2‐3;"""05""";Complet
+151;I4;DIMINUTIONS Total Général;1‐2‐3;"""05""";Complet
+152;CY;AMORTISSEMENTS Frais d’établissement, et de développement ou de recherche;1‐2‐3‐4;"""06""";Complet
+153;PE;AMORTISSEMENTS Total dont autres immobilisations incorporelles;1‐2‐3‐4;"""06""";Complet
+154;QU;AMORTISSEMENTS Total Immobilisations corporelles;1‐2‐3‐4;"""06""";Complet
+155;0N;AMORTISSEMENTS Total Général;1‐2‐3‐4;"""06""";Complet
+156;Z9;Charges à répartir ou frais d’émission d’emprunt;1‐2‐3‐4;"""06""";Complet
+157;SP;mvt. sur charges rép. ‐ Primes de remboursement des obligations;1‐2‐3‐4;"""06""";Complet
+158;3X;Amortissements dérogatoires;4;"""07""";Complet
+159;3Z;Total Provisions réglementées;1‐2‐3‐4;"""07""";Complet
+160;4A;Provisions pour litiges;4;"""07""";Complet
+161;4E;Provisions pour garanties données aux clients;4;"""07""";Complet
+162;4J;Provisions pour perte sur marchés à terme;4;"""07""";Complet
+163;4N;Provisions pour amendes et pénalités;4;"""07""";Complet
+164;4T;Provisions pour perte de change;4;"""07""";Complet
+165;4X;Provisions pour pensions et obligations similaires;4;"""07""";Complet
+166;5B;Provisions pour impôts;4;"""07""";Complet
+167;5F;Provisions pour renouvellement des immobilisations;4;"""07""";Complet
+168;EO;Provisions pour gros entretien et grandes révisions ou grosses réparations;4;"""07""";Complet
+169;5R;Provisions pour charges sociales et fiscales sur congés à payer;1‐2‐3‐4;"""07""";Complet
+170;5V;Autres provisions pour risques et charges;4;"""07""";Complet
+171;5Z;Total Provisions pour risques et charges;1‐2‐3‐4;"""07""";Complet
+172;6A;sur immobilisations – incorporelles;1‐2‐3‐4;"""07""";Complet
+173;6E;sur immobilisations – corporelles;1‐2‐3‐4;"""07""";Complet
+174;2;sur immobilisations – titres mis en équivalence;1‐2‐3‐4;"""07""";Complet
+175;9U;sur immobilisations – titres de participation;4;"""07""";Complet
+176;6;sur immobilisations –autres immobilisations financières;1‐2‐3‐4;"""07""";Complet
+177;6N;Sur stocks et en cours;1‐2‐3‐4;"""07""";Complet
+178;6T;Sur comptes clients;1‐2‐3‐4;"""07""";Complet
+179;6X;Autres provisions pour dépréciation;1‐2‐3‐4;"""07""";Complet
+180;7B;Total Provisions pour dépréciation;1‐2‐3‐4;"""07""";Complet
+181;7C;TOTAL GENERAL;1‐2‐3‐4;"""07""";Complet
+182;UE;dont dotations et reprises : ‐ d’Exploitation;1‐2‐3‐4;"""07""";Complet
+183;UG;‐ Financières;1‐2‐3‐4;"""07""";Complet
+184;UJ;‐ Exceptionnelles;1‐2‐3‐4;"""07""";Complet
+185;UL;Créances rattachées à des participations;1‐2‐3;"""08""";Complet
+186;UP;Prêts;1‐2‐3;"""08""";Complet
+187;UT;Autres immobilisations financières;1‐2‐3;"""08""";Complet
+188;VA;Clients douteux ou litigieux;1‐2‐3;"""08""";Complet
+189;UX;Autres créances clients;1‐2‐3;"""08""";Complet
+190;UO;(provision pour dépréciation antérieurement constituée);1;"""08""";Complet
+191;Z1;Créances représentatives de titres prêtés;1‐2‐3;"""08""";Complet
+192;UY;Personnel et comptes rattachés;1‐2‐3;"""08""";Complet
+193;UZ;Sécurité Sociale, autres organismes sociaux;1‐2‐3;"""08""";Complet
+194;VM;Impôts sur les bénéfices;1‐2‐3;"""08""";Complet
+195;VB;T. V. A.;1‐2‐3;"""08""";Complet
+196;VN;Autres impôts, taxes versements assimilés;1‐2‐3;"""08""";Complet
+197;VP;Divers;1‐2‐3;"""08""";Complet
+198;VC;Groupe et associés;1‐2‐3;"""08""";Complet
+199;VR;Débiteurs divers (dont créances relatives à des opérations de pension de titres);1‐2‐3;"""08""";Complet
+200;VS;Charges constatées d’avance;1‐2‐3;"""08""";Complet
+201;VT;TOTAL – ETAT DES CREANCES;1‐2‐3;"""08""";Complet
+202;7Y;Emprunts obligataires convertibles brut à un an au plus;1‐2‐3‐4;"""08""";Complet
+203;7Z;Autres emprunts obligataires brut à un an au plus;1‐2‐3‐4;"""08""";Complet
+204;VG;Emprunts à 1 an maximum à l’origine;1‐2‐3‐4;"""08""";Complet
+205;VH;Emprunts à plus d’1 an à l’origine;1‐2‐3‐4;"""08""";Complet
+206;8A;Emprunts et dettes financières divers;1‐2‐3‐4;"""08""";Complet
+207;8B;Fournisseurs et comptes rattachés;1‐2‐3‐4;"""08""";Complet
+208;8C;Personnel et comptes rattachés;1‐2‐3‐4;"""08""";Complet
+209;8D;Sécurité sociale et autres organismes sociaux;1‐2‐3‐4;"""08""";Complet
+210;8E;Impôts sur les bénéfices;1‐2‐3‐4;"""08""";Complet
+211;VW;T.V.A.;1‐2‐3‐4;"""08""";Complet
+212;VX;Obligations cautionnées;1‐2‐3‐4;"""08""";Complet
+213;VQ;Autres impôts, taxes et assimilés;1‐2‐3‐4;"""08""";Complet
+214;8J;Dettes sur immobilisations et comptes rattachés;1‐2‐3‐4;"""08""";Complet
+215;VI;Groupe et associés;1‐2‐3‐4;"""08""";Complet
+216;8K;Autres dettes (dont dettes relatives à des opérations de pension de titre);1‐2‐3‐4;"""08""";Complet
+217;Z2;Dette représentative de titres empruntés;1‐2‐3‐4;"""08""";Complet
+218;8L;Produits constatés d’avance;1‐2‐3‐4;"""08""";Complet
+219;VY;TOTAL – ETAT DES DETTES;1‐2‐3‐4;"""08""";Complet
+220;VJ;Emprunts souscrits en cours d’exercice;1‐2‐3‐4;"""08""";Complet
+221;VK;Emprunts remboursés en cours d’exercice;1;"""08""";Complet
+222;ZE;Dividendes;1‐2;"""11""";Complet
+223;YQ;Engagement de crédit‐bail mobilier;1‐2;"""11""";Complet
+224;YR;Engagement de crédit‐bail immobilier;1‐2;"""11""";Complet
+225;YS;Effets portés à l’escompte et non échus;1‐2;"""11""";Complet
+226;YT;Sous‐traitance;1‐2;"""11""";Complet
+227;XQ;Location, charges locatives et de copropriété;1‐2;"""11""";Complet
+228;YU;Personnel extérieur à l’entreprise;1‐2;"""11""";Complet
+229;SS;Rémunération d’intermédiaires et honoraires (hors rétrocessions);1‐2;"""11""";Complet
+230;YV;Rétrocessions d’honoraires, commissions et courtages;1‐2;"""11""";Complet
+231;ST;Autres comptes;1‐2;"""11""";Complet
+232;ZJ;Total du poste correspondant à la ligne FW du tableau n° 2052;1‐2;"""11""";Complet
+233;YW;Taxe professionnelle;1‐2;"""11""";Complet
+234;9Z;Autres impôts, taxes et versements assimilés;1‐2;"""11""";Complet
+235;YX;Total du compte correspondant à la ligne FX du tableau n° 2052;1‐2;"""11""";Complet
+236;YY;Montant de la TVA. collectée;1‐2;"""11""";Complet
+237;YZ;Total TVA. déductible sur biens et services;1‐2;"""11""";Complet
+238;YP;Effectif moyen du personnel;1‐2;"""11""";Complet
+239;ZR;Filiales et participations;1;"""11""";Complet
+240;YP;Effectif moyen du personnel;1-2;"""16""";Complet
+241;10;Immobilisations incorporelles ‐ Fonds commercial;1‐2‐3‐4;"""01""";Simplifié
+242;14;Immobilisations incorporelles – Autres;1‐2‐3‐4;"""01""";Simplifié
+243;28;Immobilisations corporelles;1‐2‐3‐4;"""01""";Simplifié
+244;40;Immobilisations financières;1‐2‐3‐4;"""01""";Simplifié
+245;44;Total Actif Immobilisé;1‐2‐3‐4;"""01""";Simplifié
+246;50;Matières premières, approvisionnements, en cours de production;1‐2‐3‐4;"""01""";Simplifié
+247;60;Stock marchandises;1‐2‐3‐4;"""01""";Simplifié
+248;64;Avances et acomptes versés sur commandes;1‐2‐3‐4;"""01""";Simplifié
+249;68;Créances – Clients et comptes rattachés;1‐2‐3‐4;"""01""";Simplifié
+250;72;Créances – Autres;1‐2‐3‐4;"""01""";Simplifié
+251;80;Valeurs mobilières de placement;1‐2‐3‐4;"""01""";Simplifié
+252;84;Disponibilités;1‐2‐3‐4;"""01""";Simplifié
+253;88;Caisse;1‐2‐3‐4;"""01""";Simplifié
+254;92;Charges constatées d’avance;1‐2‐3‐4;"""01""";Simplifié
+255;96;Total Actif circulant + Charges constatées d’avance;1‐2‐3‐4;"""01""";Simplifié
+256;110;Total général Actif;1‐2‐3‐4;"""01""";Simplifié
+257;120;Capital social ou individuel;3‐4;"""01""";Simplifié
+258;124;Ecarts de réévaluation;3‐4;"""01""";Simplifié
+259;126;Réserve légale;3‐4;"""01""";Simplifié
+260;130;Réserves réglementées;3‐4;"""01""";Simplifié
+261;132;Autres réserves;3‐4;"""01""";Simplifié
+262;134;Report à nouveau;3‐4;"""01""";Simplifié
+263;136;Résultat de l’exercice;3‐4;"""01""";Simplifié
+264;140;Provisions réglementées;3‐4;"""01""";Simplifié
+265;142;Total des capitaux propres ‐ Total I;3‐4;"""01""";Simplifié
+266;154;Provisions pour risques et charges ‐ Total II;3‐4;"""01""";Simplifié
+267;156;Emprunts et dettes assimilées;3‐4;"""01""";Simplifié
+268;164;Avances et acomptes reçus sur commandes en cours;3‐4;"""01""";Simplifié
+269;166;Fournisseurs et comptes rattachés;3‐4;"""01""";Simplifié
+270;169;Autres dettes dont comptes courant d’associés de l’exercice N;2;"""01""";Simplifié
+271;172;Autres dettes;3‐4;"""01""";Simplifié
+272;174;Produits constatés d’avance;3‐4;"""01""";Simplifié
+273;176;Total des dettes;3‐4;"""01""";Simplifié
+274;180;Total général Passif;3‐4;"""01""";Simplifié
+275;193;Dont immobilisations financières à moins d’un an;3;"""01""";Simplifié
+276;195;Dont dettes à plus d’un an;3‐4;"""01""";Simplifié
+277;197;Dont créances à plus d’un an;3;"""01""";Simplifié
+278;182;Coût de revient des immobilisations acquises ou créées au cours de l’exercice;3‐4;"""01""";Simplifié
+279;199;Dont comptes courant d’associés débiteurs;3;"""01""";Simplifié
+280;184;Prix de vente hors T.V.A. des immobilisations cédées au cours de l’exercice;3‐4;"""01""";Simplifié
+281;209;Ventes de marchandises – Export;1;"""02""";Simplifié
+282;215;Production vendue de biens ‐ Export;1;"""02""";Simplifié
+283;217;Production vendue de services ‐ Export;1;"""02""";Simplifié
+284;210;Ventes de marchandises – France;1‐2;"""02""";Simplifié
+285;214;Production vendue de biens – France;1‐2;"""02""";Simplifié
+286;218;Production vendue de services ‐ France;1‐2;"""02""";Simplifié
+287;222;Production stockée;1‐2;"""02""";Simplifié
+288;224;Production immobilisée;1‐2;"""02""";Simplifié
+289;226;Subventions d’exploitation reçues;1‐2;"""02""";Simplifié
+290;230;Autres produits;1‐2;"""02""";Simplifié
+291;232;Total des produits d’exploitation hors T.V.A.;1‐2;"""02""";Simplifié
+292;234;Achats de marchandises (y compris droits de douane);1‐2;"""02""";Simplifié
+293;236;Variation de stock (marchandises);1‐2;"""02""";Simplifié
+294;238;Achats de matières premières et autres approvisionnements (y compris droits de;1‐2;"""02""";Simplifié
+295;240;Variation de stock (matières premières et approvisionnement);1‐2;"""02""";Simplifié
+296;24B;(dont crédit bail mobilier)*;1;"""02""";Simplifié
+297;24A;(dont crédit bail immobilier)*;1;"""02""";Simplifié
+298;242;Autres charges externes*;1‐2;"""02""";Simplifié
+299;243;(dont taxe professionnelle);1;"""02""";Simplifié
+300;244;Impôts, taxes et versements assimilés;1‐2;"""02""";Simplifié
+301;250;Rémunérations du personnel;1‐2;"""02""";Simplifié
+302;252;Charges sociales;1‐2;"""02""";Simplifié
+303;254;Dotations aux amortissements;1‐2;"""02""";Simplifié
+304;256;Dotations aux provisions;1‐2;"""02""";Simplifié
+305;259;(dont provisions fiscales pour implantations commerciales à l’étranger);1;"""02""";Simplifié
+306;262;Autres charges;1‐2;"""02""";Simplifié
+307;264;Total des charges d’exploitation;1‐2;"""02""";Simplifié
+308;270;Résultat d’exploitation;1‐2;"""02""";Simplifié
+309;280;Produits financiers;1‐2;"""02""";Simplifié
+310;290;Produits exceptionnels;1‐2;"""02""";Simplifié
+311;294;Charges financières;1‐2;"""02""";Simplifié
+312;300;Charges exceptionnelles;1‐2;"""02""";Simplifié
+313;306;Impôts sur les bénéfices;1‐2;"""02""";Simplifié
+314;310;Bénéfice ou perte;1‐2;"""02""";Simplifié
+315;316;Rémunération et avantages personnels non déductibles;1;"""02""";Simplifié
+316;374;Montant de la T.V.A. collectée;1;"""02""";Simplifié
+317;376;Effectif moyen du personnel;1;"""02""";Simplifié
+318;378;Montant de la T.V.A. déductible sur biens et services;1;"""02""";Simplifié
+319;402;AUGMENTATIONS Immobilisations incorporelles – Fonds commercial;1;"""03""";Simplifié
+320;404;DIMINUTIONS Immobilisations incorporelles – Fonds commercial;1;"""03""";Simplifié
+321;412;AUGMENTATIONS Immobilisations incorporelles –Autres immobilisations;1;"""03""";Simplifié
+322;414;DIMINUTIONS Immobilisations incorporelles –Autres immobilisations incorporelles;1;"""03""";Simplifié
+323;422;AUGMENTATIONS Imm. corporelles – Terrains;1;"""03""";Simplifié
+324;432;AUGMENTATIONS Imm. corporelles – Constructions;1;"""03""";Simplifié
+325;442;AUGMENTATIONS Imm. corporelles – Installations techniques matériel et outillage;1;"""03""";Simplifié
+326;452;AUGMENTATIONS Imm. corporelles – Installations générales, agencements divers;1;"""03""";Simplifié
+327;462;AUGMENTATIONS Imm. corporelles – Matériel de transport;1;"""03""";Simplifié
+328;472;AUGMENTATIONS Imm. corporelles – Autres immobilisations corporelles;1;"""03""";Simplifié
+329;482;AUGMENTATIONS Immobilisations financières;1;"""03""";Simplifié
+330;484;DIMINUTIONS Immobilisations financières;1;"""03""";Simplifié
+331;490;Total Immobilisations (Valeur brute);1;"""03""";Simplifié
+332;492;Total Immobilisations (Augmentations);1;"""03""";Simplifié
+333;494;Total Immobilisations (Diminutions);1;"""03""";Simplifié
+334;582;Total Plus‐values, Moins‐values (Valeur résiduelle);1;"""03""";Simplifié
+335;584;Total Plus‐values, Moins‐values (Prix de cession);1;"""03""";Simplifié
+336;585;Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Long terme ‐ 19%);1;"""03""";Simplifié
+337;596;Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Court terme);1;"""03""";Simplifié
+338;597;Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Long terme ‐ 12,8-15%);1;"""03""";Simplifié
+339;599;Total Immobilisations – Amortissement ‐ Plus‐values, Moins‐values (Long terme ‐ 0%);1;"""03""";Simplifié
+340;602;AUGMENTATIONS Provisions réglementées – Amortissements dérogatoires;1;"""04""";Simplifié
+341;603;AUGMENTATIONS Provisions réglementées – Dont majorations exceptionnelles de;1;"""04""";Simplifié
+342;612;AUGMENTATIONS Provisions réglementées – Autres provisions réglementées;1;"""04""";Simplifié
+343;622;AUGMENTATIONS Provisions pour risques et charges;1;"""04""";Simplifié
+344;632;AUGMENTATIONS Provisions pour dépréciation – Sur immobilisations;1;"""04""";Simplifié
+345;642;AUGMENTATIONS Provisions pour dépréciation – Sur stocks et en cours;1;"""04""";Simplifié
+346;652;AUGMENTATIONS Provisions pour dépréciation – Sur clients et comptes rattachés;1;"""04""";Simplifié
+347;662;AUGMENTATIONS Provisions pour dépréciation – Autres provisions pour;1;"""04""";Simplifié
+348;682;AUGMENTATIONS Total Relevé des provisions;1;"""04""";Simplifié
+349;604;DIMINUTIONS Provisions réglementées – Amortissements dérogatoires;1;"""04""";Simplifié
+350;605;DIMINUTIONS Provisions réglementées – Dont majorations exceptionnelles de 30%;1;"""04""";Simplifié
+351;614;DIMINUTIONS Provisions réglementées – Autres provisions réglementées;1;"""04""";Simplifié
+352;624;DIMINUTIONS Provisions pour risques et charges;1;"""04""";Simplifié
+353;634;DIMINUTIONS Provisions pour dépréciation – Sur immobilisations;1;"""04""";Simplifié
+354;644;DIMINUTIONS Provisions pour dépréciation – Sur stocks et en cours;1;"""04""";Simplifié
+355;654;DIMINUTIONS Provisions pour dépréciation – Sur clients et comptes rattachés;1;"""04""";Simplifié
+356;664;DIMINUTIONS Provisions pour dépréciation – Autres provisions pour dépréciation;1;"""04""";Simplifié
+357;684;DIMINUTIONS Total Relevé des provisions;1;"""04""";Simplifié
+358;374;DIVERS Montant de la TVA collectée;1;"""04""";Simplifié
+359;378;DIVERS Montant de la TVA déductible sur biens et services (sauf immobilisations);1;"""04""";Simplifié
+360;376;Effectifs moyens du personnel;1‐2;"""05""";Simplifié
+361;AA;Capital souscrit non appelé;1‐3‐4;"""01""";Consolidé
+362;AB;Frais d’établissement;1‐2‐3‐4;"""01""";Consolidé
+363;CX;Frais de développement ou de recherche et développement;1‐2‐3‐4;"""01""";Consolidé
+364;AF;Concessions, brevets et droits similaires;1‐2‐3‐4;"""01""";Consolidé
+365;AH;Fonds commercial;1‐2‐3‐4;"""01""";Consolidé
+366;AJ;Autres immobilisations incorporelles;1‐2‐3‐4;"""01""";Consolidé
+367;AL;Avances et acomptes sur immobilisations incorporelles.;1‐2‐3‐4;"""01""";Consolidé
+368;A1;Ecarts d’acquisition;1‐2‐3‐4;"""01""";Consolidé
+369;A2;Sur valeurs ‐ goodwill;1‐2‐3‐4;"""01""";Consolidé
+370;A3;Différence de première consolidation;1‐2‐3‐4;"""01""";Consolidé
+371;AN;Terrains;1‐2‐3‐4;"""01""";Consolidé
+372;AP;Constructions;1‐2‐3‐4;"""01""";Consolidé
+373;AR;Installations techniques, matériel et outillage industriels;1‐2‐3‐4;"""01""";Consolidé
+374;AT;Autres immobilisations corporelles;1‐2‐3‐4;"""01""";Consolidé
+375;AV;Immobilisations en cours;1‐2‐3‐4;"""01""";Consolidé
+376;AX;Avances et acomptes;1‐2‐3‐4;"""01""";Consolidé
+377;CS;Participations évaluées ‐ mise en équivalence;1‐2‐3‐4;"""01""";Consolidé
+378;CU;Autres participations;1‐2‐3‐4;"""01""";Consolidé
+379;BB;Créances rattachées à des participations;1‐2‐3‐4;"""01""";Consolidé
+380;BD;Autres titres immobilisés;1‐2‐3‐4;"""01""";Consolidé
+381;BF;Prêts;1‐2‐3‐4;"""01""";Consolidé
+382;BH;Autres immobilisations financières;1‐2‐3‐4;"""01""";Consolidé
+383;A4;Titres mis en équivalence;1‐2‐3‐4;"""01""";Consolidé
+384;BJ;TOTAL (I);1‐2‐3‐4;"""01""";Consolidé
+385;BL;Matières premières, approvisionnements;1‐2‐3‐4;"""01""";Consolidé
+386;BN;En cours de production de biens;1‐2‐3‐4;"""01""";Consolidé
+387;BP;En cours de production de services;1‐2‐3‐4;"""01""";Consolidé
+388;BR;Produits intermédiaires et finis;1‐2‐3‐4;"""01""";Consolidé
+389;BT;Marchandises;1‐2‐3‐4;"""01""";Consolidé
+390;BV;Avances et acomptes versés sur commandes;1‐2‐3‐4;"""01""";Consolidé
+391;BX;Clients et comptes rattachés;1‐2‐3‐4;"""01""";Consolidé
+392;BZ;Autres créances;1‐2‐3‐4;"""01""";Consolidé
+393;CB;Capital souscrit et appelé, non versé;1‐2‐3‐4;"""01""";Consolidé
+394;CD;Valeurs mobilières de placement;1‐2‐3‐4;"""01""";Consolidé
+395;CF;Disponibilités;1‐2‐3‐4;"""01""";Consolidé
+396;CH;Charges constatées d’avance;1‐2‐3‐4;"""01""";Consolidé
+397;CJ;TOTAL (II);1‐2‐3‐4;"""01""";Consolidé
+398;CW;Charges à répartir ou frais d’émission d’emprunt;1‐3‐4;"""01""";Consolidé
+399;CM;Primes de remboursement des obligations (IV);1‐2‐3‐4;"""01""";Consolidé
+400;CN;Ecarts de conversion actif (V);1‐3‐4;"""01""";Consolidé
+401;CO;TOTAL GENERAL (0 à V);1‐2‐3‐4;"""01""";Consolidé
+402;CP;Parts à moins d’un an;1;"""01""";Consolidé
+403;CR;Parts à plus d’un an;1;"""01""";Consolidé
+404;DA;Capital social ou individuel;1‐2;"""02""";Consolidé
+405;DB;Primes d’émission, de fusion, d’apport, ...;1‐2;"""02""";Consolidé
+406;EK;(dont écart d’équivalence);1‐2;"""02""";Consolidé
+407;DC;Ecarts de réévaluation;1‐2;"""02""";Consolidé
+408;DD;Réserve légale (1);1‐2;"""02""";Consolidé
+409;DE;Réserves statutaires ou contractuelles;1‐2;"""02""";Consolidé
+410;DF;Réserves réglementées (1);1‐2;"""02""";Consolidé
+411;DG;Autres réserves;1‐2;"""02""";Consolidé
+412;DH;Report à nouveau;1‐2;"""02""";Consolidé
+413;P1;Ecarts de conversion;1‐2;"""02""";Consolidé
+414;P2;Résultat consolidé part du groupe;1‐2;"""02""";Consolidé
+415;DJ;Subventions d’investissement;1‐2;"""02""";Consolidé
+416;DK;Provisions réglementées;1‐2;"""02""";Consolidé
+417;DL;TOTAL (I);1‐2;"""02""";Consolidé
+418;DM;Produit des émissions de titres participatifs;1‐2;"""02""";Consolidé
+419;DN;Avances conditionnées;1‐2;"""02""";Consolidé
+420;P3;Autres;1‐2;"""02""";Consolidé
+421;DO;TOTAL (II);1‐2;"""02""";Consolidé
+422;P4;Ecarts de conversion;1‐2;"""02""";Consolidé
+423;P5;Dans les réserves;1‐2;"""02""";Consolidé
+424;P6;Dans les résultats;1‐2;"""02""";Consolidé
+425;P7;TOTAL (III);1‐2;"""02""";Consolidé
+426;P8;Impôts différés (passif);1‐2;"""02""";Consolidé
+427;P9;Ecarts d’acquisition;1‐2;"""02""";Consolidé
+428;DP;Provisions pour risques;1‐2;"""02""";Consolidé
+429;DQ;Provisions pour charges;1‐2;"""02""";Consolidé
+430;DR;TOTAL (IV) code DR;1‐2;"""02""";Consolidé
+431;DS;Emprunts obligataires convertibles;1‐2;"""02""";Consolidé
+432;DT;Autres emprunts obligataires;1‐2;"""02""";Consolidé
+433;DU;Emprunts et dettes auprès des établissements de crédit (3);1‐2;"""02""";Consolidé
+434;DV;Emprunts et dettes financières divers (4);1‐2;"""02""";Consolidé
+435;DW;Avances et acomptes reçus sur commandes en cours;1‐2;"""02""";Consolidé
+436;DX;Dettes fournisseurs et comptes rattachés;1‐2;"""02""";Consolidé
+437;DY;Dettes fiscales et sociales;1‐2;"""02""";Consolidé
+438;DZ;Dettes sur immobilisations et comptes rattachés;1‐2;"""02""";Consolidé
+439;EA;Autres dettes;1‐2;"""02""";Consolidé
+440;EB;Produits constatés d’avance (2);1‐2;"""02""";Consolidé
+441;EC;TOTAL (IV) code EC;1‐2;"""02""";Consolidé
+442;ED;(V);1‐2;"""02""";Consolidé
+443;EE;TOTAL GENERAL (I à V);1‐2;"""02""";Consolidé
+444;EF;Dont réserve réglementée des plus‐values à long terme;1‐2;"""02""";Consolidé
+445;EG;Dettes et produits constatés d’avance à moins d’un an;1‐2;"""02""";Consolidé
+446;EH;Dont concours bancaires courants, et soldes créditeurs de banques et C.C.P.;1‐2;"""02""";Consolidé
+447;EI;Dont emprunts participatifs;1‐2;"""02""";Consolidé
+448;FA;Ventes de marchandises;1‐2‐3‐4;"""03""";Consolidé
+449;FD;Production vendue biens;1‐2‐3‐4;"""03""";Consolidé
+450;FG;Production vendue services;1‐2‐3‐4;"""03""";Consolidé
+451;FJ;Chiffres d’affaires nets;1‐2‐3‐4;"""03""";Consolidé
+452;FM;Production stockée;3‐4;"""03""";Consolidé
+453;FN;Production immobilisée;3‐4;"""03""";Consolidé
+454;FO;Subventions d’exploitation;3‐4;"""03""";Consolidé
+455;FP;Reprises sur amortissements et provisions, transfert de charges;3‐4;"""03""";Consolidé
+456;FQ;Autres produits;3‐4;"""03""";Consolidé
+457;FR;Total des produits d’exploitation (I);3‐4;"""03""";Consolidé
+458;FS;Achats de marchandises (y compris droits de douane);3‐4;"""03""";Consolidé
+459;FT;Variation de stock (marchandises);3‐4;"""03""";Consolidé
+460;FU;Achats de matières premières et autres approvisionnements;3‐4;"""03""";Consolidé
+461;FV;Variation de stock (matières premières et approvisionnements);3‐4;"""03""";Consolidé
+462;FW;Autres achats et charges externes;3‐4;"""03""";Consolidé
+463;FX;Impôts, taxes et versements assimilés;3‐4;"""03""";Consolidé
+464;FY;Salaires et traitements;3‐4;"""03""";Consolidé
+465;FZ;Charges sociales;3‐4;"""03""";Consolidé
+466;GA;Dot. d’exploit. ‐ Dotations aux amortissements;3‐4;"""03""";Consolidé
+467;GB;Dot. d’exploit. ‐ Dotations aux provisions;3‐4;"""03""";Consolidé
+468;GC;Dot. d’exploit. Sur actif circulant : dotations aux provisions;3‐4;"""03""";Consolidé
+469;GD;Dot. d’exploit. Pour risques et charges : dotations aux provisions;3‐4;"""03""";Consolidé
+470;GE;Autres charges;3‐4;"""03""";Consolidé
+471;GF;Total des charges d’exploitation (II);3‐4;"""03""";Consolidé
+472;GG;‐ RESULTAT D’EXPLOITATION (I ‐ II);3‐4;"""03""";Consolidé
+473;GH;Bénéfice attribué ou perte transférée (III);3‐4;"""03""";Consolidé
+474;GI;Perte supportée ou bénéfice transféré (IV);3‐4;"""03""";Consolidé
+475;GJ;Produits financiers de participations;3‐4;"""03""";Consolidé
+476;GK;Produits des autres valeurs mobilières et créances de l’actif immobilisé;3‐4;"""03""";Consolidé
+477;GL;Autres intérêts et produits assimilés;3‐4;"""03""";Consolidé
+478;GM;Reprises sur provisions et transferts de charges financier;3‐4;"""03""";Consolidé
+479;GN;Différences positives de change;3‐4;"""03""";Consolidé
+480;GO;Produits nets sur cessions de valeurs mobilières de placement;3‐4;"""03""";Consolidé
+481;GP;Total des produits financiers (V);3‐4;"""03""";Consolidé
+482;GQ;Dotations financières sur amortissements et provisions;3‐4;"""03""";Consolidé
+483;GR;Intérêts et charges assimilées;3‐4;"""03""";Consolidé
+484;GS;Différences négatives de change;3‐4;"""03""";Consolidé
+485;GT;Charges nettes sur cessions de valeurs mobilières de placement;3‐4;"""03""";Consolidé
+486;GU;Total des charges financières (VI);3‐4;"""03""";Consolidé
+487;GV;‐ RESULTAT FINANCIER (V ‐ VI);3‐4;"""03""";Consolidé
+488;GW;‐ RESULTAT COURANT AVANT IMPOTS (I ‐ II + III ‐ IV + V ‐ VI);3‐4;"""03""";Consolidé
+489;HA;Produits exceptionnels sur opérations de gestion;1‐2;"""04""";Consolidé
+490;HB;Produits exceptionnels sur opérations en capital;1‐2;"""04""";Consolidé
+491;HC;Reprises sur provisions et transferts de charges exceptionnel;1‐2;"""04""";Consolidé
+492;HD;Total des produits exceptionnels (VII);1‐2;"""04""";Consolidé
+493;HE;Charges exceptionnelles sur opérations de gestion;1‐2;"""04""";Consolidé
+494;HF;Charges exceptionnelles sur opérations en capital;1‐2;"""04""";Consolidé
+495;HG;Dotations exceptionnelles aux amortissements et provisions;1‐2;"""04""";Consolidé
+496;HH;Total des charges exceptionnelles (VIII);1‐2;"""04""";Consolidé
+497;HI;‐ RESULTAT EXCEPTIONNEL (VII ‐ VIII);1‐2;"""04""";Consolidé
+498;HJ;Participation des salariés aux résultats de l’entreprise;1‐2;"""04""";Consolidé
+499;HK;Impôts sur les bénéfices;1‐2;"""04""";Consolidé
+500;R1;Impôts différés (compte de résultat);1‐2;"""04""";Consolidé
+501;R2;‐ RESULTAT NET AVANT AMORTISSEMENT DES ECARTS D’ACQUISITION;1‐2;"""04""";Consolidé
+502;R3;Dotation aux amortissements des écarts d’acquisition;1‐2;"""04""";Consolidé
+503;R4;Résultat net des sociétés mises en équivalence;1‐2;"""04""";Consolidé
+504;R5;Résultat net des entreprises intégrées;1‐2;"""04""";Consolidé
+505;R6;Résultat Groupe (Résultat net consolidé);1‐2;"""04""";Consolidé
+506;R7;Part des intérêts minoritaires (Résultat hors groupe);1‐2;"""04""";Consolidé
+507;R8;Résultat net part du groupe (part de la société mère);1‐2;"""04""";Consolidé
+508;HP;Renvois : Crédit‐bail mobilier;1‐2;"""04""";Consolidé
+509;HQ;Renvois : Crédit‐bail immobilier;1‐2;"""04""";Consolidé
+510;A1;ACTIF ‐ Créances sur les Ets de crédit;1‐2;"""01""";Banque
+511;A2;ACTIF ‐ Créances sur la clientèle;1‐2;"""01""";Banque
+512;A3;TOTAL ACTIF;1‐2;"""01""";Banque
+513;P1;PASSIF ‐ Dettes envers les Ets de crédit;1‐2;"""01""";Banque
+514;P2;PASSIF ‐ Comptes créditeurs à la clientèle;1‐2;"""01""";Banque
+515;P3;PASSIF ‐ Capital souscrit;1‐2;"""01""";Banque
+516;P4;PASSIF ‐ Primes d’émission;1‐2;"""01""";Banque
+517;P5;PASSIF ‐ Réserves;1‐2;"""01""";Banque
+518;P6;PASSIF ‐ Ecarts de réévaluation;1‐2;"""01""";Banque
+519;P7;PASSIF ‐ Report à nouveau;1‐2;"""01""";Banque
+520;P8;PASSIF ‐ Résultat de l’exercice;1‐2;"""01""";Banque
+521;P9;TOTAL PASSIF;1‐2;"""01""";Banque
+522;R1;Compte de résultat ‐ Intérêts et produits assimilés;1‐2;"""01""";Banque
+523;R2;Compte de résultat ‐ Intérêts et charges assimilées;1‐2;"""01""";Banque
+524;R3;Compte de résultat ‐ Résultat de l’exercice;1‐2;"""01""";Banque
+525;A1;ACTIF ‐ Placements;1‐2;"""01""";Assurance
+526;A2;TOTAL ACTIF;1‐2;"""01""";Assurance
+527;P1;PASSIF ‐ Capitaux propres;1‐2;"""01""";Assurance
+528;P2;PASSIF ‐ Provisions techniques brutes;1‐2;"""01""";Assurance
+529;P3;TOTAL PASSIF;1‐2;"""01""";Assurance
+530;R1;Compte de résultat ‐ Primes ‐ Cotisations acquises;1‐2;"""01""";Assurance
+531;R2;Compte de résultat ‐ Charges des sinistres;1‐2;"""01""";Assurance
+532;R3;Compte de résultat ‐ Résultat technique;1‐2;"""01""";Assurance
+533;R4;Compte de résultat ‐ Résultat de l’exercice;1‐2;"""01""";Assurance
+534;209;Ventes de marchandises – Export;1;"""02""";Complet
+535;215;Production vendue de biens ‐ Export;1;"""02""";Complet
+536;217;Production vendue de services ‐ Export;1;"""02""";Complet
+537;210;Ventes de marchandises – France;1‐2;"""02""";Complet
+538;214;Production vendue de biens – France;1‐2;"""02""";Complet
+539;218;Production vendue de services ‐ France;1‐2;"""02""";Complet
+540;222;Production stockée;1‐2;"""02""";Complet
+541;224;Production immobilisée;1‐2;"""02""";Complet
+542;226;Subventions d’exploitation reçues;1‐2;"""02""";Complet
+543;230;Autres produits;1‐2;"""02""";Complet
+544;232;Total des produits d’exploitation hors T.V.A.;1‐2;"""02""";Complet
+545;234;Achats de marchandises (y compris droits de douane);1‐2;"""02""";Complet
+546;236;Variation de stock (marchandises);1‐2;"""02""";Complet
+547;238;Achats de matières premières et autres approvisionnements (y compris droits de;1‐2;"""02""";Complet
+548;240;Variation de stock (matières premières et approvisionnement);1‐2;"""02""";Complet
+549;24B;(dont crédit bail mobilier)*;1;"""02""";Complet
+550;24A;(dont crédit bail immobilier)*;1;"""02""";Complet
+551;242;Autres charges externes*;1‐2;"""02""";Complet
+552;243;(dont taxe professionnelle);1;"""02""";Complet
+553;244;Impôts, taxes et versements assimilés;1‐2;"""02""";Complet
+554;250;Rémunérations du personnel;1‐2;"""02""";Complet
+555;252;Charges sociales;1‐2;"""02""";Complet
+556;254;Dotations aux amortissements;1‐2;"""02""";Complet
+557;256;Dotations aux provisions;1‐2;"""02""";Complet
+558;259;(dont provisions fiscales pour implantations commerciales à l’étranger);1;"""02""";Complet
+559;262;Autres charges;1‐2;"""02""";Complet
+560;264;Total des charges d’exploitation;1‐2;"""02""";Complet
+561;270;Résultat d’exploitation;1‐2;"""02""";Complet
+562;280;Produits financiers;1‐2;"""02""";Complet
+563;290;Produits exceptionnels;1‐2;"""02""";Complet
+564;294;Charges financières;1‐2;"""02""";Complet
+565;300;Charges exceptionnelles;1‐2;"""02""";Complet
+566;306;Impôts sur les bénéfices;1‐2;"""02""";Complet
+567;310;Bénéfice ou perte;1‐2;"""02""";Complet
+568;316;Rémunération et avantages personnels non déductibles;1;"""02""";Complet
+569;374;Montant de la T.V.A. collectée;1;"""02""";Complet
+570;378;Montant de la T.V.A. déductible sur biens et services;1;"""02""";Complet

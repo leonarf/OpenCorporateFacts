@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-import os
+import os, inspect
 import io
 import csv
 import getopt, sys
@@ -108,6 +108,8 @@ def parseDetail(detail, compteType):
                         except KeyError:
                             print ("Missing attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
                             liasseValues.append("Missing Value")
+                if codeDetails[0] in dictionaryDetail:
+                    raise Exception('Key conflict. the following key is not unique : "' + codeDetails[0] + '"')
                 dictionaryDetail[codeDetails[0]] = liasseValues
         else:
             print("page number not interesting :", page.attrib['numero'])
@@ -170,7 +172,8 @@ def help():
 # Main
 
 # Load code dictionaries from csv file
-with open('../CodeEtSignification.csv', mode='r') as infile:
+currentScriptPath = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+with open(currentScriptPath + '/CodeEtSignification.csv', mode='r') as infile:
     csvReader = csv.reader(infile,  delimiter=';')
     line_count = 0
     for row in csvReader:

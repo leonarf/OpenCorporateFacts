@@ -1,0 +1,192 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.min.js"></script>
+
+
+<div class="example-wrapper">
+    <h1>Hello vous importez les données d'un fichier xml/csv de l'INPI! ✅</h1>
+    <div>
+     <label for="input-file">Specify a file csv:</label><br>
+     <input type="file" id="input-file">
+    </div>
+    <a href="{{ url('homepage') }}">Retour à l'accueil</a>
+
+    {{ form_start(NewCorporateForm) }}
+    <ul class="ComptesDeResultats" data-prototype="{{ form_widget(NewCorporateForm.ComptesDeResultats.vars.prototype)|e('html_attr') }}">
+      {% for compte in NewCorporateForm.ComptesDeResultats %}
+          <li>{{ form_row(compte) }}</li>
+      {% endfor %}
+    </ul>
+    {{ form_widget(NewCorporateForm) }}
+    {{ form_end(NewCorporateForm) }}
+    <textarea id="content-target"></textarea>
+</div>
+
+{# Script that load csv file to fill input fields #}
+<script>
+var $collectionHolder;
+
+// setup an "add a ComptesDeResultat" link
+var $addTagButton = $('<button type="button" class="add_ComptesDeResultats_link">Add a ComptesDeResultat</button>');
+var $newLinkLi = $('<li></li>').append($addTagButton);
+
+jQuery(document).ready(function() {
+    // Get the ul that holds the collection of ComptesDeResultats
+    $collectionHolder = $('ul.ComptesDeResultats');
+
+    // add the "add a ComptesDeResultat" anchor and li to the ComptesDeResultats ul
+    $collectionHolder.append($newLinkLi);
+
+    // count the current form inputs we have (e.g. 2), use that as the new
+    // index when inserting a new item (e.g. 2)
+    $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+    $addTagButton.on('click', function(e) {
+        // add a new ComptesDeResultat form (see next code block)
+        addTagForm($collectionHolder, $newLinkLi);
+    });
+});
+
+// Callback to add a CompteDeResultat form to the HTML page
+function addTagForm($collectionHolder, $newLinkLi) {
+    // Get the data-prototype explained earlier
+    var prototype = $collectionHolder.data('prototype');
+
+    // get the new index
+    var index = $collectionHolder.data('index');
+
+    var newForm = prototype;
+    // You need this only if you didn't set 'label' => false in your tags field in TaskType
+    // Replace '__name__label__' in the prototype's HTML to
+    // instead be a number based on how many items we have
+    // newForm = newForm.replace(/__name__label__/g, index);
+
+    // Replace '__name__' in the prototype's HTML to
+    // instead be a number based on how many items we have
+    newForm = newForm.replace(/__name__/g, index);
+
+    // increase the index with one for the next item
+    $collectionHolder.data('index', index + 1);
+
+    // Display the form in the page in an li, before the "Add a tag" link li
+    var $newFormLi = $('<li></li>').append(newForm);
+    $newLinkLi.before($newFormLi);
+}
+
+
+
+// Register callback on file upload
+  document.getElementById('input-file').addEventListener('change', loadFileAsText)
+  function loadFileAsText(){
+      papaConfig = {
+                      delimiter: "",	// auto-detect
+                    	newline: "",	// auto-detect
+                    	quoteChar: '"',
+                    	escapeChar: '"',
+                    	header: false,
+                    	transformHeader: undefined,
+                    	dynamicTyping: false,
+                    	preview: 0,
+                    	encoding: "",
+                    	worker: false,
+                    	comments: false,
+                    	step: undefined,
+                    	complete: csvUsage,
+                    	error: undefined,
+                    	download: false,
+                    	downloadRequestHeaders: undefined,
+                    	skipEmptyLines: false,
+                    	chunk: undefined,
+                    	fastMode: undefined,
+                    	beforeFirstChunk: undefined,
+                    	withCredentials: undefined,
+                    	transform: undefined,
+                    	delimitersToGuess: [',', '\t', '|', ';', Papa.RECORD_SEP, Papa.UNIT_SEP]
+                    }
+    var fileToLoad = document.getElementById("input-file").files[0];
+    Papa.parse(fileToLoad, papaConfig)
+  }
+
+// Callback on csv file parsing complete
+  function csvUsage(results, file){
+    $('#form_Name').val(results.data[1][1]);
+    $('#form_OpenCorporateURL').val("https://opencorporates.com/companies/fr/" + results.data[1][0]);
+    $('#form_CompanyNumber').val(results.data[1][0]);
+
+    $compteNumber = 1;
+    addTagForm($collectionHolder, $newLinkLi);
+    $('#form_ComptesDeResultats_1_year').val(results.data[2][$compteNumber].substr(3,4));
+    lexique = {"name in CSV":[                                                "Name in form", "offset"],
+//              ""              :["#form_ComptesDeResultats_1_",0],
+              "Ventes de marchandises"                                      :["#form_ComptesDeResultats_1_VenteMarchandises",2],
+              "Production vendue biens"              :["#form_ComptesDeResultats_1_ProductionVendueDeBiens",2],
+              "Production vendue services"                                  :["#form_ComptesDeResultats_1_ProductionVendueDeServices",2],
+              "Chiffres d’affaires nets"                                   :["#form_ComptesDeResultats_1_ChiffresAffairesNet",2],
+              "Production stockée"              :["#form_ComptesDeResultats_1_ProductionStocked",0],
+              "Production immobilisée"                          :["#form_ComptesDeResultats_1_ProductionImmobilisee",0],
+              "Subventions d’exploitation"                          :["#form_ComptesDeResultats_1_SubventionsExploitation",0],
+              "Reprises sur amortissements et provisions, transfert de charges"    :["#form_ComptesDeResultats_1_RepriseDepreciationProvisionsTransfertCharges",0],
+              "Autres produits"                                             :["#form_ComptesDeResultats_1_AutresProduits",0],
+              "Total des produits d’exploitation (I)"                      :["#form_ComptesDeResultats_1_ProduitsExploitation",0],
+              "Achats de marchandises (y compris droits de douane)"         :["#form_ComptesDeResultats_1_AchatsDeMarchandises",0],
+              "Variation de stock (marchandises)"              :["#form_ComptesDeResultats_1_VariationStockMarchandise",0],
+              "Achats de matières premières et autres approvisionnements"    :["#form_ComptesDeResultats_1_AchatMatierePremiereAutreAppro",0],
+              "Variation de stock (matières premières et approvisionnements)"              :["#form_ComptesDeResultats_1_VariationStockMatierePremiereEtAppro",0],
+              "Autres achats et charges externes"                          :["#form_ComptesDeResultats_1_AutresAchatEtChargesExternes",0],
+              "Impôts, taxes et versements assimilés"                     :["#form_ComptesDeResultats_1_ImpotTaxesEtVersementsAssimiles",0],
+              "Salaires et traitements"              :["#form_ComptesDeResultats_1_SalairesEtTraitements",0],
+              "Charges sociales"              :["#form_ComptesDeResultats_1_ChargesSociales",0],
+              "Dot. d’exploit. ‐ Dotations aux amortissements"              :["#form_ComptesDeResultats_1_DotationAmortissementImmobilisations",0],
+              "Dot. d’exploit. Sur actif circulant : dotations aux provisions"              :["#form_ComptesDeResultats_1_DotationDepreciationActifCirculant",0],
+              "Dot. d’exploit. Pour risques et charges : dotations aux provisions"              :["#form_ComptesDeResultats_1_DotationProvisions",0],
+              "Autres charges"                                              :["#form_ComptesDeResultats_1_AutresCharges",0],
+              "Total des charges d’exploitation (II)"                       :["#form_ComptesDeResultats_1_ChargesExploitation",0],
+              "‐ RESULTAT D’EXPLOITATION (I ‐ II)"                          :["#form_ComptesDeResultats_1_ResultatExploitation",0],
+              "Produits financiers de participations"              :["#form_ComptesDeResultats_1_ProduitsFinanciersParticipations",0],
+              "Autres intérêts et produits assimilés"              :["#form_ComptesDeResultats_1_AutreInteretEtProduitAssimile",0],
+              "Reprises sur provisions et transferts de charges financier"       :["#form_ComptesDeResultats_1_RepriseDepreciationEtProvisionTransfertsCharges",0],
+              "Différences positives de change"              :["#form_ComptesDeResultats_1_DifferencesPositivesChange",0],
+              "Produits nets sur cessions de valeurs mobilières de placement"       :["#form_ComptesDeResultats_1_ProduitsNetsCessionsValeursMobilesPlacement",0],
+              "Total des produits financiers (V)"              :["#form_ComptesDeResultats_1_ProduitsFinanciers",0],
+              "Dotations financières sur amortissements et provisions"    :["#form_ComptesDeResultats_1_DotationsFinancieresAmortissementDepreciationProvision",0],
+              "Intérêts et charges assimilées"   :["#form_ComptesDeResultats_1_InteretEtChargeAssimilees", 0],
+              "Différences négatives de change"              :["#form_ComptesDeResultats_1_DifferenceNegativeChange",0],
+          //    "‐ RESULTAT COURANT AVANT IMPOTS (I ‐ II + III ‐ IV + V ‐ VI)":["#form_ComptesDeResultats_1_",0],
+              "Produits exceptionnels sur opérations de gestion"            :["#form_ComptesDeResultats_1_ProduitExceptionnelOperationGestion",0],
+              "Produits exceptionnels sur opérations en capital"              :["#form_ComptesDeResultats_1_ProduitExceptionnelOperationCapital",0],
+              "Reprises sur provisions et transferts de charges exceptionnel"    :["#form_ComptesDeResultats_1_RepriseDepreciationProvisionTransfertCharge",0],
+        //      "Total des produits exceptionnels (VII)"                      :["#form_ComptesDeResultats_1_",0],
+              "Charges exceptionnelles sur opérations de gestion"              :["#form_ComptesDeResultats_1_ChargesExceptionnelleOperationGestion",0],
+              "Charges exceptionnelles sur opérations en capital"              :["#form_ComptesDeResultats_1_ChargesExceptionnelleOperationCapital",0],
+              "Dotations exceptionnelles aux amortissements et provisions"              :["#form_ComptesDeResultats_1_DotationExceptionnelleAmortissementDepreciationProvision",0],
+              "‐ RESULTAT EXCEPTIONNEL (VII ‐ VIII)"                        :["#form_ComptesDeResultats_1_ResultatExceptionnel",0],
+      //        "TOTAL DES PRODUITS (I + III + V +VII)"                       :["#form_ComptesDeResultats_1_",0],
+      //        "TOTAL DES CHARGES (II + IV + VI + VIII + IX + X)"            :["#form_ComptesDeResultats_1_", 0],
+              "Participation des salariés aux résultats de l’entreprise"              :["#form_ComptesDeResultats_1_ParticipationSalariesAuxResultats",0],
+              "Impôts sur les bénéfices"              :["#form_ComptesDeResultats_1_ImpotsSurLesBenefices",0],
+              "BENEFICE OU PERTE (Total des produits ‐ Total des charges)"   :["#form_ComptesDeResultats_1_Benefice", 0],
+              "Total des charges financières (VI)"   :["#form_ComptesDeResultats_1_ChargesFinancieres", 0],
+              "‐ RESULTAT FINANCIER (V ‐ VI)"   :["#form_ComptesDeResultats_1_ResultatFinancier", 0]      };
+    for (i = 3; i < results.data.length; i++) {
+      if (results.data[i][0] in lexique)
+      {
+        lexiqueMatch = lexique[results.data[i][0]];
+        $(lexiqueMatch[0]).val(results.data[i][$compteNumber + lexiqueMatch[1]]);
+        console.log("Writing " + results.data[i][$compteNumber + lexiqueMatch[1]] + "€ to " + lexiqueMatch[0] + " as " + results.data[i][0]);
+      }
+      else {
+        console.log("No match found for " + results.data[i]);
+      }
+    }
+  	console.log("Parsing complete:", results, file);
+  }
+</script>
+{% endblock %}
