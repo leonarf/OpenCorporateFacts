@@ -95,6 +95,12 @@ class Corporate
     public function addComptesDeResultat(CompteDeResultat $comptesDeResultat): self
     {
         if (!$this->ComptesDeResultats->contains($comptesDeResultat)) {
+            foreach($this->ComptesDeResultats as $existingCompte){
+              if ($existingCompte->getYear() == $comptesDeResultat->getYear())
+              {
+                return $this; // Do not add multiple compte for the same year                
+              }
+            }
             $this->ComptesDeResultats[] = $comptesDeResultat;
             $comptesDeResultat->setCorporate($this);
         }

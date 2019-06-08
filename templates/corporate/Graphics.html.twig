@@ -39,13 +39,23 @@
 
       {% for comptesDeResultat in corporate.ComptesDeResultats %}
         xLabels.push({{ comptesDeResultat.year }});
-        CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
+        if ({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }} > {{ comptesDeResultat.SubventionsExploitation }})
+        {
+          taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
+          subventions.push({{ comptesDeResultat.SubventionsExploitation }});
+          CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
+        }
+        else // Inventer un graphique pertinent pour les entreprises qui touchent plus de subventions qu'elles ne payent d'impôte
+        {
+          taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
+          subventions.push({{ comptesDeResultat.SubventionsExploitation }});
+          CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
+        }
+
         salaires.push({{ comptesDeResultat.SalairesEtTraitements}});
         cotisationSociale.push({{ comptesDeResultat.ChargesSociales}});
         resultatExploitation.push({{ comptesDeResultat.ProduitsExploitation - comptesDeResultat.ChargesExploitation}});
 
-        taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
-        subventions.push({{ comptesDeResultat.SubventionsExploitation }});
         achatMarchandises.push({{ comptesDeResultat.AchatsDeMarchandises }});
 
         resultatFinancier.push({{ comptesDeResultat.ResultatFinancier }});
@@ -118,7 +128,7 @@
       	options: {
       		title: {
       			display: true,
-      			text: 'Répartition de l\'utilisation du CA de Smile (en % du CA)'
+      			text: 'Répartition de l\'utilisation du CA de {{ corporate.name }} (en % du CA)'
       		},
       		tooltips: {
       			mode: 'index',
@@ -175,7 +185,7 @@
       	options: {
       		title: {
       			display: true,
-      			text: 'Répartition du résultat d\'exploitation de Smile (en %)'
+      			text: 'Répartition du résultat d\'exploitation de {{ corporate.name }} (en %)'
       		},
       		tooltips: {
       			mode: 'index',

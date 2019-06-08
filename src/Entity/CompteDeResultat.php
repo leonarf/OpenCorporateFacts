@@ -83,6 +83,24 @@ class CompteDeResultat
       }
   }
 
+    public function __construct()
+    {
+        $this->VenteMarchandises = 0;
+        $this->ProductionVendueDeBiens = 0;
+        $this->ProductionVendueDeServices = 0;
+        $this->ProductionStocked = 0;
+        $this->ProductionImmobilisee = 0;
+        $this->RepriseDepreciationProvisionsTransfertCharges = 0;
+        $this->AchatsDeMarchandises = 0;
+        $this->VariationStockMarchandise = 0;
+        $this->AchatMatierePremiereAutreAppro = 0;
+        $this->VariationStockMatierePremiereEtAppro = 0;
+        $this->DotationAmortissementImmobilisations = 0;
+        $this->DotationDepreciationImmobilisations = 0;
+        $this->DotationDepreciationActifCirculant = 0;
+        $this->DotationProvisions = 0;
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

@@ -79,22 +79,25 @@ class CorporateController extends AbstractController
         $newCorporateForm->handleRequest($request);
 
         if ($newCorporateForm->isSubmitted() && $newCorporateForm->isValid()) {
-            // $form->getData() holds the submitted values
             $newCorporate = $newCorporateForm->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
             $oldCorporate = $entityManager->getRepository(Corporate::class)
                 ->findByName($newCorporate->getName());
 
-            if ($oldCorporate) {
-              $oldCorporate = $newCorporate;
+            if ($oldCorporate) // Update existing corporate
+            {
+              foreach($newCorporate->getComptesDeResultats() as $newCompte){
+                  $oldCorporate->addComptesDeResultat($newCompte);
+              }
             }
-            else {
+            else // Save in database new corporate
+            {
               $entityManager->persist($newCorporate);
             }
             $entityManager->flush();
 
-            // return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('import');
         }
 
         return $this->render('corporate/import.html.twig', [
