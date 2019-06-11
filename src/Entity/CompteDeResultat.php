@@ -981,18 +981,6 @@ class CompteDeResultat
         return $this;
     }
 
-    public function getRepriseAmortissementProvisionTransfertChargesEnExploitation(): ?int
-    {
-        return $this->RepriseAmortissementProvisionTransfertChargesEnExploitation;
-    }
-
-    public function setRepriseAmortissementProvisionTransfertChargesEnExploitation(int $RepriseAmortissementProvisionTransfertChargesEnExploitation): self
-    {
-        $this->RepriseAmortissementProvisionTransfertChargesEnExploitation = $RepriseAmortissementProvisionTransfertChargesEnExploitation;
-
-        return $this;
-    }
-
     public function getEffectifsMoyens(): ?int
     {
         return $this->EffectifsMoyens;

@@ -8,8 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CorporateRepository")
+ * @ApiResource
  */
 class Corporate
 {
@@ -98,7 +101,7 @@ class Corporate
             foreach($this->ComptesDeResultats as $existingCompte){
               if ($existingCompte->getYear() == $comptesDeResultat->getYear())
               {
-                return $this; // Do not add multiple compte for the same year                
+                return $this; // Do not add multiple compte for the same year
               }
             }
             $this->ComptesDeResultats[] = $comptesDeResultat;
@@ -117,18 +120,6 @@ class Corporate
                 $comptesDeResultat->setCorporate(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getCountry(): ?string
-    {
-        return $this->Country;
-    }
-
-    public function setCountry(?string $Country): self
-    {
-        $this->Country = $Country;
 
         return $this;
     }
