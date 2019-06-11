@@ -74,6 +74,8 @@ class CompteDeResultatFormType extends AbstractType
               ->add('ParticipationSalariesAuxResultats')
               ->add('ImpotsSurLesBenefices')
               ->add('Benefice')
+              ->add('EffectifsMoyens')
+              ->add('Dividende')
               ->add('save', SubmitType::class);
   }
 

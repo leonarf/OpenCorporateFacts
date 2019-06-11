@@ -18,7 +18,7 @@ class CompteDeResultat
   public function validate(ExecutionContextInterface $context, $payload)
   {
       $diff = $this->ChiffresAffairesNet - ($this->VenteMarchandises + $this->ProductionVendueDeBiens + $this->ProductionVendueDeServices);
-      if (abs($diff) > 1)
+      if (abs($diff) > 2)
       {
         $context->buildViolation('le Chiffres Affaires Net ne correspond pas à la somme, différence de ' . $diff)
                 ->atPath('ChiffresAffairesNet')
@@ -33,7 +33,7 @@ class CompteDeResultat
       }
 
       $diff = $this->ChargesExploitation - ($this->AchatsDeMarchandises + $this->VariationStockMarchandise + $this->AchatMatierePremiereAutreAppro + $this->VariationStockMatierePremiereEtAppro + $this->AutresAchatEtChargesExternes + $this->ImpotTaxesEtVersementsAssimiles + $this->SalairesEtTraitements + $this->ChargesSociales + $this->DotationAmortissementImmobilisations + $this->DotationDepreciationImmobilisations + $this->DotationDepreciationActifCirculant + $this->DotationProvisions + $this->AutresCharges );
-      if (abs($diff) > 1)
+      if (abs($diff) > 5)
       {
         $context->buildViolation("les charges d'exploitations ne correspondent pas à la somme des charges, différence de " . $diff)
                 ->atPath('ChargesExploitation')
@@ -47,14 +47,14 @@ class CompteDeResultat
                 ->addViolation();
       }
       $diff = $this->ProduitsFinanciers - ($this->ProduitsFinanciersParticipations + $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise + $this->AutreInteretEtProduitAssimile + $this->RepriseDepreciationEtProvisionTransfertsCharges + $this->DifferencesPositivesChange + $this->ProduitsNetsCessionsValeursMobilesPlacement);
-      if (abs($diff) > 1)
+      if (abs($diff) > 3)
       {
         $context->buildViolation("le produit financier ne correspond pas à la somme des produits financiers, différence de " . $diff)
                 ->atPath('ProduitsFinanciers')
                 ->addViolation();
       }
       $diff = $this->ChargesFinancieres - ($this->DotationsFinancieresAmortissementDepreciationProvision + $this->InteretEtChargeAssimilees + $this->DifferenceNegativeChange + $this->ChargesNetteCessionValeurMobiliereDePlacement);
-      if (abs($diff) > 1)
+      if (abs($diff) > 2)
       {
         $context->buildViolation("la charge financière ne correspond pas à la somme des charges financières, différence de " . $diff)
                 ->atPath('ChargesFinancieres')
@@ -365,6 +365,16 @@ class CompteDeResultat
      * @ORM\Column(type="integer")
      */
     private $VariationStockMatierePremiereEtAppro;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $EffectifsMoyens;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $Dividende;
 
     public function getId(): ?int
     {
@@ -979,6 +989,30 @@ class CompteDeResultat
     public function setRepriseAmortissementProvisionTransfertChargesEnExploitation(int $RepriseAmortissementProvisionTransfertChargesEnExploitation): self
     {
         $this->RepriseAmortissementProvisionTransfertChargesEnExploitation = $RepriseAmortissementProvisionTransfertChargesEnExploitation;
+
+        return $this;
+    }
+
+    public function getEffectifsMoyens(): ?int
+    {
+        return $this->EffectifsMoyens;
+    }
+
+    public function setEffectifsMoyens(?int $EffectifsMoyens): self
+    {
+        $this->EffectifsMoyens = $EffectifsMoyens;
+
+        return $this;
+    }
+
+    public function getDividende(): ?int
+    {
+        return $this->Dividende;
+    }
+
+    public function setDividende(?int $Dividende): self
+    {
+        $this->Dividende = $Dividende;
 
         return $this;
     }

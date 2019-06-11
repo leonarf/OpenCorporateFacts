@@ -147,7 +147,7 @@ function addTagForm($collectionHolder, $newLinkLi) {
               "Total des charges d’exploitation (II)"                       :["#form_ComptesDeResultats_0_ChargesExploitation",0],
               "‐ RESULTAT D’EXPLOITATION (I ‐ II)"                          :["#form_ComptesDeResultats_0_ResultatExploitation",0],
               "Produits financiers de participations"              :["#form_ComptesDeResultats_0_ProduitsFinanciersParticipations",0],
-              //"Produits des autres valeurs mobilières et créances de l’actif immobilisé"              :["#form_ComptesDeResultats_0_",0],
+              "Produits des autres valeurs mobilières et créances de l’actif immobilisé" :["#form_ComptesDeResultats_0_ProduitsAutresValeursMobiliereEtCreancesActifImmobilise",0],
               "Autres intérêts et produits assimilés"              :["#form_ComptesDeResultats_0_AutreInteretEtProduitAssimile",0],
               "Reprises sur provisions et transferts de charges financier" :["#form_ComptesDeResultats_0_RepriseDepreciationEtProvisionTransfertsCharges",0],
               "Différences positives de change"              :["#form_ComptesDeResultats_0_DifferencesPositivesChange",0],
@@ -156,6 +156,9 @@ function addTagForm($collectionHolder, $newLinkLi) {
               "Dotations financières sur amortissements et provisions" :["#form_ComptesDeResultats_0_DotationsFinancieresAmortissementDepreciationProvision",0],
               "Intérêts et charges assimilées"   :["#form_ComptesDeResultats_0_InteretEtChargeAssimilees", 0],
               "Différences négatives de change"              :["#form_ComptesDeResultats_0_DifferenceNegativeChange",0],
+              "Charges nettes sur cessions de valeurs mobilières de placement": ["#form_ComptesDeResultats_0_ChargesNetteCessionValeurMobiliereDePlacement",0],
+              "Total des charges financières (VI)"   :["#form_ComptesDeResultats_0_ChargesFinancieres", 0],
+              "‐ RESULTAT FINANCIER (V ‐ VI)"   :["#form_ComptesDeResultats_0_ResultatFinancier", 0],
           //    "‐ RESULTAT COURANT AVANT IMPOTS (I ‐ II + III ‐ IV + V ‐ VI)":["#form_ComptesDeResultats_0_",0],
               "Produits exceptionnels sur opérations de gestion"            :["#form_ComptesDeResultats_0_ProduitExceptionnelOperationGestion",0],
               "Produits exceptionnels sur opérations en capital"              :["#form_ComptesDeResultats_0_ProduitExceptionnelOperationCapital",0],
@@ -170,8 +173,9 @@ function addTagForm($collectionHolder, $newLinkLi) {
               "Participation des salariés aux résultats de l’entreprise"              :["#form_ComptesDeResultats_0_ParticipationSalariesAuxResultats",0],
               "Impôts sur les bénéfices"              :["#form_ComptesDeResultats_0_ImpotsSurLesBenefices",0],
               "BENEFICE OU PERTE (Total des produits ‐ Total des charges)"   :["#form_ComptesDeResultats_0_Benefice", 0],
-              "Total des charges financières (VI)"   :["#form_ComptesDeResultats_0_ChargesFinancieres", 0],
-              "‐ RESULTAT FINANCIER (V ‐ VI)"   :["#form_ComptesDeResultats_0_ResultatFinancier", 0]      };
+              "Effectif moyen du personnel"              :["#form_ComptesDeResultats_0_EffectifsMoyens",0],
+              "Dividendes"              :["#form_ComptesDeResultats_0_Dividende",0],
+            };
     for (i = 3; i < results.data.length; i++) {
       if (results.data[i][0] in lexique)
       {
