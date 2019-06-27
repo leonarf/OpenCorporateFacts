@@ -27,7 +27,99 @@
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
+
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+<p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
+
+<table id="globalTable" class="w3-table-all">
+  <tr>
+    <th>Entreprise</th>
+    <th onclick="sortTable(1)" style="cursor:pointer">Année</th>
+    <th onclick="sortTable(2)" style="cursor:pointer">Chiffre d'affaire</th>
+    <th onclick="sortTable(3)" style="cursor:pointer">Bénéfices</th>
+    <th onclick="sortTable(4)" style="cursor:pointer">Impôts sur les bénéfices</th>
+    <th onclick="sortTable(5)" style="cursor:pointer">Prime de participation</th>
+    <th onclick="sortTable(6)" style="cursor:pointer">Effectifs</th>
+  </tr>
+
+  {% for compteDeResultat in comptes %}
+    <tr class="item">
+      <td><a href="{{ url('corporate_show', {'id': compteDeResultat.Corporate.Id}) }}">{{ compteDeResultat.Corporate }}</a></td>
+      <td>{{ compteDeResultat.year }}</td>
+      <td>{{ compteDeResultat.ChiffresAffairesNet}}</td>
+      <td>{{ compteDeResultat.Benefice}}</td>
+      <td>{{ compteDeResultat.ImpotsSurLesBenefices }}</td>
+      <td>{{ compteDeResultat.ParticipationSalariesAuxResultats }}</td>
+      <td>{{ compteDeResultat.EffectifsMoyens }}</td>
+    </tr>
+  {% else %}
+  <tr class="item">
+    <td>Pas trouvé :'-(</td>
+    <td>Pas trouvé :'-(</td>
+    <td>Pas trouvé :'-(</td>
+  </tr>
+  {% endfor %}
+</table>
   </p>
+
+  <script>
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("globalTable");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the
+      first, which contains table headers): */
+      for (i = 1; i < (rows.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount ++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+  </script>
+
   <p>But also add new data :</p>
 <ul>
     <li><a href="{{ url('add_corporate') }}">Add a new compagny</a></li>

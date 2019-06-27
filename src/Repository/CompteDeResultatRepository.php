@@ -19,32 +19,16 @@ class CompteDeResultatRepository extends ServiceEntityRepository
         parent::__construct($registry, CompteDeResultat::class);
     }
 
-//    /**
-//     * @return CompteDeResultat[] Returns an array of CompteDeResultat objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+  /**
+   * @return CompteDeResultat[] Returns an array of CompteDeResultat objects
+   */
+  public function findAllUpTo($maxResults)
+  {
+    $qb = $this->createQueryBuilder('compte')
+        ->orderBy('compte.ChiffresAffairesNet', 'DESC')
+        ->setMaxResults($maxResults)
+        ->getQuery();
 
-    /*
-    public function findOneBySomeField($value): ?CompteDeResultat
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+    return $qb->execute();
+  }
 }

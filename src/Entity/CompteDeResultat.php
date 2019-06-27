@@ -7,8 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompteDeResultatRepository")
+ * @ApiResource
  */
 class CompteDeResultat
 {
@@ -78,6 +81,12 @@ class CompteDeResultat
       if (abs($diff) > 1)
       {
         $context->buildViolation("le bénéfice ne correspond pas à la somme des 3 résultats moins la participation et les impôts, différence de " . $diff)
+                ->atPath('Benefice')
+                ->addViolation();
+      }
+      if ($this->Benefice == 0 and $this->ResultatExceptionnel == 0 and $this->ResultatFinancier == 0 and $this->ResultatExploitation == 0)
+      {
+        $context->buildViolation("le bilan comptable ne doit pas comporter que des zéro")
                 ->atPath('Benefice')
                 ->addViolation();
       }

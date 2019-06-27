@@ -7,12 +7,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CorporateRepository")
- * @ApiResource
+ * @UniqueEntity("CompanyNumber")
+ * @ApiResource(attributes={"filters"={"corporate.search_companyNumber"}})
  */
 class Corporate
 {
@@ -61,6 +63,11 @@ class Corporate
      * @ORM\OrderBy({"Year" = "ASC"})
      */
     private $documentDeReferences;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $IndustryCode;
 
     public function __construct()
     {
@@ -242,6 +249,18 @@ class Corporate
                 $documentDeReference->setCorporation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIndustryCode(): ?string
+    {
+        return $this->IndustryCode;
+    }
+
+    public function setIndustryCode(string $IndustryCode): self
+    {
+        $this->IndustryCode = $IndustryCode;
 
         return $this;
     }

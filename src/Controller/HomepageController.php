@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use App\Entity\Corporate;
+use App\Entity\CompteDeResultat;
 class HomepageController extends AbstractController
 {
     /**
@@ -41,9 +42,12 @@ class HomepageController extends AbstractController
             }
         }
 
+        $lotsOfCompteDeResultats = $entityManager->getRepository(CompteDeResultat::class)
+            ->findAllUpTo(100);
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'form' => $form->createView(),
+            'comptes' => $lotsOfCompteDeResultats
         ]);
     }
 }

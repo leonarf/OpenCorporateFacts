@@ -20,7 +20,7 @@ class CorporateRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Corporate[] Returns an array of Corporate objects
+     * @return Corporate Returns a Corporate object
      */
     public function findByName($value)
     {
@@ -29,19 +29,6 @@ class CorporateRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getOneOrNullResult();
     }
-
-    /*
-    public function findOneBySomeField($value): ?Corporate
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
