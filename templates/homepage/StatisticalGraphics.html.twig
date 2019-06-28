@@ -1,0 +1,136 @@
+{% block body %}
+<div class="example-wrapper">
+    Voici un graphique
+    <canvas id="Graph1"></canvas>
+    {% block javascripts %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/0.6.6/chartjs-plugin-zoom.min.js"></script>
+      <script>
+      var colors = ['#EAB543',
+                    '#25CCF7',
+                    '#82589F',
+                    '#55E6C1',
+                    '#2C3A47',
+                    '#B33771',
+                    '#3B3B98',
+                    '#F97F51',
+                    '#CAD3C8'];
+
+      impotData = [];
+      beneficeData = [];
+      {% for compteDeResultat in comptes %}
+        impotData.push({x : {{ compteDeResultat.ChiffresAffairesNet}},
+                        y : {{ compteDeResultat.ImpotsSurLesBenefices }} });
+        beneficeData.push({x : {{ compteDeResultat.ChiffresAffairesNet}},
+                           y : {{ compteDeResultat.Benefice }} });
+      {% endfor %}
+
+      var scatterChartData = {
+      	datasets: [{
+      		label: 'Impôts payés',
+      		borderColor: colors[5],
+          showLine: false,
+      		data: impotData
+      	}, {
+      		label: 'Bénéfices',
+      		borderColor: colors[0],
+          showLine: false,
+          data: beneficeData
+      	}]
+      };
+
+      new Chart(document.getElementById('Graph1').getContext('2d'), {
+      	type: 'scatter',
+      	data: scatterChartData,
+        options: {
+          title: {
+            display: true,
+            text: 'Des valeurs en fonction du chiffre d\'affaire pour les entreprises en base'
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false
+          },
+          responsive: true,
+          scales: {
+            xAxes: [{
+                scaleLabel:{
+                        display:true,
+                        labelString: 'Chiffre d\'affaire'
+                    },
+            }],
+            yAxes: [{
+                  scaleLabel:{
+                      display:true,
+                      labelString: '% du CA'
+                  }
+            }]
+          },
+      		// Container for pan options
+      		pan: {
+      			// Boolean to enable panning
+      			enabled: true,
+
+      			// Panning directions. Remove the appropriate direction to disable
+      			// Eg. 'y' would only allow panning in the y direction
+      			mode: 'xy',
+      			rangeMin: {
+      				// Format of min pan range depends on scale type
+      				x: null,
+      				y: null
+      			},
+      			rangeMax: {
+      				// Format of max pan range depends on scale type
+      				x: null,
+      				y: null
+      			},
+      			// Function called once panning is completed
+      			// Useful for dynamic data loading
+      			onPan: function({chart}) { console.log(`I was panned!!!`); }
+      		},
+
+      		// Container for zoom options
+      		zoom: {
+      			// Boolean to enable zooming
+      			enabled: true,
+
+      			// Enable drag-to-zoom behavior
+      			drag: true,
+
+      			// Drag-to-zoom rectangle style can be customized
+      			// drag: {
+      			// 	 borderColor: 'rgba(225,225,225,0.3)'
+      			// 	 borderWidth: 5,
+      			// 	 backgroundColor: 'rgb(225,225,225)'
+      			// },
+
+      			// Zooming directions. Remove the appropriate direction to disable
+      			// Eg. 'y' would only allow zooming in the y direction
+      			mode: 'y',
+
+      			rangeMin: {
+      				// Format of min zoom range depends on scale type
+      				x: null,
+      				y: null
+      			},
+      			rangeMax: {
+      				// Format of max zoom range depends on scale type
+      				x: null,
+      				y: null
+      			},
+
+      			// Speed of zoom via mouse wheel
+      			// (percentage of zoom on a wheel event)
+      			speed: 0.1,
+
+      			// Function called once zooming is completed
+      			// Useful for dynamic data loading
+      			onZoom: function({chart}) { console.log(`I was zoomed!!!`); }
+      		}
+        }
+      });
+      </script>
+     {% endblock %}
+</div>
+{% endblock %}
