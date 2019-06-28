@@ -152,8 +152,8 @@ def getNewCompteDeResultatToPost():
       "ProductionVendueDeBiens": 0,
       "ProductionStocked": 0,
       "VariationStockMatierePremiereEtAppro": 0,
-      "EffectifsMoyens": 0,
-      "Dividende": 0
+      "EffectifsMoyens": -1,
+      "Dividende": -1
     }
     return dictionary
 
@@ -218,7 +218,7 @@ def parseDetail(detail, compteType):
                         except ValueError:
                             print ("Not a number for attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
                         except KeyError:
-                            print ("Missing attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
+                            #print ("Missing attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
                             liasseValues.append("Missing Value")
                 if codeDetails[0] in dictionaryDetail:
                     raise Exception('Key conflict. the following key is not unique : "' + codeDetails[0] + '"')
@@ -236,7 +236,7 @@ def postToDatabase(corporateIdentity, financialValues):
                          'CompanyNumber': corporateIdentity['siren'],
                          'IndustryCode': corporateIdentity['code_activite']}
     jsonData = json.dumps(postCorporateDict)
-    response = requests.post("http://127.0.0.1:8000/api/corporates", data=jsonData, headers=requestHeaders)
+    response = requests.post(URLToFill + "api/corporates", data=jsonData, headers=requestHeaders)
     if response.ok:
         corporateIRI = response.json()['@id']
     elif response.status_code == 400:
@@ -263,7 +263,7 @@ def postToDatabase(corporateIdentity, financialValues):
             postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = financialValues[csvKey][dictionaryColumnNameToDatabaseFields[csvKey][1]]
 
     jsonData = json.dumps(postCompteDeResultatDict)
-    response = requests.post("http://127.0.0.1:8000/api/compte_de_resultats", data=jsonData, headers=requestHeaders)
+    response = requests.post(URLToFill + "api/compte_de_resultats", data=jsonData, headers=requestHeaders)
     if response.ok:
         return True
     else:
@@ -332,6 +332,7 @@ def parseAndConvertXMLFile(xmlFilePath):
 def help():
     print('usage is :', os.path.basename(__file__), '-x <xmlFileToParse> -o <CSVFileToOutput>')
     print('      or :', os.path.basename(__file__), '-f <folder>')
+    print('add option -r to upload to remote, or -l to upload to local server')
 
 # Main
 
@@ -355,8 +356,9 @@ with open(currentScriptPath + '/CodeEtSignification.csv', mode='r') as infile:
 xmlFile = None
 outputFile = None
 folder = None
+URLToFill = None
 try:
-    opts, args = getopt.getopt(sys.argv[1:],"hx:o:f:",["xmlFile=","outputFile=", "folder="])
+    opts, args = getopt.getopt(sys.argv[1:],"rlhx:o:f:",["xmlFile=","outputFile=", "folder="])
 except getopt.GetoptError:
     help()
     sys.exit(2)
@@ -370,8 +372,12 @@ for opt, arg in opts:
         outputFile = arg
     elif opt in ("-f", "--folder"):
         folder = arg
+    elif opt == '-r':
+        URLToFill = 'http://opencorporatefacts.fr/'
+    elif opt == '-l':
+        URLToFill = 'http://127.0.0.1:8000/'
 
-if (not xmlFile or not outputFile) and not folder:
+if ((not xmlFile or not outputFile) and not folder) or not URLToFill:
     help()
     sys.exit(2)
 
@@ -391,6 +397,6 @@ else:
                         myXmlFile = myzipfile.open(zippedFile)
                         parseAndConvertXMLFile(myXmlFile)
                         print("Global csv generation results : csvGenerated=", csvGenerated, "databaseAdding=", databaseAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
-            if csvGenerated > 1000:
+            if csvGenerated > 10000:
                 break
     print("Global csv generation results : csvGenerated=", csvGenerated, "databaseAdding=", databaseAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)

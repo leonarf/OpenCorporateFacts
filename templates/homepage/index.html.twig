@@ -28,8 +28,10 @@
         {{ form_widget(form) }}
         {{ form_end(form) }}
 
-        <script src="https://www.w3schools.com/lib/w3.js"></script>
+{{ include('homepage/StatisticalGraphics.html.twig', { 'comptes': comptes }) }}
+
 <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+<p>Top 100 des plus gros chiffres d'affaires en base!</p>
 <p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
 
 <table id="globalTable" class="w3-table-all">
@@ -43,15 +45,15 @@
     <th onclick="sortTable(6)" style="cursor:pointer">Effectifs</th>
   </tr>
 
-  {% for compteDeResultat in comptes %}
+  {% for i in 0..100 %}
     <tr class="item">
-      <td><a href="{{ url('corporate_show', {'id': compteDeResultat.Corporate.Id}) }}">{{ compteDeResultat.Corporate }}</a></td>
-      <td>{{ compteDeResultat.year }}</td>
-      <td>{{ compteDeResultat.ChiffresAffairesNet}}</td>
-      <td>{{ compteDeResultat.Benefice}}</td>
-      <td>{{ compteDeResultat.ImpotsSurLesBenefices }}</td>
-      <td>{{ compteDeResultat.ParticipationSalariesAuxResultats }}</td>
-      <td>{{ compteDeResultat.EffectifsMoyens }}</td>
+      <td><a href="{{ url('corporate_show', {'id': comptes[i].Corporate.Id}) }}">{{ comptes[i].Corporate }}</a></td>
+      <td>{{ comptes[i].year }}</td>
+      <td>{{ comptes[i].ChiffresAffairesNet}}</td>
+      <td>{{ comptes[i].Benefice}}</td>
+      <td>{{ comptes[i].ImpotsSurLesBenefices }}</td>
+      <td>{{ comptes[i].ParticipationSalariesAuxResultats }}</td>
+      <td>{{ comptes[i].EffectifsMoyens }}</td>
     </tr>
   {% else %}
   <tr class="item">

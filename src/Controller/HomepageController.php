@@ -43,7 +43,7 @@ class HomepageController extends AbstractController
         }
 
         $lotsOfCompteDeResultats = $entityManager->getRepository(CompteDeResultat::class)
-            ->findAllUpTo(100);
+            ->findAllUpTo(100000);
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'form' => $form->createView(),
