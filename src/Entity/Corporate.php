@@ -10,11 +10,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CorporateRepository")
  * @UniqueEntity("CompanyNumber")
- * @ApiResource(attributes={"filters"={"corporate.search_companyNumber"}})
+ * @ApiResource
+ * @ApiFilter(SearchFilter::class)
  */
 class Corporate
 {

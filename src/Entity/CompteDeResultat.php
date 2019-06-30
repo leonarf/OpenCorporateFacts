@@ -8,10 +8,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompteDeResultatRepository")
+ * @ORM\Table(name="compte_de_resultat",
+ *            uniqueConstraints={
+ *              @ORM\UniqueConstraint(name="uniqueComptesPerYearPerCorporate",
+ *                                    columns={"corporate_id", "year"})
+ *                               }
+ *           )
  * @ApiResource
+ * @ApiFilter(SearchFilter::class, properties={"Corporate": "exact", "year": "exact"})
  */
 class CompteDeResultat
 {

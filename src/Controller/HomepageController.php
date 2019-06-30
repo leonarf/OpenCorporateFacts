@@ -44,10 +44,13 @@ class HomepageController extends AbstractController
 
         $lotsOfCompteDeResultats = $entityManager->getRepository(CompteDeResultat::class)
             ->findAllUpTo(100000);
+        $companyCount = count($entityManager->getRepository(Corporate::class)
+            ->findAll());
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'form' => $form->createView(),
-            'comptes' => $lotsOfCompteDeResultats
+            'comptes' => $lotsOfCompteDeResultats,
+            'companyCount' => $companyCount
         ]);
     }
 }

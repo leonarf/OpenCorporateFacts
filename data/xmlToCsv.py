@@ -11,10 +11,12 @@ import json
 
 import xml.etree.ElementTree as ET
 
-databaseAdding = 0
+databaseCompanyAdding = 0
+databaseCompteAdding = 0
 csvGenerated = 0
 confidentiality2Count = 0
 detailMissing = 0
+requestHeaders = {'content-type': 'application/json'}
 
 dictionaryCodeMotifToHumanReadable = {
 '0':'0 Comptes annuels saisis sans anomalie',
@@ -228,51 +230,93 @@ def parseDetail(detail, compteType):
 
     return dictionaryDetail
 
-def postToDatabase(corporateIdentity, financialValues):
-    requestHeaders = {'content-type': 'application/json'}
-
-    postCorporateDict = {'Name': corporateIdentity['denomination'],
-                         'OpenCorporateURL': 'https://opencorporates.com/companies/fr/' + corporateIdentity['siren'],
-                         'CompanyNumber': corporateIdentity['siren'],
-                         'IndustryCode': corporateIdentity['code_activite']}
-    jsonData = json.dumps(postCorporateDict)
-    response = requests.post(URLToFill + "api/corporates", data=jsonData, headers=requestHeaders)
-    if response.ok:
-        corporateIRI = response.json()['@id']
-    elif response.status_code == 400:
-        print(response.json()['hydra:description'])
-        if response.json()['hydra:description'] == 'CompanyNumber: This value is already used.':
-            print("CompanyNumber exists already, retrieving it")
-        else:
-            print("response.json() : ", response.json())
-            print(response.json()['violations'])
-            print(response.json()['violations'][0]['propertyPath'])
-        return False
+def postOrGetCompanyInDatabase(corporateIdentity):
+    global databaseCompanyAdding
+    corporateIRI = None
+    # Try to get corporate IRI, if it already exist
+    response = requests.get(URLToFill + "api/corporates?CompanyNumber=" + corporateIdentity['siren'], headers=requestHeaders).json()
+    if response['hydra:totalItems'] == 1:
+        corporateIRI = response['hydra:member'][0]['@id']
+        databaseCompanyAdding += 1
     else:
-        print(response.reason)
-        print(response.status_code)
-        response.raise_for_status()
-        return False
-    print(corporateIRI)
-    postCompteDeResultatDict = getNewCompteDeResultatToPost()
-    postCompteDeResultatDict['Corporate'] = corporateIRI
-    # Extract year from close date
-    postCompteDeResultatDict['year'] = int(corporateIdentity['date_cloture_exercice'][:4])
-    for csvKey in financialValues:
-        if csvKey in dictionaryColumnNameToDatabaseFields:
-            postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = financialValues[csvKey][dictionaryColumnNameToDatabaseFields[csvKey][1]]
+        # Post the company to database
+        postCorporateDict = {'Name': corporateIdentity['denomination'],
+                             'OpenCorporateURL': 'https://opencorporates.com/companies/fr/' + corporateIdentity['siren'],
+                             'CompanyNumber': corporateIdentity['siren'],
+                             'IndustryCode': corporateIdentity['code_activite']}
+        jsonData = json.dumps(postCorporateDict)
+        response = requests.post(URLToFill + "api/corporates", data=jsonData, headers=requestHeaders)
+        if response.ok:
+            corporateIRI = response.json()['@id']
+            databaseCompanyAdding += 1
+        elif response.status_code == 400:
+            print(response.json()['hydra:description'])
+            if response.json()['hydra:description'] == 'CompanyNumber: This value is already used.':
+                print("CompanyNumber exists already, retrieving it")
+            else:
+                print("response.json() : ", response.json())
+                print(response.json()['violations'])
+                print(response.json()['violations'][0]['propertyPath'])
+        else:
+            print(response.reason)
+            print(response.status_code)
+            response.raise_for_status()
+    return corporateIRI
 
-    jsonData = json.dumps(postCompteDeResultatDict)
-    response = requests.post(URLToFill + "api/compte_de_resultats", data=jsonData, headers=requestHeaders)
-    if response.ok:
+def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNumber):
+    # Try to get already existing bilan comptable
+    response = requests.get(URLToFill + "api/compte_de_resultats?Corporate=" + corporateIRI + "&year=" + str(year), headers=requestHeaders)
+    if response.ok and response.json()['hydra:totalItems'] == 1:
+        print('There is already a compte for year', year, " for company " + corporateIRI)
+        print(response.json())
         return True
     else:
-        print(response.reason)
-        print(response.status_code)
-        print(response.json()['hydra:description'])
-        print("response.json() : ", response.json())
-        #response.raise_for_status()
-    return False
+        postCompteDeResultatDict = getNewCompteDeResultatToPost()
+        postCompteDeResultatDict['Corporate'] = corporateIRI
+        # Extract year from close date
+        postCompteDeResultatDict['year'] = year
+
+        # Use each value in financialValues to fill the request to post to database,
+        # using dictionaryColumnNameToDatabaseFields to know what goes where
+        for csvKey in financialValues:
+            if csvKey in dictionaryColumnNameToDatabaseFields:
+                try:
+                    postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = financialValues[csvKey][dictionaryColumnNameToDatabaseFields[csvKey][1] + compteNumber]
+                except IndexError:
+                    print("Error when getting value from xml to database. csvKey=", csvKey, "compteNumber=", compteNumber, dictionaryColumnNameToDatabaseFields[csvKey], "Values got in xml:", financialValues[csvKey])
+                    postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = "Missing Value"
+
+        jsonData = json.dumps(postCompteDeResultatDict)
+        response = requests.post(URLToFill + "api/compte_de_resultats", data=jsonData, headers=requestHeaders)
+        if response.ok:
+            print(response.json())
+            return True
+        elif response.status_code == 500:
+            if 'uniqueComptesPerYearPerCorporate' in response.json()['hydra:description']:
+                print('There is already a compte for year', postCompteDeResultatDict['year'], " for company " + corporateIdentity['denomination'])
+                return True
+        else:
+            print(response.reason)
+            print(response.status_code)
+            print(response.json()['hydra:description'])
+            print("response.json() : ", response.json())
+            return False
+
+def postToDatabase(corporateIdentity, financialValues):
+    global databaseCompteAdding
+    compteAddingSuccess = 0
+    corporateIRI = postOrGetCompanyInDatabase(corporateIdentity)
+    year = int(corporateIdentity['date_cloture_exercice'][:4])
+    if postCompteDeResultatToDatabase(year, corporateIRI, financialValues, 0):
+        compteAddingSuccess += 1
+    if postCompteDeResultatToDatabase(year - 1, corporateIRI, financialValues, 1):
+        compteAddingSuccess += 1
+
+    if compteAddingSuccess > 0:
+        databaseCompteAdding += compteAddingSuccess
+        return True
+    else:
+        return False
 
 def writeCSV(corporateIdentity, financialValues):
     if outputFile:
@@ -292,7 +336,6 @@ def writeCSV(corporateIdentity, financialValues):
 
 def parseAndConvertXMLFile(xmlFilePath):
     global csvGenerated
-    global databaseAdding
     global confidentiality2Count
     global detailMissing
     tree = ET.parse(xmlFilePath)
@@ -323,9 +366,7 @@ def parseAndConvertXMLFile(xmlFilePath):
             typeCompte = "Assurance"
         detailDict = parseDetail(detail, typeCompte)
 
-        if postToDatabase(identiteDict, detailDict):
-            databaseAdding += 1
-        else:
+        if not postToDatabase(identiteDict, detailDict):
             writeCSV(identiteDict, detailDict)
             csvGenerated += 1
 
@@ -396,7 +437,7 @@ else:
                     if zippedFile.endswith(".xml"):
                         myXmlFile = myzipfile.open(zippedFile)
                         parseAndConvertXMLFile(myXmlFile)
-                        print("Global csv generation results : csvGenerated=", csvGenerated, "databaseAdding=", databaseAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
-            if csvGenerated > 10000:
+                        print("Global csv generation results : csvGenerated=", csvGenerated, "databaseCompteAdding=", databaseCompteAdding, "databaseCompanyAdding=", databaseCompanyAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
+            if csvGenerated > 1000000000:
                 break
     print("Global csv generation results : csvGenerated=", csvGenerated, "databaseAdding=", databaseAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
