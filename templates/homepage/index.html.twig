@@ -28,8 +28,6 @@
         {{ form_widget(form) }}
         {{ form_end(form) }}
 <p>Il y a actuellement {{ comptes|length }} bilans comptables, et {{ companyCount }} entreprises en base</p>
-{{ include('homepage/StatisticalGraphics.html.twig', { 'comptes': comptes }) }}
-
 <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
 <p>Top 100 des plus gros chiffres d'affaires en base!</p>
 <p>Click the <strong>table headers</strong> to sort the table accordingly:</p>

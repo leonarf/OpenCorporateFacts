@@ -96,7 +96,7 @@ class CompteDeResultat
       if ($this->Benefice == 0 and $this->ResultatExceptionnel == 0 and $this->ResultatFinancier == 0 and $this->ResultatExploitation == 0)
       {
         $context->buildViolation("le bilan comptable ne doit pas comporter que des zéro")
-                ->atPath('Benefice')
+                ->atPath('ResultatExploitation')
                 ->addViolation();
       }
   }

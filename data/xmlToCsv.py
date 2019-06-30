@@ -10,6 +10,7 @@ import requests
 import json
 
 import xml.etree.ElementTree as ET
+from ftplib import FTP_TLS
 
 databaseCompanyAdding = 0
 databaseCompteAdding = 0
@@ -268,7 +269,6 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
     response = requests.get(URLToFill + "api/compte_de_resultats?Corporate=" + corporateIRI + "&year=" + str(year), headers=requestHeaders)
     if response.ok and response.json()['hydra:totalItems'] == 1:
         print('There is already a compte for year', year, " for company " + corporateIRI)
-        print(response.json())
         return True
     else:
         postCompteDeResultatDict = getNewCompteDeResultatToPost()
@@ -289,12 +289,14 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
         jsonData = json.dumps(postCompteDeResultatDict)
         response = requests.post(URLToFill + "api/compte_de_resultats", data=jsonData, headers=requestHeaders)
         if response.ok:
-            print(response.json())
+            print('Compte for year', year, " for company " + corporateIRI + "succesfully added :-D")
             return True
         elif response.status_code == 500:
             if 'uniqueComptesPerYearPerCorporate' in response.json()['hydra:description']:
-                print('There is already a compte for year', postCompteDeResultatDict['year'], " for company " + corporateIdentity['denomination'])
+                print('There is already a compte for year', postCompteDeResultatDict['year'], " for company " + corporateIdentity['denomination'] + " that was not found before")
                 return True
+        elif response.status_code == 400:
+            print("Bilan comptable with error or missing values : " + response.json()['hydra:description'])
         else:
             print(response.reason)
             print(response.status_code)
@@ -370,6 +372,38 @@ def parseAndConvertXMLFile(xmlFilePath):
             writeCSV(identiteDict, detailDict)
             csvGenerated += 1
 
+def processOneCompanyZippedFile(zipFilePath):
+    myzipfile = zipfile.ZipFile(zipFilePath)
+    for zippedFile in myzipfile.namelist():
+        if zippedFile.endswith(".xml"):
+            myXmlFile = myzipfile.open(zippedFile)
+            parseAndConvertXMLFile(myXmlFile)
+            print("Global csv generation results : csvGenerated=", csvGenerated, "databaseCompteAdding=", databaseCompteAdding, "databaseCompanyAdding=", databaseCompanyAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
+
+def processOneDayZippedFile(zipFilePath):
+    try:
+        myzipfile = zipfile.ZipFile(zipFilePath)
+        for zippedFile in myzipfile.namelist():
+            if zippedFile.endswith(".zip"):
+                myXmlFile = myzipfile.open(zippedFile)
+                processOneCompanyZippedFile(myXmlFile)
+    except zipfile.BadZipFile:
+        print("file " + zipFilePath + " cannot be handled by python zipfile :-(")
+
+def exploreAndProcessFTPFolder(folderToExplore):
+    for element in ftp.nlst(folderToExplore):
+        if element.endswith(".zip"):
+            localFileName = os.path.basename(element)
+            localfile = open(localFileName, 'wb')
+            ftp.retrbinary("RETR " + element, localfile.write)
+            print("Processing file " + element)
+            processOneDayZippedFile(localFileName)
+        elif element.endswith(".md5"):
+            print("md5 file to ignore ^^ :" + element)
+        else:
+            print("exploring " + element)
+            exploreAndProcessFTPFolder(element)
+
 def help():
     print('usage is :', os.path.basename(__file__), '-x <xmlFileToParse> -o <CSVFileToOutput>')
     print('      or :', os.path.basename(__file__), '-f <folder>')
@@ -398,8 +432,9 @@ xmlFile = None
 outputFile = None
 folder = None
 URLToFill = None
+importFromFTP = False
 try:
-    opts, args = getopt.getopt(sys.argv[1:],"rlhx:o:f:",["xmlFile=","outputFile=", "folder="])
+    opts, args = getopt.getopt(sys.argv[1:],"rlhx:o:f:",["xmlFile=","outputFile=", "folder=", "ftp"])
 except getopt.GetoptError:
     help()
     sys.exit(2)
@@ -417,27 +452,40 @@ for opt, arg in opts:
         URLToFill = 'http://opencorporatefacts.fr/'
     elif opt == '-l':
         URLToFill = 'http://127.0.0.1:8000/'
+    elif opt == '--ftp':
+        importFromFTP = True
 
-if ((not xmlFile or not outputFile) and not folder) or not URLToFill:
+if not URLToFill:
+    print("missing database/server URL, option -r or -l mandatory")
+    help()
+    sys.exit(2)
+elif folder:
+    print("folder given, will be parsed")
+elif importFromFTP:
+    print("ftp option given, take a nap")
+elif xmlFile and outputFile:
+    print("xml file given, will be parsed")
+else:
     help()
     sys.exit(2)
 
 # Declare XML namespace dictionary
 ns = {'inpi': 'fr:inpi:odrncs:bilansSaisisXML'}
 
+# Parse only one file if one file is given
 if xmlFile:
     parseAndConvertXMLFile(xmlFile)
+# Get data from FTP if ftp option is given
+elif importFromFTP:
+    ftp = FTP_TLS('opendata-rncs.inpi.fr')
+    ftp.login(user='XXX', passwd = 'XXX')
+    ftp.prot_p()
+    folderToExplore = "public/Bilans_Donnees_Saisies/historique"
+    dailyFileFound = exploreAndProcessFTPFolder(folderToExplore)
+# Parse the given folder if option is given
 else:
     for root, dirs, files in os.walk(folder):
         for name in files:
             if name.endswith(".zip"):
                 filePath = root + name
-                myzipfile = zipfile.ZipFile(filePath)
-                for zippedFile in myzipfile.namelist():
-                    if zippedFile.endswith(".xml"):
-                        myXmlFile = myzipfile.open(zippedFile)
-                        parseAndConvertXMLFile(myXmlFile)
-                        print("Global csv generation results : csvGenerated=", csvGenerated, "databaseCompteAdding=", databaseCompteAdding, "databaseCompanyAdding=", databaseCompanyAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
-            if csvGenerated > 1000000000:
-                break
-    print("Global csv generation results : csvGenerated=", csvGenerated, "databaseAdding=", databaseAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
+                processOneCompanyZippedFile(filePath)
