@@ -391,12 +391,21 @@ def processOneDayZippedFile(zipFilePath):
         print("file " + zipFilePath + " cannot be handled by python zipfile :-(")
 
 def exploreAndProcessFTPFolder(folderToExplore):
-    for element in ftp.nlst(folderToExplore):
+    ftp = FTP_TLS('opendata-rncs.inpi.fr')
+    ftp.login(user='xxx', passwd = 'xxx')
+    ftp.prot_p()
+    elementList = ftp.nlst(folderToExplore)
+    ftp.quit()
+    for element in elementList:
         if element.endswith(".zip"):
             localFileName = os.path.basename(element)
             localfile = open(localFileName, 'wb')
+            print("Downloading and processing file " + element)
+            ftp = FTP_TLS('opendata-rncs.inpi.fr')
+            ftp.login(user='xxx', passwd = 'xxx')
+            ftp.prot_p()
             ftp.retrbinary("RETR " + element, localfile.write)
-            print("Processing file " + element)
+            ftp.quit()
             processOneDayZippedFile(localFileName)
         elif element.endswith(".md5"):
             print("md5 file to ignore ^^ :" + element)
@@ -477,9 +486,6 @@ if xmlFile:
     parseAndConvertXMLFile(xmlFile)
 # Get data from FTP if ftp option is given
 elif importFromFTP:
-    ftp = FTP_TLS('opendata-rncs.inpi.fr')
-    ftp.login(user='XXX', passwd = 'XXX')
-    ftp.prot_p()
     folderToExplore = "public/Bilans_Donnees_Saisies/historique"
     dailyFileFound = exploreAndProcessFTPFolder(folderToExplore)
 # Parse the given folder if option is given

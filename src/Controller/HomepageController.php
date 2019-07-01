@@ -41,16 +41,34 @@ class HomepageController extends AbstractController
               return $this->redirect('corporate/'.$corporate->getId());
             }
         }
+/*
+        // 2. Setup repository of some entity
+        $repoArticles = $em->getRepository(Articles::class);
 
-        $lotsOfCompteDeResultats = $entityManager->getRepository(CompteDeResultat::class)
-            ->findAllUpTo(100000);
-        $companyCount = count($entityManager->getRepository(Corporate::class)
-            ->findAll());
+        // 3. Query how many rows are there in the Articles table
+        $totalArticles = $repoArticles->createQueryBuilder('a')
+            // Filter by some parameter if you want
+            // ->where('a.published = 1')
+            ->select('count(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+*/
+        $repoCompteDeResultat = $entityManager->getRepository(CompteDeResultat::class);
+        $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(100);
+        $bilanComptableCount = $repoCompteDeResultat->createQueryBuilder('compte')
+            ->select('count(compte.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+        $companyCount = $entityManager->getRepository(Corporate::class)->createQueryBuilder('corporate')
+            ->select('count(corporate.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'form' => $form->createView(),
             'comptes' => $lotsOfCompteDeResultats,
-            'companyCount' => $companyCount
+            'companyCount' => $companyCount,
+            'bilanComptableCount' => $bilanComptableCount
         ]);
     }
 }

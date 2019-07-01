@@ -16,7 +16,7 @@
   <li>a database built from open data sets and other publicly available sources by members of Code For France and other contributors;</li>
   <li>a tool allowing users to visualize data, compare between companies, and contribute to improve the data and the database.</li>
 </ul>
-</p>
+
 <h2>What you can find in OCF (at this stage)</h2>
 <ul>
   <li>open information on companies, through existing administrative datasets (INSEE/INPI), that have been checked and refined to make them usable;</li>
@@ -27,7 +27,7 @@
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
-<p>Il y a actuellement {{ comptes|length }} bilans comptables, et {{ companyCount }} entreprises en base</p>
+<p>Il y a actuellement {{ bilanComptableCount }} bilans comptables, et {{ companyCount }} entreprises en base</p>
 <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
 <p>Top 100 des plus gros chiffres d'affaires en base!</p>
 <p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
@@ -43,7 +43,7 @@
     <th onclick="sortTable(6)" style="cursor:pointer">Effectifs</th>
   </tr>
 
-  {% for i in 0..100 %}
+  {% for i in 0..99 %}
     <tr class="item">
       <td><a href="{{ url('corporate_show', {'id': comptes[i].Corporate.Id}) }}">{{ comptes[i].Corporate }}</a></td>
       <td>{{ comptes[i].year }}</td>
@@ -61,7 +61,6 @@
   </tr>
   {% endfor %}
 </table>
-  </p>
 
   <script>
   function sortTable(n) {
