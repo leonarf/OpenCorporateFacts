@@ -192,7 +192,7 @@ ordre originel;code;description;colonnes remplies;page;type compte
 191;Z1;Créances représentatives de titres prêtés;1‐2‐3;"""08""";Complet
 192;UY;Personnel et comptes rattachés;1‐2‐3;"""08""";Complet
 193;UZ;Sécurité Sociale, autres organismes sociaux;1‐2‐3;"""08""";Complet
-194;VM;Impôts sur les bénéfices;1‐2‐3;"""08""";Complet
+194;VM;Impôts sur les bénéfices (créances);1‐2‐3;"""08""";Complet
 195;VB;T. V. A.;1‐2‐3;"""08""";Complet
 196;VN;Autres impôts, taxes versements assimilés;1‐2‐3;"""08""";Complet
 197;VP;Divers;1‐2‐3;"""08""";Complet
@@ -208,7 +208,7 @@ ordre originel;code;description;colonnes remplies;page;type compte
 207;8B;Fournisseurs et comptes rattachés;1‐2‐3‐4;"""08""";Complet
 208;8C;Personnel et comptes rattachés;1‐2‐3‐4;"""08""";Complet
 209;8D;Sécurité sociale et autres organismes sociaux;1‐2‐3‐4;"""08""";Complet
-210;8E;Impôts sur les bénéfices;1‐2‐3‐4;"""08""";Complet
+210;8E;Impôts sur les bénéfices (dettes);1‐2‐3‐4;"""08""";Complet
 211;VW;T.V.A.;1‐2‐3‐4;"""08""";Complet
 212;VX;Obligations cautionnées;1‐2‐3‐4;"""08""";Complet
 213;VQ;Autres impôts, taxes et assimilés;1‐2‐3‐4;"""08""";Complet
@@ -564,7 +564,7 @@ ordre originel;code;description;colonnes remplies;page;type compte
 563;290;Produits exceptionnels;1‐2;"""02""";Complet
 564;294;Charges financières;1‐2;"""02""";Complet
 565;300;Charges exceptionnelles;1‐2;"""02""";Complet
-566;306;Impôts sur les bénéfices;1‐2;"""02""";Complet
+566;306;Impôts sur les bénéfices (compte annuel simplifié);1‐2;"""02""";Complet
 567;310;Bénéfice ou perte;1‐2;"""02""";Complet
 568;316;Rémunération et avantages personnels non déductibles;1;"""02""";Complet
 569;374;Montant de la T.V.A. collectée;1;"""02""";Complet

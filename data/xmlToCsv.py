@@ -211,7 +211,11 @@ def parseDetail(detail, compteType):
             for liasse in page:
 #                print(compteType + " page " + page.attrib['numero'])
                 # code details is ['description' 'colonnes remplies']
-                codeDetails = dictionaryAdministrationToHuman[compteType][page.attrib['numero']][liasse.attrib['code']]
+                try:
+                    codeDetails = dictionaryAdministrationToHuman[compteType][page.attrib['numero']][liasse.attrib['code']]
+                except KeyError:
+                    print("KeyError exception for code " + liasse.attrib['code'] + " in page " + page.attrib['numero'] + " for compte type " + compteType)
+                    return dictionaryDetail;
                 liasseValues = []
                 for digit in ['1', '2', '3' , '4']:
                     if digit in codeDetails[1]:
@@ -224,7 +228,7 @@ def parseDetail(detail, compteType):
                             #print ("Missing attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
                             liasseValues.append("Missing Value")
                 if codeDetails[0] in dictionaryDetail:
-                    raise Exception('Key conflict. the following key is not unique : "' + codeDetails[0] + '"')
+                    raise Exception('Key conflict. the following key is not unique : "' + codeDetails[0] + '". Context :code ' + liasse.attrib['code'] + " in page " + page.attrib['numero'] + " for compte type " + compteType)
                 dictionaryDetail[codeDetails[0]] = liasseValues
         else:
             print("page number not interesting :", page.attrib['numero'])
