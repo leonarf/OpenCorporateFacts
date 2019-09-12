@@ -39,6 +39,7 @@
     <th onclick="sortTable(6)" style="cursor:pointer">Effectifs</th>
   </tr>
 
+{% if comptes|length > 100 %}
   {% for i in 0..99 %}
     <tr class="item">
       <td><a href="{{ url('corporate_show', {'id': comptes[i].Corporate.Id}) }}">{{ comptes[i].Corporate }}</a></td>
@@ -49,6 +50,18 @@
       <td>{{ comptes[i].ParticipationSalariesAuxResultats }}</td>
       <td>{{ comptes[i].EffectifsMoyens }}</td>
     </tr>
+  {% endfor %}
+{% else %}
+  {% for compte in comptes %}
+    <tr class="item">
+      <td><a href="{{ url('corporate_show', {'id': compte.Corporate.Id}) }}">{{ compte.Corporate }}</a></td>
+      <td>{{ compte.year }}</td>
+      <td>{{ compte.ChiffresAffairesNet}}</td>
+      <td>{{ compte.Benefice}}</td>
+      <td>{{ compte.ImpotsSurLesBenefices }}</td>
+      <td>{{ compte.ParticipationSalariesAuxResultats }}</td>
+      <td>{{ compte.EffectifsMoyens }}</td>
+    </tr>
   {% else %}
   <tr class="item">
     <td>Pas trouvé :'-(</td>
@@ -56,6 +69,7 @@
     <td>Pas trouvé :'-(</td>
   </tr>
   {% endfor %}
+{% endif %}
 </table>
 
   <script>
