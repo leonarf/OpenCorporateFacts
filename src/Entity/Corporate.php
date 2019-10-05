@@ -13,6 +13,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CorporateRepository")
  * @UniqueEntity("CompanyNumber")
@@ -31,6 +33,7 @@ class Corporate
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
+     * @Groups("groupImportant")
      */
     private $Name;
 
@@ -48,6 +51,7 @@ class Corporate
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups("groupImportant")
      */
     private $CompanyNumber;
 
@@ -69,6 +73,7 @@ class Corporate
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("groupImportant")
      */
     private $IndustryCode;
 

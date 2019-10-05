@@ -131,12 +131,14 @@ class CompteDeResultat
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Corporate", inversedBy="ComptesDeResultats")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("groupImportant")
      */
     private $Corporate;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
+     * @Groups("groupImportant")
      */
     private $year;
 
@@ -148,17 +150,20 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $VenteMarchandises;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ProductionVendueDeServices;
 
     /**
      * @ORM\Column(type="integer")
      * @Groups("groupTest")
+     * @Groups("groupImportant")
      */
     private $ChiffresAffairesNet;
 
@@ -169,6 +174,7 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $SubventionsExploitation;
 
@@ -184,16 +190,19 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ProduitsExploitation;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $AchatsDeMarchandises;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $AchatMatierePremiereAutreAppro;
 
@@ -204,16 +213,19 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ImpotTaxesEtVersementsAssimiles;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $SalairesEtTraitements;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ChargesSociales;
 
@@ -244,11 +256,13 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ChargesExploitation;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ResultatExploitation;
 
@@ -279,6 +293,7 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ProduitsFinanciers;
 
@@ -304,11 +319,13 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ChargesFinancieres;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ResultatFinancier;
 
@@ -344,21 +361,25 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ResultatExceptionnel;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ParticipationSalariesAuxResultats;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $ImpotsSurLesBenefices;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupImportant")
      */
     private $Benefice;
 
@@ -389,11 +410,13 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("groupImportant")
      */
     private $EffectifsMoyens;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("groupImportant")
      */
     private $Dividende;
 

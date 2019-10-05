@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
@@ -16,6 +17,11 @@ use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
+use Doctrine\Common\Annotations\AnnotationReader;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 
 use App\Entity\Corporate;
 use App\Entity\CompteDeResultat;
@@ -53,39 +59,19 @@ class HomepageController extends AbstractController
     {
       $entityManager = $this->getDoctrine()->getManager();
       $repoCompteDeResultat = $entityManager->getRepository(CompteDeResultat::class);
-      $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(1000000);
 
-      // csv tryhard
-      // all callback parameters are optional (you can omit the ones you don't use)
-      $corporateSerializerCallback = function ($innerObject, $outerObject, string $attributeName, string $format = null, array $context = []) {
-          if ($format == "csv")
-          {
-            return $innerObject->getName() . "|" . $innerObject->getCompanyNumber() . "|" . $innerObject->getIndustryCode();
-          }
-          return "je sais pas faire autre chose que du csv";
-      };
-
-      $circularReferenceCallback = function ($innerObject) {
-          return $innerObject instanceof \CompteDeResultat ? "c'est un bilan circulaire" : "pas un bilan mais c'est circulaire?";
-      };
-
-      $defaultContext = [
-          'callbacks' => [
-              'Corporate' => $corporateSerializerCallback,
-          ],
-          'circular_reference_handler' =>  $corporateSerializerCallback,
-      ];
-      $normalizer = new GetSetMethodNormalizer(null, null, null, null, null, $defaultContext);
-      $normalizer->setCircularReferenceHandler($circularReferenceCallback);
-      $normalizer->setCallbacks([
-          'corporate' => $corporateSerializerCallback
-      ]);
+      $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+      $normalizer = new ObjectNormalizer($classMetadataFactory);
 
       $encoders = [new CsvEncoder()];
       $serializer = new Serializer([$normalizer], $encoders);
-      $csvContent = $serializer->serialize($lotsOfCompteDeResultats, 'csv');
 
-      $response = new Response($csvContent);
+      $response = new StreamedResponse();
+      $response->setCallback(function() use ($repoCompteDeResultat, $serializer) {
+        $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(100000);
+        $csvContent = $serializer->serialize($lotsOfCompteDeResultats, 'csv', ['groups' => ['groupImportant']]);
+        echo $csvContent;
+      });
 
       $disposition = ResponseHeaderBag::makeDisposition(
           ResponseHeaderBag::DISPOSITION_ATTACHMENT,
