@@ -11,6 +11,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompteDeResultatRepository")
  * @ORM\Table(name="compte_de_resultat",
@@ -156,6 +158,7 @@ class CompteDeResultat
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("groupTest")
      */
     private $ChiffresAffairesNet;
 
@@ -399,90 +402,6 @@ class CompteDeResultat
         return $this->id;
     }
 
-    public function getChiffresAffairesNet(): ?int
-    {
-        return $this->ChiffresAffairesNet;
-    }
-
-    public function setChiffresAffairesNet(int $ChiffresAffairesNet): self
-    {
-        $this->ChiffresAffairesNet = $ChiffresAffairesNet;
-
-        return $this;
-    }
-
-    public function getProduitsExploitation(): ?int
-    {
-        return $this->ProduitsExploitation;
-    }
-
-    public function setProduitsExploitation(int $ProduitsExploitation): self
-    {
-        $this->ProduitsExploitation = $ProduitsExploitation;
-
-        return $this;
-    }
-
-    public function getSalairesEtTraitements(): ?int
-    {
-        return $this->SalairesEtTraitements;
-    }
-
-    public function setSalairesEtTraitements(int $SalairesEtTraitements): self
-    {
-        $this->SalairesEtTraitements = $SalairesEtTraitements;
-
-        return $this;
-    }
-
-    public function getChargesSociales(): ?int
-    {
-        return $this->ChargesSociales;
-    }
-
-    public function setChargesSociales(int $ChargesSociales): self
-    {
-        $this->ChargesSociales = $ChargesSociales;
-
-        return $this;
-    }
-
-    public function getChargesExploitation(): ?int
-    {
-        return $this->ChargesExploitation;
-    }
-
-    public function setChargesExploitation(int $ChargesExploitation): self
-    {
-        $this->ChargesExploitation = $ChargesExploitation;
-
-        return $this;
-    }
-
-    public function getChargesFinancieres(): ?int
-    {
-        return $this->ChargesFinancieres;
-    }
-
-    public function setChargesFinancieres(int $ChargesFinancieres): self
-    {
-        $this->ChargesFinancieres = $ChargesFinancieres;
-
-        return $this;
-    }
-
-    public function getProduitsFinanciers(): ?int
-    {
-        return $this->ProduitsFinanciers;
-    }
-
-    public function setProduitsFinanciers(int $ProduitsFinanciers): self
-    {
-        $this->ProduitsFinanciers = $ProduitsFinanciers;
-
-        return $this;
-    }
-
     public function getCorporate(): ?Corporate
     {
         return $this->Corporate;
@@ -507,102 +426,6 @@ class CompteDeResultat
         return $this;
     }
 
-    public function getImpotTaxesEtVersementsAssimiles(): ?int
-    {
-        return $this->ImpotTaxesEtVersementsAssimiles;
-    }
-
-    public function setImpotTaxesEtVersementsAssimiles(int $ImpotTaxesEtVersementsAssimiles): self
-    {
-        $this->ImpotTaxesEtVersementsAssimiles = $ImpotTaxesEtVersementsAssimiles;
-
-        return $this;
-    }
-
-    public function getSubventionsExploitation(): ?int
-    {
-        return $this->SubventionsExploitation;
-    }
-
-    public function setSubventionsExploitation(int $SubventionsExploitation): self
-    {
-        $this->SubventionsExploitation = $SubventionsExploitation;
-
-        return $this;
-    }
-
-    public function getAchatsDeMarchandises(): ?int
-    {
-        return $this->AchatsDeMarchandises;
-    }
-
-    public function setAchatsDeMarchandises(int $AchatsDeMarchandises): self
-    {
-        $this->AchatsDeMarchandises = $AchatsDeMarchandises;
-
-        return $this;
-    }
-
-    public function getResultatExploitation(): ?int
-    {
-        return $this->ResultatExploitation;
-    }
-
-    public function setResultatExploitation(int $ResultatExploitation): self
-    {
-        $this->ResultatExploitation = $ResultatExploitation;
-
-        return $this;
-    }
-
-    public function getResultatFinancier(): ?int
-    {
-        return $this->ResultatFinancier;
-    }
-
-    public function setResultatFinancier(int $ResultatFinancier): self
-    {
-        $this->ResultatFinancier = $ResultatFinancier;
-
-        return $this;
-    }
-
-    public function getResultatExceptionnel(): ?int
-    {
-        return $this->ResultatExceptionnel;
-    }
-
-    public function setResultatExceptionnel(int $ResultatExceptionnel): self
-    {
-        $this->ResultatExceptionnel = $ResultatExceptionnel;
-
-        return $this;
-    }
-
-    public function getParticipationSalariesAuxResultats(): ?int
-    {
-        return $this->ParticipationSalariesAuxResultats;
-    }
-
-    public function setParticipationSalariesAuxResultats(int $ParticipationSalariesAuxResultats): self
-    {
-        $this->ParticipationSalariesAuxResultats = $ParticipationSalariesAuxResultats;
-
-        return $this;
-    }
-
-    public function getImpotsSurLesBenefices(): ?int
-    {
-        return $this->ImpotsSurLesBenefices;
-    }
-
-    public function setImpotsSurLesBenefices(int $ImpotsSurLesBenefices): self
-    {
-        $this->ImpotsSurLesBenefices = $ImpotsSurLesBenefices;
-
-        return $this;
-    }
-
     public function getVenteMarchandises(): ?int
     {
         return $this->VenteMarchandises;
@@ -611,6 +434,18 @@ class CompteDeResultat
     public function setVenteMarchandises(int $VenteMarchandises): self
     {
         $this->VenteMarchandises = $VenteMarchandises;
+
+        return $this;
+    }
+
+    public function getProductionVendueDeBiens(): ?int
+    {
+        return $this->ProductionVendueDeBiens;
+    }
+
+    public function setProductionVendueDeBiens(int $ProductionVendueDeBiens): self
+    {
+        $this->ProductionVendueDeBiens = $ProductionVendueDeBiens;
 
         return $this;
     }
@@ -627,6 +462,30 @@ class CompteDeResultat
         return $this;
     }
 
+    public function getChiffresAffairesNet(): ?int
+    {
+        return $this->ChiffresAffairesNet;
+    }
+
+    public function setChiffresAffairesNet(int $ChiffresAffairesNet): self
+    {
+        $this->ChiffresAffairesNet = $ChiffresAffairesNet;
+
+        return $this;
+    }
+
+    public function getProductionStocked(): ?int
+    {
+        return $this->ProductionStocked;
+    }
+
+    public function setProductionStocked(int $ProductionStocked): self
+    {
+        $this->ProductionStocked = $ProductionStocked;
+
+        return $this;
+    }
+
     public function getProductionImmobilisee(): ?int
     {
         return $this->ProductionImmobilisee;
@@ -635,6 +494,18 @@ class CompteDeResultat
     public function setProductionImmobilisee(int $ProductionImmobilisee): self
     {
         $this->ProductionImmobilisee = $ProductionImmobilisee;
+
+        return $this;
+    }
+
+    public function getSubventionsExploitation(): ?int
+    {
+        return $this->SubventionsExploitation;
+    }
+
+    public function setSubventionsExploitation(int $SubventionsExploitation): self
+    {
+        $this->SubventionsExploitation = $SubventionsExploitation;
 
         return $this;
     }
@@ -663,6 +534,66 @@ class CompteDeResultat
         return $this;
     }
 
+    public function getProduitsExploitation(): ?int
+    {
+        return $this->ProduitsExploitation;
+    }
+
+    public function setProduitsExploitation(int $ProduitsExploitation): self
+    {
+        $this->ProduitsExploitation = $ProduitsExploitation;
+
+        return $this;
+    }
+
+    public function getAchatsDeMarchandises(): ?int
+    {
+        return $this->AchatsDeMarchandises;
+    }
+
+    public function setAchatsDeMarchandises(int $AchatsDeMarchandises): self
+    {
+        $this->AchatsDeMarchandises = $AchatsDeMarchandises;
+
+        return $this;
+    }
+
+    public function getVariationStockMarchandise(): ?int
+    {
+        return $this->VariationStockMarchandise;
+    }
+
+    public function setVariationStockMarchandise(int $VariationStockMarchandise): self
+    {
+        $this->VariationStockMarchandise = $VariationStockMarchandise;
+
+        return $this;
+    }
+
+    public function getAchatMatierePremiereAutreAppro(): ?int
+    {
+        return $this->AchatMatierePremiereAutreAppro;
+    }
+
+    public function setAchatMatierePremiereAutreAppro(int $AchatMatierePremiereAutreAppro): self
+    {
+        $this->AchatMatierePremiereAutreAppro = $AchatMatierePremiereAutreAppro;
+
+        return $this;
+    }
+
+    public function getVariationStockMatierePremiereEtAppro(): ?int
+    {
+        return $this->VariationStockMatierePremiereEtAppro;
+    }
+
+    public function setVariationStockMatierePremiereEtAppro(int $VariationStockMatierePremiereEtAppro): self
+    {
+        $this->VariationStockMatierePremiereEtAppro = $VariationStockMatierePremiereEtAppro;
+
+        return $this;
+    }
+
     public function getAutresAchatEtChargesExternes(): ?int
     {
         return $this->AutresAchatEtChargesExternes;
@@ -671,6 +602,42 @@ class CompteDeResultat
     public function setAutresAchatEtChargesExternes(int $AutresAchatEtChargesExternes): self
     {
         $this->AutresAchatEtChargesExternes = $AutresAchatEtChargesExternes;
+
+        return $this;
+    }
+
+    public function getImpotTaxesEtVersementsAssimiles(): ?int
+    {
+        return $this->ImpotTaxesEtVersementsAssimiles;
+    }
+
+    public function setImpotTaxesEtVersementsAssimiles(int $ImpotTaxesEtVersementsAssimiles): self
+    {
+        $this->ImpotTaxesEtVersementsAssimiles = $ImpotTaxesEtVersementsAssimiles;
+
+        return $this;
+    }
+
+    public function getSalairesEtTraitements(): ?int
+    {
+        return $this->SalairesEtTraitements;
+    }
+
+    public function setSalairesEtTraitements(int $SalairesEtTraitements): self
+    {
+        $this->SalairesEtTraitements = $SalairesEtTraitements;
+
+        return $this;
+    }
+
+    public function getChargesSociales(): ?int
+    {
+        return $this->ChargesSociales;
+    }
+
+    public function setChargesSociales(int $ChargesSociales): self
+    {
+        $this->ChargesSociales = $ChargesSociales;
 
         return $this;
     }
@@ -735,6 +702,30 @@ class CompteDeResultat
         return $this;
     }
 
+    public function getChargesExploitation(): ?int
+    {
+        return $this->ChargesExploitation;
+    }
+
+    public function setChargesExploitation(int $ChargesExploitation): self
+    {
+        $this->ChargesExploitation = $ChargesExploitation;
+
+        return $this;
+    }
+
+    public function getResultatExploitation(): ?int
+    {
+        return $this->ResultatExploitation;
+    }
+
+    public function setResultatExploitation(int $ResultatExploitation): self
+    {
+        $this->ResultatExploitation = $ResultatExploitation;
+
+        return $this;
+    }
+
     public function getProduitsFinanciersParticipations(): ?int
     {
         return $this->ProduitsFinanciersParticipations;
@@ -755,6 +746,18 @@ class CompteDeResultat
     public function setProduitsAutresValeursMobiliereEtCreancesActifImmobilise(int $ProduitsAutresValeursMobiliereEtCreancesActifImmobilise): self
     {
         $this->ProduitsAutresValeursMobiliereEtCreancesActifImmobilise = $ProduitsAutresValeursMobiliereEtCreancesActifImmobilise;
+
+        return $this;
+    }
+
+    public function getAutreInteretEtProduitAssimile(): ?int
+    {
+        return $this->AutreInteretEtProduitAssimile;
+    }
+
+    public function setAutreInteretEtProduitAssimile(int $AutreInteretEtProduitAssimile): self
+    {
+        $this->AutreInteretEtProduitAssimile = $AutreInteretEtProduitAssimile;
 
         return $this;
     }
@@ -783,50 +786,98 @@ class CompteDeResultat
         return $this;
     }
 
+    public function getProduitsNetsCessionsValeursMobilesPlacement(): ?int
+    {
+        return $this->ProduitsNetsCessionsValeursMobilesPlacement;
+    }
+
+    public function setProduitsNetsCessionsValeursMobilesPlacement(int $ProduitsNetsCessionsValeursMobilesPlacement): self
+    {
+        $this->ProduitsNetsCessionsValeursMobilesPlacement = $ProduitsNetsCessionsValeursMobilesPlacement;
+
+        return $this;
+    }
+
+    public function getProduitsFinanciers(): ?int
+    {
+        return $this->ProduitsFinanciers;
+    }
+
+    public function setProduitsFinanciers(int $ProduitsFinanciers): self
+    {
+        $this->ProduitsFinanciers = $ProduitsFinanciers;
+
+        return $this;
+    }
+
     public function getDotationsFinancieresAmortissementDepreciationProvision(): ?int
     {
-        return $this->DotationsFinancieresAmortissementDepreciationProvision;
+       return $this->DotationsFinancieresAmortissementDepreciationProvision;
     }
 
     public function setDotationsFinancieresAmortissementDepreciationProvision(int $DotationsFinancieresAmortissementDepreciationProvision): self
     {
-        $this->DotationsFinancieresAmortissementDepreciationProvision = $DotationsFinancieresAmortissementDepreciationProvision;
+       $this->DotationsFinancieresAmortissementDepreciationProvision = $DotationsFinancieresAmortissementDepreciationProvision;
 
-        return $this;
+       return $this;
     }
 
     public function getInteretEtChargeAssimilees(): ?int
     {
-        return $this->InteretEtChargeAssimilees;
+       return $this->InteretEtChargeAssimilees;
     }
 
     public function setInteretEtChargeAssimilees(int $InteretEtChargeAssimilees): self
     {
-        $this->InteretEtChargeAssimilees = $InteretEtChargeAssimilees;
+       $this->InteretEtChargeAssimilees = $InteretEtChargeAssimilees;
 
-        return $this;
+       return $this;
     }
 
     public function getDifferenceNegativeChange(): ?int
     {
-        return $this->DifferenceNegativeChange;
+       return $this->DifferenceNegativeChange;
     }
 
     public function setDifferenceNegativeChange(int $DifferenceNegativeChange): self
     {
-        $this->DifferenceNegativeChange = $DifferenceNegativeChange;
+       $this->DifferenceNegativeChange = $DifferenceNegativeChange;
 
-        return $this;
+       return $this;
     }
 
     public function getChargesNetteCessionValeurMobiliereDePlacement(): ?int
     {
-        return $this->ChargesNetteCessionValeurMobiliereDePlacement;
+       return $this->ChargesNetteCessionValeurMobiliereDePlacement;
     }
 
     public function setChargesNetteCessionValeurMobiliereDePlacement(int $ChargesNetteCessionValeurMobiliereDePlacement): self
     {
-        $this->ChargesNetteCessionValeurMobiliereDePlacement = $ChargesNetteCessionValeurMobiliereDePlacement;
+       $this->ChargesNetteCessionValeurMobiliereDePlacement = $ChargesNetteCessionValeurMobiliereDePlacement;
+
+       return $this;
+    }
+
+    public function getChargesFinancieres(): ?int
+    {
+        return $this->ChargesFinancieres;
+    }
+
+    public function setChargesFinancieres(int $ChargesFinancieres): self
+    {
+        $this->ChargesFinancieres = $ChargesFinancieres;
+
+        return $this;
+    }
+
+    public function getResultatFinancier(): ?int
+    {
+        return $this->ResultatFinancier;
+    }
+
+    public function setResultatFinancier(int $ResultatFinancier): self
+    {
+        $this->ResultatFinancier = $ResultatFinancier;
 
         return $this;
     }
@@ -903,6 +954,42 @@ class CompteDeResultat
         return $this;
     }
 
+    public function getResultatExceptionnel(): ?int
+    {
+        return $this->ResultatExceptionnel;
+    }
+
+    public function setResultatExceptionnel(int $ResultatExceptionnel): self
+    {
+        $this->ResultatExceptionnel = $ResultatExceptionnel;
+
+        return $this;
+    }
+
+    public function getParticipationSalariesAuxResultats(): ?int
+    {
+        return $this->ParticipationSalariesAuxResultats;
+    }
+
+    public function setParticipationSalariesAuxResultats(int $ParticipationSalariesAuxResultats): self
+    {
+        $this->ParticipationSalariesAuxResultats = $ParticipationSalariesAuxResultats;
+
+        return $this;
+    }
+
+    public function getImpotsSurLesBenefices(): ?int
+    {
+        return $this->ImpotsSurLesBenefices;
+    }
+
+    public function setImpotsSurLesBenefices(int $ImpotsSurLesBenefices): self
+    {
+        $this->ImpotsSurLesBenefices = $ImpotsSurLesBenefices;
+
+        return $this;
+    }
+
     public function getBenefice(): ?int
     {
         return $this->Benefice;
@@ -915,86 +1002,14 @@ class CompteDeResultat
         return $this;
     }
 
-    public function getAutreInteretEtProduitAssimile(): ?int
+    public function getDividende(): ?int
     {
-        return $this->AutreInteretEtProduitAssimile;
+        return $this->Dividende;
     }
 
-    public function setAutreInteretEtProduitAssimile(int $AutreInteretEtProduitAssimile): self
+    public function setDividende(?int $Dividende): self
     {
-        $this->AutreInteretEtProduitAssimile = $AutreInteretEtProduitAssimile;
-
-        return $this;
-    }
-
-    public function getAchatMatierePremiereAutreAppro(): ?int
-    {
-        return $this->AchatMatierePremiereAutreAppro;
-    }
-
-    public function setAchatMatierePremiereAutreAppro(int $AchatMatierePremiereAutreAppro): self
-    {
-        $this->AchatMatierePremiereAutreAppro = $AchatMatierePremiereAutreAppro;
-
-        return $this;
-    }
-
-    public function getVariationStockMarchandise(): ?int
-    {
-        return $this->VariationStockMarchandise;
-    }
-
-    public function setVariationStockMarchandise(int $VariationStockMarchandise): self
-    {
-        $this->VariationStockMarchandise = $VariationStockMarchandise;
-
-        return $this;
-    }
-
-    public function getProduitsNetsCessionsValeursMobilesPlacement(): ?int
-    {
-        return $this->ProduitsNetsCessionsValeursMobilesPlacement;
-    }
-
-    public function setProduitsNetsCessionsValeursMobilesPlacement(int $ProduitsNetsCessionsValeursMobilesPlacement): self
-    {
-        $this->ProduitsNetsCessionsValeursMobilesPlacement = $ProduitsNetsCessionsValeursMobilesPlacement;
-
-        return $this;
-    }
-
-    public function getProductionVendueDeBiens(): ?int
-    {
-        return $this->ProductionVendueDeBiens;
-    }
-
-    public function setProductionVendueDeBiens(int $ProductionVendueDeBiens): self
-    {
-        $this->ProductionVendueDeBiens = $ProductionVendueDeBiens;
-
-        return $this;
-    }
-
-    public function getProductionStocked(): ?int
-    {
-        return $this->ProductionStocked;
-    }
-
-    public function setProductionStocked(int $ProductionStocked): self
-    {
-        $this->ProductionStocked = $ProductionStocked;
-
-        return $this;
-    }
-
-    public function getVariationStockMatierePremiereEtAppro(): ?int
-    {
-        return $this->VariationStockMatierePremiereEtAppro;
-    }
-
-    public function setVariationStockMatierePremiereEtAppro(int $VariationStockMatierePremiereEtAppro): self
-    {
-        $this->VariationStockMatierePremiereEtAppro = $VariationStockMatierePremiereEtAppro;
+        $this->Dividende = $Dividende;
 
         return $this;
     }
@@ -1007,18 +1022,6 @@ class CompteDeResultat
     public function setEffectifsMoyens(?int $EffectifsMoyens): self
     {
         $this->EffectifsMoyens = $EffectifsMoyens;
-
-        return $this;
-    }
-
-    public function getDividende(): ?int
-    {
-        return $this->Dividende;
-    }
-
-    public function setDividende(?int $Dividende): self
-    {
-        $this->Dividende = $Dividende;
 
         return $this;
     }

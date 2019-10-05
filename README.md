@@ -18,7 +18,8 @@ On a linux distro :
   * `composer install` in the local git repo pour installer des trucs symfony
   * `composer require symfony/orm-pack` pour installer l'ORM doctrine
   * `composer require symfony/maker-bundle --dev` pour installer l'ORM doctrine aussi
-  * `composer req api` pour installer l'API REST
+  * `composer require api` pour installer l'API REST
+  * `composer require symfony/serializer-pack` pour pouvoir exporter des données en csv
   * `mysql_secure_installation` pour définir le mot de passe root de mariadb, dire Yes à tout le reste
   * définir dans le fichier .env les information de connection à la base pour doctrine
   * `php bin/console doctrine:database:create` pour créer la base de donnée
