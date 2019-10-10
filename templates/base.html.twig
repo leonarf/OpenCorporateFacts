@@ -1,12 +1,81 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
+    <style>
+        .example-wrapper { margin : 1em auto; max-width : 800px; width : 95%; font : 18px/1.5 sans-serif; }
+
+        .example-wrapper code { background : #F5F5F5; padding : 2px 6px; }
+
+        a {
+            text-decoration : none;
+        }
+
+        header {
+            background : #400;
+        }
+
+        header h2 {
+            text-align : center;
+            padding    : 5rem;
+            color      : white;
+            font-size  : 5vw;
+            margin     : 0;
+        }
+
+        header ul {
+            display    : flex;
+            margin     : 0;
+            list-style : none;
+            background : rgba(255, 255, 255, .1)
+        }
+
+        header ul li a {
+            display : block;
+            padding : 1rem 2rem;
+            color   : #FFF;
+        }
+
+        header ul li a:hover {
+            background          : rgba(255, 255, 255, .3);
+            transition-duration : .3s;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>OpenCorporateFacts</h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url('homepage') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('add_corporate') }}">
+                    + Company
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('add_shareholding') }}">
+                    + Link
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('add_documentDeReference') }}">
+                    + Financial doc
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
 </html>
