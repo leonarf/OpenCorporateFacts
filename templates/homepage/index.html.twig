@@ -3,68 +3,6 @@
 {% block title %}Welcome to OpenCorporateFacts!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-
-    a {
-        text-decoration:none;
-    }
-
-    header {
-        background : #400;
-    }
-
-  header h2 {
-      text-align : center;
-      padding    : 5rem;
-      color:white;
-      font-size:5vw;
-      margin:0;
-  }
-
-    header ul {
-        display: flex;
-        margin: 0;
-        list-style: none;
-        background: rgba(255,255,255,.1)
-    }
-
-    header ul li a {
-        display: block;
-        padding: 1rem 2rem;
-        color: #FFF;
-    }
-
-    header ul li a:hover {
-        background: rgba(255,255,255,.3);
-        transition-duration: .3s;
-    }
-</style>
-
-    <header>
-        <h2>OpenCorporateFacts</h2>
-        <nav>
-            <ul>
-                <li>
-                    <a href="{{ url('add_corporate') }}">
-                        + Company
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('add_shareholding') }}">
-                        + Link
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('add_documentDeReference') }}">
-                        + Financial doc
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
 <div class="example-wrapper">
     <h1>Welcome</h1>
     <h2>What is OCF ?</h2>
@@ -81,7 +19,7 @@
 </ul>
 <h2>Use Open Corporate Facts</h2>
 <p>Il y a actuellement {{ bilanComptableCount }} bilans comptables, et {{ companyCount }} entreprises en base</p>
-<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+
 <p>Top 100 des plus gros chiffres d'affaires en base!</p>
 <p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
 
