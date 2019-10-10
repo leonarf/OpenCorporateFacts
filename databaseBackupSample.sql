@@ -19,18 +19,6 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `capitalism`
---
---
--- Déchargement des données de la table `corporate`
---
-
-INSERT INTO `corporate` (`id`, `name`, `open_corporate_url`, `company_number`) VALUES
-(11, 'SMILE CORP.', 'https://opencorporates.com/companies/fr/829681634', '829681634'),
-(12, 'SMILE', 'https://opencorporates.com/companies/fr/378615363', '378615363'),
-(13, 'ENERCOOP', 'https://opencorporates.com/companies/fr/484223094', '484223094');
-
---
 -- Déchargement des données de la table `corporate`
 --
 
