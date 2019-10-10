@@ -28,6 +28,14 @@ use App\Entity\CompteDeResultat;
 class HomepageController extends AbstractController
 {
     /**
+     * @Route("/api_doc", name="api_doc")
+     */
+    public function api_doc(Request $request)
+    {
+        return new Response('OK');
+    }
+
+    /**
      * @Route("/homepage", name="homepage")
      * @Route("", name="homepage")
      */
