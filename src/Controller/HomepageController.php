@@ -32,6 +32,7 @@ class HomepageController extends AbstractController
      */
     public function api_doc(Request $request)
     {
+        // Fix for api platform bug.
         return new Response('OK');
     }
 
