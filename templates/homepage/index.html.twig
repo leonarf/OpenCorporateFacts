@@ -7,21 +7,63 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 
+    a {
+        text-decoration:none;
+    }
+
     header {
         background : #400;
-        text-align : center;
-        padding    : 5rem;
-      color:white;
     }
 
   header h2 {
-    font-size:5vw;
+      text-align : center;
+      padding    : 5rem;
+      color:white;
+      font-size:5vw;
+      margin:0;
   }
+
+    header ul {
+        display: flex;
+        margin: 0;
+        list-style: none;
+        background: rgba(255,255,255,.1)
+    }
+
+    header ul li a {
+        display: block;
+        padding: 1rem 2rem;
+        color: #FFF;
+    }
+
+    header ul li a:hover {
+        background: rgba(255,255,255,.3);
+        transition-duration: .3s;
+    }
 </style>
 
-<header>
-  <h2>OpenCorporateFacts</h2>
-</header>
+    <header>
+        <h2>OpenCorporateFacts</h2>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ url('add_corporate') }}">
+                        + Company
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('add_shareholding') }}">
+                        + Link
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('add_documentDeReference') }}">
+                        + Financial doc
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
 <div class="example-wrapper">
     <h1>Welcome</h1>
@@ -146,7 +188,7 @@
 
   <p>But also add new data :</p>
 <ul>
-    <li><a href="{{ url('add_corporate') }}">Add a new compagny</a></li>
+    <li><a href="{{ url('add_corporate') }}">Add a new company</a></li>
     <li><a href="{{ url('add_shareholding') }}">Add new links between companies</a></li>
     <li><a href="{{ url('add_documentDeReference') }}">Add new data from financial documents published by a company</a></li>
 </ul>
