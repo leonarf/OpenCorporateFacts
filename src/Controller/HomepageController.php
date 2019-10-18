@@ -74,20 +74,12 @@ class HomepageController extends AbstractController
 
       $encoders = [new CsvEncoder()];
       $serializer = new Serializer([$normalizer], $encoders);
+      $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(1000000);
+      $csvContent = $serializer->serialize($lotsOfCompteDeResultats, 'csv', ['groups' => ['groupImportant']]);
 
-      $response = new StreamedResponse();
-      $response->setCallback(function() use ($repoCompteDeResultat, $serializer) {
-        $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(100000);
-        $csvContent = $serializer->serialize($lotsOfCompteDeResultats, 'csv', ['groups' => ['groupImportant']]);
-        echo $csvContent;
-      });
+      $response = new Response($csvContent);
+      $response->headers->set('Content-Disposition', 'attachment; filename="allOfFame.csv"');
 
-      $disposition = ResponseHeaderBag::makeDisposition(
-          ResponseHeaderBag::DISPOSITION_ATTACHMENT,
-          'allOfFame.csv'
-      );
-
-      $response->headers->set('Content-Disposition', $disposition);
       return $response;
     }
 }
