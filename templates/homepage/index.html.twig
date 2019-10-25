@@ -3,13 +3,13 @@
 {% block body %}
 
 <div class="example-wrapper">
-<h1>Explorez les bilans comptables des entreprises Françaises</h1>
+<h1>Explorez les bilans comptables des entreprises françaises</h1>
 
-<h2>En cherchant l'entreprise de votre choix</h2>
+<h2>En cherchant parmi les {{ bilanComptableCount }} bilans comptables, et les {{ companyCount }} entreprises de la base :</h2>
 
 <div id="searchComponent"></div>
 
-<h2>Ou l'un des 100 plus gros chiffres d'affaires en stock</h2>
+<h2>Ou l'un des 100 plus gros chiffres d'affaires en stock :</h2>
 
 <table id="globalTable" class="w3-table-all">
   <tr>
@@ -19,7 +19,7 @@
     <th onclick="sortTable(3)" style="cursor:pointer">Bénéfices</th>
     <th onclick="sortTable(4)" style="cursor:pointer">Impôts sur les bénéfices</th>
     <th onclick="sortTable(5)" style="cursor:pointer">Prime de participation</th>
-    <th onclick="sortTable(6)" style="cursor:pointer">Effectifs</th>
+    <th onclick="sortTable(6)" style="cursor:pointer">Effectifs (-1 = non fourni)</th>
   </tr>
 
 {% if comptes|length > 100 %}
