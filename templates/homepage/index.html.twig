@@ -1,27 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Welcome to OpenCorporateFacts!{% endblock %}
-
 {% block body %}
+
 <div class="example-wrapper">
-    <h1>Welcome</h1>
-    <h2>What is OCF ?</h2>
-    <p>A 2019 project for making the corporate world - starting with France - more transparent, notably on the revenue split between work and capital, that consists of :
-<ul>
-  <li>a database built from open data sets and other publicly available sources by members of Code For France and other contributors;</li>
-  <li>a tool allowing users to visualize data, compare between companies, and contribute to improve the data and the database.</li>
-</ul>
+<h1>Explorez les bilans comptables des entreprises Françaises</h1>
 
-<h2>What you can find in OCF (at this stage)</h2>
-<ul>
-  <li>open information on companies, through existing administrative datasets (INSEE/INPI), that have been checked and refined to make them usable;</li>
-  <li>data that were collected through other publicly available sources, such as shareholders’ reports and information.</li>
-</ul>
-<h2>Use Open Corporate Facts</h2>
-<p>Il y a actuellement {{ bilanComptableCount }} bilans comptables, et {{ companyCount }} entreprises en base</p>
+<h2>En cherchant l'entreprise de votre choix</h2>
 
-<p>Top 100 des plus gros chiffres d'affaires en base!</p>
-<p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
+<div id="searchComponent"></div>
+
+<h2>Ou l'un des 100 plus gros chiffres d'affaires en stock</h2>
 
 <table id="globalTable" class="w3-table-all">
   <tr>
@@ -67,62 +55,80 @@
 {% endif %}
 </table>
 
-  <script>
-  function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("globalTable");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-      first, which contains table headers): */
-      for (i = 1; i < (rows.length - 1); i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        /* Check if the two rows should switch place,
-        based on the direction, asc or desc: */
-        if (dir == "asc") {
-          if (Number(x.innerHTML) > Number(y.innerHTML)) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (Number(x.innerHTML) < Number(y.innerHTML)) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("globalTable");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (Number(x.innerHTML) > Number(y.innerHTML)) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
         }
-      }
-      if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-        and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount ++;
-      } else {
-        /* If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
+      } else if (dir == "desc") {
+        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
         }
       }
     }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
   }
-  </script>
+}
+</script>
+
+<h2>What is OCF ?</h2>
+<p>A 2019 project for making the corporate world - starting with France - more transparent, notably on the revenue split between work and capital, that consists of :
+<ul>
+<li>a database built from open data sets and other publicly available sources by members of Code For France and other contributors;</li>
+<li>a tool allowing users to visualize data, compare between companies, and contribute to improve the data and the database.</li>
+</ul>
+
+<h2>What you can find in OCF (at this stage)</h2>
+<ul>
+  <li>open information on companies, through existing administrative datasets (INSEE/INPI), that have been checked and refined to make them usable;</li>
+  <li>data that were collected through other publicly available sources, such as shareholders’ reports and information.</li>
+</ul>
+<h2>Use Open Corporate Facts</h2>
+<p>Il y a actuellement {{ bilanComptableCount }} bilans comptables, et {{ companyCount }} entreprises en base</p>
+
+<p>Top 100 des plus gros chiffres d'affaires en base!</p>
+<p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
 
   <p>But also add new data :</p>
 <ul>
@@ -137,4 +143,9 @@
 Code questions should go to our <a href="https://github.com/leonarf/OpenCorporateFacts">github</a>.
 Please restrain to discussions and public data, DO NOT provide private or privileged information as this is not a secure connection and your actions can be monitored.</p>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+  <!-- Renders the 'homepage' webpack entry defined in webpack.config.js -->
+  {{ encore_entry_script_tags('homepage') }}
 {% endblock %}

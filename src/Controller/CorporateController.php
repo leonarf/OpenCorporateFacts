@@ -107,7 +107,7 @@ class CorporateController extends AbstractController
     }
 
     /**
-     * @Route("/corporate/{id}", name="corporate_show")
+     * @Route("/corporate/{id}", options={"expose"=true}, name="corporate_show")
      */
     public function show($id)
     {
