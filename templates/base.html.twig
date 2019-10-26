@@ -11,54 +11,10 @@
                  <link rel="stylesheet" href="/build/app.css"> -->
     {% endblock %}
 
-    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
-    <style>
-        .example-wrapper { margin : 1em auto; max-width : 800px; width : 95%; font : 18px/1.5 sans-serif; }
-
-        .example-wrapper code { background : #F5F5F5; padding : 2px 6px; }
-
-        body {
-            background : #F5F5F5;
-        }
-        a {
-            text-decoration : none;
-        }
-
-        header {
-            background : #400;
-        }
-
-        header h2 {
-            text-align : center;
-            padding    : 0rem;
-            color      : white;
-            font-size  : 5vw;
-            margin     : 0;
-        }
-
-        h1, h2 {
-            text-align : center;
-        }
-
-        header ul {
-            display    : flex;
-            margin     : 0;
-            list-style : none;
-            background : rgba(255, 255, 255, .1)
-        }
-
-        header ul li a {
-            display : block;
-            padding : 1rem 2rem;
-            color   : #FFF;
-        }
-
-        header ul li a:hover {
-            background          : rgba(255, 255, 255, .3);
-            transition-duration : .3s;
-        }
-    </style>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>  
+    <link href="{{ asset('css/base.css') }}" rel="stylesheet" >
 </head>
+    
 <body>
 
 <header>
@@ -95,6 +51,25 @@
 
 {% block body %}
 {% endblock %}
+
+<div class="contactbox">   
+        
+    <div class="rocketchat">
+        <div class="rocketchatlien"><a  href="https://chat.codefor.fr/channel/opencorporatefacts"><strong>RocketChat</strong>
+        <p>Viens échanger avec nous sur le cannal #opencorporatefacts du chat Code for France.</p></a></div>
+    </div>
+        
+    <div class="github">
+        <div class="githublien"><a href="https://github.com/leonarf/OpenCorporateFacts"><strong>Github</strong>
+        <p>Explore le dépôt de code du projet sur Github et contribue !</p></a></div>
+    </div>
+        
+    <div class="api">
+        <div class="apilien"><a href="http://opencorporatefacts.fr/api"><strong>API</strong>
+        <p>Télécharge les données d'Open Corporate Facts grâce à l'API.</p></a></div>
+    </div>
+</div> 
+    
 {% block javascripts %}
   {{ encore_entry_script_tags('app') }}
 
