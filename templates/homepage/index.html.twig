@@ -1,14 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}{% endblock %}
+
 {% block body %}
 
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
 <div class="example-wrapper">
-<h1>Explorez les bilans comptables des entreprises françaises</h1>
+    <div class="block1">
+        <h1>Explorez les rapports comptables des entreprises françaises</h1>
 
-<h2>En cherchant parmi les {{ bilanComptableCount }} bilans comptables, et les {{ companyCount }} entreprises de la base :</h2>
-
-<div id="searchComponent"></div>
-
+        <h2>En cherchant parmi les {{ bilanComptableCount }} rapports comptables, et les {{ companyCount }} entreprises de la base :</h2>
+        <div id="searchComponent"></div>
+     </div>
+    
 <h2>Ou l'un des 100 plus gros chiffres d'affaires en stock :</h2>
 
 <table id="globalTable" class="w3-table-all">
@@ -138,10 +146,6 @@ function sortTable(n) {
 </ul>
 <p>If you’re interested in other functionalities and info, please check our <a href="https://github.com/leonarf/OpenCorporateFacts">github repo</a> to see if they’re part of what is under current or programmed development, and make technical coding suggestions there.</p>
 
-<h2>Contact us</h2>
-<p>If you want to contribute, ask questions, provide tips or objections… regarding the data and its use, please contact us.
-Code questions should go to our <a href="https://github.com/leonarf/OpenCorporateFacts">github</a>.
-Please restrain to discussions and public data, DO NOT provide private or privileged information as this is not a secure connection and your actions can be monitored.</p>
 </div>
 {% endblock %}
 

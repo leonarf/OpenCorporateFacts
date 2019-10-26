@@ -1,0 +1,110 @@
+.example-wrapper { margin : 1em auto; max-width : 800px; width : 95%; font : 18px/1.5 sans-serif; }
+
+        .example-wrapper code { background : #F5F5F5; padding : 2px 6px; }
+
+        body {
+            background : #F5F5F5;
+        }
+        a {
+            text-decoration : none;
+        }
+
+        header {
+            background : #400;
+        }
+
+        header h2 {
+            text-align : center;
+            padding    : 0rem;
+            color      : white;
+            font-size  : 5vw;
+            margin     : 0;
+        }
+
+        h1, h2 {
+            text-align : center;
+        }
+
+        header ul {
+            display    : flex;
+            margin     : 0;
+            list-style : none;
+            background : rgba(255, 255, 255, .1)
+        }
+
+        header ul li a {
+            display : block;
+            padding : 1rem 2rem;
+            color   : #FFF;
+        }
+
+        header ul li a:hover {
+            background          : rgba(255, 255, 255, .3);
+            transition-duration : .3s;
+        }
+
+.contactbox{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(1rem, auto);
+    background : #400;
+    color : white;
+    padding : 0rem 2rem 1px 2rem;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    }
+        .rocketchat{
+            grid-column: 1;
+            grid-row: 2;
+            border-right: solid;
+            border-right-width: thin;
+            border-right-color : #940e0e;
+            padding: 0rem 1rem 1rem 4px;
+            text-align: center;
+        }
+
+        .rocketchatlien a{
+            display: block;
+            padding: 1rem;
+        }
+        
+        .rocketchatlien a:hover{                       
+            background-color:  rgba(255, 255, 255, .3);
+            transition-duration : .3s;
+        }
+        
+        .github{
+            grid-column: 2;
+            grid-row: 2;
+            padding: 0rem 1rem 1rem 4px;
+            border-right: solid;
+            border-right-width: thin;
+            border-right-color : #940e0e;
+            text-align: center;
+        }
+            
+        .githublien a{
+            display: block;
+            padding: 1rem;
+        }
+        .githublien a:hover{
+            background-color:  rgba(255, 255, 255, .3);
+            transition-duration : .3s;
+        }
+        
+        .api{
+            grid-column: 3;
+            grid-row: 2;
+            padding : 0rem 1rem 1rem 4px;
+            text-align: center;
+        }
+        .apilien a{
+            display: block;
+            padding: 1rem;
+        }
+        .apilien a:hover{
+            background-color:  rgba(255, 255, 255, .3);
+            transition-duration : .3s;
+        }
