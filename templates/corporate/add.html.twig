@@ -3,94 +3,87 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-  var openCorporatesData;
-  $("#searchButton").click(function(){
-    $("#DivToFill").empty();
-    var searchParameter;
-    if ($('#form_Name').val()) {
-      searchParameter = "q=" + $('#form_Name').val() + "*&fields=name";
-    }
-    else if ($('#form_CompanyNumber').val())  {
-      searchParameter = "q=" + $('#form_CompanyNumber').val() + "&fields=company_number";
-    }
-    searchParameter += "&jurisdiction_code=" + $('#formCountry').val()
-                     + "&inactive=" + $('input[name=formInactive]:checked').val()
-                     + "&nonprofit=" + $('input[name=formNonProfit]:checked').val()
-                     + "&order=score";
-    if ($('#formAddress').val()) {
-      searchParameter += "&registered_address=" + $('#formAddress').val();
-    }
-    $.get("https://api.opencorporates.com/v0.4/companies/search",
-          searchParameter,
-          function(serverData, status){
-            openCorporatesData = serverData.results.companies;
-            $("#DivToFill").append("<h2>Choose the company or directly look for mandatory information on <a href=\"https://opencorporates.com\">OpenCorporates.com</a></h2>");
-            $("#DivToFill").append("<p>total company count = " + serverData.results.total_count
-                                 + " company per page = " + serverData.results.per_page
-                                 + " total page count = " + serverData.results.total_pages
-                                 + " current page = " + serverData.results.page
-                                 + "</p>");
+  $(document).ready(function(){
+    var openCorporatesData;
+    $("#searchButton").click(function(){
+      $("#DivToFill").empty();
+      var searchParameter;
+      if ($('#form_Name').val()) {
+        searchParameter = "q=" + $('#form_Name').val() + "*&fields=name";
+      }
+      else if ($('#form_CompanyNumber').val())  {
+        searchParameter = "q=" + $('#form_CompanyNumber').val() + "&fields=company_number";
+      }
+      searchParameter += "&jurisdiction_code=" + $('#formCountry').val()
+                       + "&inactive=" + $('input[name=formInactive]:checked').val()
+                       + "&nonprofit=" + $('input[name=formNonProfit]:checked').val()
+                       + "&order=score";
+      if ($('#formAddress').val()) {
+        searchParameter += "&registered_address=" + $('#formAddress').val();
+      }
+      $.get("https://api.opencorporates.com/v0.4/companies/search",
+            searchParameter,
+            function(serverData, status){
+              openCorporatesData = serverData.results.companies;
+              $("#DivToFill").append("<h2>Choose the company or directly look for mandatory information on <a href=\"https://opencorporates.com\">OpenCorporates.com</a></h2>");
+              $("#DivToFill").append("<p>total company count = " + serverData.results.total_count
+                                   + " company per page = " + serverData.results.per_page
+                                   + " total page count = " + serverData.results.total_pages
+                                   + " current page = " + serverData.results.page
+                                   + "</p>");
 
-            var propertyPrinted = "<ul>"
-            var companiesCount = serverData.results.companies.length;
-            for (var i = 0; i < companiesCount; i++) {
-               var company = serverData.results.companies[i].company;
-               propertyPrinted += "<li><input type=\"radio\" name=\"selectedCompany\" value=\"" + i + "\">"
-                                + i + ") Name: " + company.name + " Creation date: " + company.incorporation_date
-                                + " Address: " + company.registered_address_in_full
-                                + " <a href='" + company.opencorporates_url + "'>OpenCorporates Link</a></li>";
-            }
-            propertyPrinted += "</ul>";
-            $("#DivToFill").append(propertyPrinted);
-            console.log(serverData);
-          },
-          "json");
+              var propertyPrinted = "<ul>"
+              var companiesCount = serverData.results.companies.length;
+              for (var i = 0; i < companiesCount; i++) {
+                 var company = serverData.results.companies[i].company;
+                 propertyPrinted += "<li><input type=\"radio\" name=\"selectedCompany\" value=\"" + i + "\">"
+                                  + i + ") Name: " + company.name + " Creation date: " + company.incorporation_date
+                                  + " Address: " + company.registered_address_in_full
+                                  + " <a href='" + company.opencorporates_url + "'>OpenCorporates Link</a></li>";
+              }
+              propertyPrinted += "</ul>";
+              $("#DivToFill").append(propertyPrinted);
+              console.log(serverData);
+            },
+            "json");
+    });
+    $("#DivToFill").change(function() {
+      var choosenCompanyInt = $('input[name=selectedCompany]:checked').val();
+      console.log(choosenCompanyInt);
+      console.log(openCorporatesData);
+      var choosenCompany = openCorporatesData[choosenCompanyInt].company;
+      console.log(choosenCompany);
+      $('#form_Name').val(choosenCompany.name);
+      $('#form_OpenCorporateURL').val(choosenCompany.opencorporates_url);
+      $('#form_CompanyNumber').val(choosenCompany.company_number);
+    });
   });
-  $("#DivToFill").change(function() {
-    var choosenCompanyInt = $('input[name=selectedCompany]:checked').val();
-    console.log(choosenCompanyInt);
-    console.log(openCorporatesData);
-    var choosenCompany = openCorporatesData[choosenCompanyInt].company;
-    console.log(choosenCompany);
-    $('#form_Name').val(choosenCompany.name);
-    $('#form_OpenCorporateURL').val(choosenCompany.opencorporates_url);
-    $('#form_CompanyNumber').val(choosenCompany.company_number);
-  });
-});
 </script>
 
-<div class="example-wrapper">
-    <h1>Hello vous ajoutez une corporate! ✅</h1>
-    <a href="{{ url('homepage') }}">Retour à l'accueil</a>
+<h1>Hello vous ajoutez une corporate! ✅</h1>
+<a href="{{ url('homepage') }}">Retour à l'accueil</a>
 
-        {{ form_start(NewCorporateForm) }}
-        {{ form_widget(NewCorporateForm) }}
-        {{ form_end(NewCorporateForm) }}
+    {{ form_start(NewCorporateForm) }}
+    {{ form_widget(NewCorporateForm) }}
+    {{ form_end(NewCorporateForm) }}
 
 
-        <div id="div1">
-          <label for="formAddress">Address : </label><input type="text" id="formAddress"/>
-          <p>Active :
-            <label>yes</label><input type="radio" name="formInactive" value="false" checked>
-            <label>no</label><input type="radio" name="formInactive" value="true">
-          </p>
-          <label for="formCountry">Country : </label><input type="text" id="formCountry" value="fr"/>
-          <p>Non Profit :
-            <label>yes</label><input type="radio" id="true" name="formNonProfit" value="true">
-            <label>no</label><input type="radio" id="false" name="formNonProfit" value="false" checked>
-          </p>
-        </div>
-        <button id="searchButton">Search corporate on OpenCorporates.com</button>
-        <div id="DivToFill"></div>
-        <form name="chooseCompanyForm" method="post" id="chooseCompanyForm">
-        </form>
-
-</div>
+    <div id="div1">
+      <label for="formAddress">Address : </label><input type="text" id="formAddress"/>
+      <p>Active :
+        <label>yes</label><input type="radio" name="formInactive" value="false" checked>
+        <label>no</label><input type="radio" name="formInactive" value="true">
+      </p>
+      <label for="formCountry">Country : </label><input type="text" id="formCountry" value="fr"/>
+      <p>Non Profit :
+        <label>yes</label><input type="radio" id="true" name="formNonProfit" value="true">
+        <label>no</label><input type="radio" id="false" name="formNonProfit" value="false" checked>
+      </p>
+    </div>
+    <button id="searchButton">Search corporate on OpenCorporates.com</button>
+    <div id="DivToFill"></div>
+    <form name="chooseCompanyForm" method="post" id="chooseCompanyForm">
+    </form>
 {% endblock %}

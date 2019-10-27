@@ -11,10 +11,10 @@
                  <link rel="stylesheet" href="/build/app.css"> -->
     {% endblock %}
 
-    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>  
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
     <link href="{{ asset('css/base.css') }}" rel="stylesheet" >
 </head>
-    
+
 <body>
 
 <header>
@@ -28,6 +28,16 @@
             <li>
                 <a href="{{ url('homepage') }}">
                     Accueil
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('documentation_donnees') }}">
+                    Les données
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('mentions_legales') }}">
+                    Mentions Légales
                 </a>
             </li>
             <li>
@@ -49,27 +59,29 @@
     </nav>
 </header>
 
-{% block body %}
-{% endblock %}
+<div class="example-wrapper">
+  {% block body %}
+  {% endblock %}
+</div>
 
-<div class="contactbox">   
-        
+<div class="contactbox">
+
     <div class="rocketchat">
         <div class="rocketchatlien"><a  href="https://chat.codefor.fr/channel/opencorporatefacts"><strong>RocketChat</strong>
-        <p>Viens échanger avec nous sur le cannal #opencorporatefacts du chat Code for France.</p></a></div>
+        <p>Viens échanger avec nous sur le canal #opencorporatefacts du chat Code for France.</p></a></div>
     </div>
-        
+
     <div class="github">
         <div class="githublien"><a href="https://github.com/leonarf/OpenCorporateFacts"><strong>Github</strong>
         <p>Explore le dépôt de code du projet sur Github et contribue !</p></a></div>
     </div>
-        
+
     <div class="api">
         <div class="apilien"><a href="http://opencorporatefacts.fr/api"><strong>API</strong>
         <p>Télécharge les données d'Open Corporate Facts grâce à l'API.</p></a></div>
     </div>
-</div> 
-    
+</div>
+
 {% block javascripts %}
   {{ encore_entry_script_tags('app') }}
 

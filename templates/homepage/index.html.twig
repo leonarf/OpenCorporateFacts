@@ -3,12 +3,6 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
 <div class="example-wrapper">
     <div class="block1">
         <h1>Explorez les rapports comptables des entreprises françaises</h1>
@@ -16,7 +10,7 @@
         <h2>En cherchant parmi les {{ bilanComptableCount }} rapports comptables, et les {{ companyCount }} entreprises de la base :</h2>
         <div id="searchComponent"></div>
      </div>
-    
+
 <h2>Ou l'un des 100 plus gros chiffres d'affaires en stock :</h2>
 
 <table id="globalTable" class="w3-table-all">
@@ -119,32 +113,6 @@ function sortTable(n) {
   }
 }
 </script>
-
-<h2>What is OCF ?</h2>
-<p>A 2019 project for making the corporate world - starting with France - more transparent, notably on the revenue split between work and capital, that consists of :
-<ul>
-<li>a database built from open data sets and other publicly available sources by members of Code For France and other contributors;</li>
-<li>a tool allowing users to visualize data, compare between companies, and contribute to improve the data and the database.</li>
-</ul>
-
-<h2>What you can find in OCF (at this stage)</h2>
-<ul>
-  <li>open information on companies, through existing administrative datasets (INSEE/INPI), that have been checked and refined to make them usable;</li>
-  <li>data that were collected through other publicly available sources, such as shareholders’ reports and information.</li>
-</ul>
-<h2>Use Open Corporate Facts</h2>
-<p>Il y a actuellement {{ bilanComptableCount }} bilans comptables, et {{ companyCount }} entreprises en base</p>
-
-<p>Top 100 des plus gros chiffres d'affaires en base!</p>
-<p>Click the <strong>table headers</strong> to sort the table accordingly:</p>
-
-  <p>But also add new data :</p>
-<ul>
-    <li><a href="{{ url('add_corporate') }}">Add a new company</a></li>
-    <li><a href="{{ url('add_shareholding') }}">Add new links between companies</a></li>
-    <li><a href="{{ url('add_documentDeReference') }}">Add new data from financial documents published by a company</a></li>
-</ul>
-<p>If you’re interested in other functionalities and info, please check our <a href="https://github.com/leonarf/OpenCorporateFacts">github repo</a> to see if they’re part of what is under current or programmed development, and make technical coding suggestions there.</p>
 
 </div>
 {% endblock %}
