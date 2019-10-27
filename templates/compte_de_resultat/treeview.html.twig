@@ -1,113 +1,111 @@
 {% block treeview %}
-<div class="example-wrapper">
-    Voici les détails du dernier compte de résultat
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-    <div id="jstree_demo">
-    <div id="TreeData"></div>
-
-    <script>
-    $('#TreeData').jstree({
-    	'core' : {
-    		'data' : [
-          {
-           'text' : 'Résultat d\'exploitation : {{ compteDeResultat.ResultatExploitation }}€',
-           'children' : [
-              {
-                'text' : 'Produits d\'exploitation : {{ compteDeResultat.ProduitsExploitation }}€',
-                'children' : [
-                  {
-                    'text' : 'Chiffres d\'affaires nets : {{ compteDeResultat.ChiffresAffairesNet }}€',
-                    'children' :
-                    [
-                      'Ventes de marchandises : {{ compteDeResultat.VenteMarchandises }}€',
-                      'Production vendues de biens',
-                      'Production vendue de services : {{ compteDeResultat.ProductionVendueDeServices }}€'
-                    ]
-                  },
-                  'Production stockée',
-                  'Production immobilisée : {{ compteDeResultat.ProductionImmobilisee }}€',
-                  'Subvention d\'exploitation : {{ compteDeResultat.SubventionsExploitation }}€',
-                  'Reprises sur dépréciations, provisions (et amortissements), transfert de charges : {{ compteDeResultat.RepriseDepreciationProvisionsTransfertCharges }}€',
-                  'Autres produits : {{ compteDeResultat.AutresProduits }}€'
-                ]
-              },
-              {
-                'text' : 'Charges d\'exploitation : {{ compteDeResultat.ChargesExploitation }}€',
-                'children' : [
-                    'Achats de marchandise (y compris droits de douane) : {{ compteDeResultat.AchatsDeMarchandises }}€',
-                    'Variation de stock (marchandises)',
-                    'Achat de matières premières et autres approvisionnements (et droit de douane)',
-                    'Variation de stock (matières premières et approvisionnements)',
-                    'Autres achats et charges externes : {{ compteDeResultat.AutresAchatEtChargesExternes }}€',
-                    'Impôts, taxes et versements assimilés : {{ compteDeResultat.ImpotTaxesEtVersementsAssimiles }}€',
-                    'Salaires et traitements : {{ compteDeResultat.SalairesEtTraitements }}€',
-                    'Cotisations sociales : {{ compteDeResultat.ChargesSociales }}€',
-                    {
-                      'text' : 'DOTATIONS D\'EXPLOITATION',
-                      'children' : [
-                        'Sur immobilisations : dotations aux amortissements : {{ compteDeResultat.DotationAmortissementImmobilisations }}€',
-                        'Sur immobilisations : dotations aux dépréciations : {{ compteDeResultat.DotationDepreciationImmobilisations }}€',
-                        'Sur actif circulant : dotations aux dépréciations : {{ compteDeResultat.DotationDepreciationActifCirculant }}€',
-                        'Dotations aux provisions : {{ compteDeResultat.DotationProvisions }}€'
-                      ]
-                    },
-                    'Autres charges : {{ compteDeResultat.AutresCharges }}€'
-                  ]
-              },
-            ]
-          },
-          {
-            'text' : 'Résultat financier : {{ compteDeResultat.ResultatFinancier }}€',
-            'children' : [
-              {
-                'text' : 'Produits financiers : {{ compteDeResultat.ProduitsFinanciers }}€',
-                'children' : [
-                  'Produits financiers de participations : {{ compteDeResultat.ProduitsFinanciersParticipations }}€',
-                  'Produits des autres valeurs mobilières et créances de l\'actif immobilisé : {{ compteDeResultat.ProduitsAutresValeursMobiliereEtCreancesActifImmobilise }}€',
-                  'Autres intérêts et produits assimilés : {{ compteDeResultat.AutreInteretEtProduitAssimile }}€',
-                  'Reprises sur dépréciations et provisions, transferts de charges : {{ compteDeResultat.RepriseDepreciationEtProvisionTransfertsCharges }}€',
-                  'Différences positives de change : {{ compteDeResultat.DifferencesPositivesChange }}€',
-                  'Produits nets sur cessions de valeurs mobilières de placement'
-                ]
-              },
-              {
-                'text' : 'Charges financières : {{ compteDeResultat.ChargesFinancieres }}€',
-                'children' : [
-                  'Dotations financières aux amortissements, dépréciations et provisions : {{ compteDeResultat.DotationsFinancieresAmortissementDepreciationProvision }}€',
-                  'Intérêts et charges assimilées : {{ compteDeResultat.InteretEtChargeAssimilees }}€',
-                  'Différences négatives de change : {{ compteDeResultat.DifferenceNegativeChange }}€',
-                  'Charges nettes sur cessions de valeurs mobilières de placement : {{ compteDeResultat.ChargesNetteCessionValeurMobiliereDePlacement }}€',
-                ]
-              }
-            ]
-          },
-          {
-            'text' : 'Résultat exceptionnel : {{ compteDeResultat.ResultatExceptionnel }}€',
-            'children' : [
-              {
-                'text' : 'Produits exceptionnels',
-                'children' : [
-                  'Produits exceptionnels sur opérations de gestion : {{ compteDeResultat.ProduitExceptionnelOperationGestion }}€',
-                  'Produits exceptionnels sur opérations en capital : {{ compteDeResultat.ProduitExceptionnelOperationCapital }}€',
-                  'Reprises sur dépréciations et provisions, transferts de charges : {{ compteDeResultat.RepriseDepreciationProvisionTransfertCharge }}€',
-                ]
-              },
-              {
-                'text' : 'Charges exceptionnelles',
-                'children' : [
-                  'Charges exceptionnelles sur opérations de gestion : {{ compteDeResultat.ChargesExceptionnelleOperationGestion }}€',
-                  'Charges exceptionnelles sur opérations en capital : {{ compteDeResultat.ChargesExceptionnelleOperationCapital }}€',
-                  'Dotations exceptionnelles aux amortissements, dépréciations et provisions : {{ compteDeResultat.DotationExceptionnelleAmortissementDepreciationProvision }}€',
-                ]
-              }
-            ]
-          },
-          'Participation des salariés aux résultats de l\'entreprise : {{ compteDeResultat.ParticipationSalariesAuxResultats }}€',
-          'Impôts sur les bénéfices : {{ compteDeResultat.ImpotsSurLesBenefices }}€'
-    		]
-    	}
-    });
-    </script>
-    </div>
+Voici les détails du dernier compte de résultat
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<div id="jstree_demo">
+  <div id="TreeData"></div>
 </div>
+
+<script>
+$('#TreeData').jstree({
+	'core' : {
+		'data' : [
+      {
+       'text' : 'Résultat d\'exploitation : {{ compteDeResultat.ResultatExploitation }}€',
+       'children' : [
+          {
+            'text' : 'Produits d\'exploitation : {{ compteDeResultat.ProduitsExploitation }}€',
+            'children' : [
+              {
+                'text' : 'Chiffres d\'affaires nets : {{ compteDeResultat.ChiffresAffairesNet }}€',
+                'children' :
+                [
+                  'Ventes de marchandises : {{ compteDeResultat.VenteMarchandises }}€',
+                  'Production vendues de biens',
+                  'Production vendue de services : {{ compteDeResultat.ProductionVendueDeServices }}€'
+                ]
+              },
+              'Production stockée',
+              'Production immobilisée : {{ compteDeResultat.ProductionImmobilisee }}€',
+              'Subvention d\'exploitation : {{ compteDeResultat.SubventionsExploitation }}€',
+              'Reprises sur dépréciations, provisions (et amortissements), transfert de charges : {{ compteDeResultat.RepriseDepreciationProvisionsTransfertCharges }}€',
+              'Autres produits : {{ compteDeResultat.AutresProduits }}€'
+            ]
+          },
+          {
+            'text' : 'Charges d\'exploitation : {{ compteDeResultat.ChargesExploitation }}€',
+            'children' : [
+                'Achats de marchandise (y compris droits de douane) : {{ compteDeResultat.AchatsDeMarchandises }}€',
+                'Variation de stock (marchandises)',
+                'Achat de matières premières et autres approvisionnements (et droit de douane)',
+                'Variation de stock (matières premières et approvisionnements)',
+                'Autres achats et charges externes : {{ compteDeResultat.AutresAchatEtChargesExternes }}€',
+                'Impôts, taxes et versements assimilés : {{ compteDeResultat.ImpotTaxesEtVersementsAssimiles }}€',
+                'Salaires et traitements : {{ compteDeResultat.SalairesEtTraitements }}€',
+                'Cotisations sociales : {{ compteDeResultat.ChargesSociales }}€',
+                {
+                  'text' : 'DOTATIONS D\'EXPLOITATION',
+                  'children' : [
+                    'Sur immobilisations : dotations aux amortissements : {{ compteDeResultat.DotationAmortissementImmobilisations }}€',
+                    'Sur immobilisations : dotations aux dépréciations : {{ compteDeResultat.DotationDepreciationImmobilisations }}€',
+                    'Sur actif circulant : dotations aux dépréciations : {{ compteDeResultat.DotationDepreciationActifCirculant }}€',
+                    'Dotations aux provisions : {{ compteDeResultat.DotationProvisions }}€'
+                  ]
+                },
+                'Autres charges : {{ compteDeResultat.AutresCharges }}€'
+              ]
+          },
+        ]
+      },
+      {
+        'text' : 'Résultat financier : {{ compteDeResultat.ResultatFinancier }}€',
+        'children' : [
+          {
+            'text' : 'Produits financiers : {{ compteDeResultat.ProduitsFinanciers }}€',
+            'children' : [
+              'Produits financiers de participations : {{ compteDeResultat.ProduitsFinanciersParticipations }}€',
+              'Produits des autres valeurs mobilières et créances de l\'actif immobilisé : {{ compteDeResultat.ProduitsAutresValeursMobiliereEtCreancesActifImmobilise }}€',
+              'Autres intérêts et produits assimilés : {{ compteDeResultat.AutreInteretEtProduitAssimile }}€',
+              'Reprises sur dépréciations et provisions, transferts de charges : {{ compteDeResultat.RepriseDepreciationEtProvisionTransfertsCharges }}€',
+              'Différences positives de change : {{ compteDeResultat.DifferencesPositivesChange }}€',
+              'Produits nets sur cessions de valeurs mobilières de placement'
+            ]
+          },
+          {
+            'text' : 'Charges financières : {{ compteDeResultat.ChargesFinancieres }}€',
+            'children' : [
+              'Dotations financières aux amortissements, dépréciations et provisions : {{ compteDeResultat.DotationsFinancieresAmortissementDepreciationProvision }}€',
+              'Intérêts et charges assimilées : {{ compteDeResultat.InteretEtChargeAssimilees }}€',
+              'Différences négatives de change : {{ compteDeResultat.DifferenceNegativeChange }}€',
+              'Charges nettes sur cessions de valeurs mobilières de placement : {{ compteDeResultat.ChargesNetteCessionValeurMobiliereDePlacement }}€',
+            ]
+          }
+        ]
+      },
+      {
+        'text' : 'Résultat exceptionnel : {{ compteDeResultat.ResultatExceptionnel }}€',
+        'children' : [
+          {
+            'text' : 'Produits exceptionnels',
+            'children' : [
+              'Produits exceptionnels sur opérations de gestion : {{ compteDeResultat.ProduitExceptionnelOperationGestion }}€',
+              'Produits exceptionnels sur opérations en capital : {{ compteDeResultat.ProduitExceptionnelOperationCapital }}€',
+              'Reprises sur dépréciations et provisions, transferts de charges : {{ compteDeResultat.RepriseDepreciationProvisionTransfertCharge }}€',
+            ]
+          },
+          {
+            'text' : 'Charges exceptionnelles',
+            'children' : [
+              'Charges exceptionnelles sur opérations de gestion : {{ compteDeResultat.ChargesExceptionnelleOperationGestion }}€',
+              'Charges exceptionnelles sur opérations en capital : {{ compteDeResultat.ChargesExceptionnelleOperationCapital }}€',
+              'Dotations exceptionnelles aux amortissements, dépréciations et provisions : {{ compteDeResultat.DotationExceptionnelleAmortissementDepreciationProvision }}€',
+            ]
+          }
+        ]
+      },
+      'Participation des salariés aux résultats de l\'entreprise : {{ compteDeResultat.ParticipationSalariesAuxResultats }}€',
+      'Impôts sur les bénéfices : {{ compteDeResultat.ImpotsSurLesBenefices }}€'
+		]
+	}
+});
+</script>
 {% endblock %}

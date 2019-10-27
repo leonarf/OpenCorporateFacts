@@ -3,76 +3,69 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1>Hello {{ controller_name }}! ✅</h1>
+<a href="{{ url('homepage') }}">Retour à l'accueil 2</a>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <a href="{{ url('homepage') }}">Retour à l'accueil 2</a>
+{{ form_start(addForm) }}
+{{ form_widget(addForm) }}
+{{ form_end(addForm) }}
 
-    {{ form_start(addForm) }}
-    {{ form_widget(addForm) }}
-    {{ form_end(addForm) }}
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+<script>
+  $("form").change(function() {
+    $('#form_ChiffresAffairesNet').val(Number($('#form_VenteMarchandises').val())
+                                     + Number($('#form_ProductionVendueDeServices').val()));
 
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <script>
-      $("form").change(function() {
-        $('#form_ChiffresAffairesNet').val(Number($('#form_VenteMarchandises').val())
-                                         + Number($('#form_ProductionVendueDeServices').val()));
+    $('#form_ProduitsExploitation').val(Number($('#form_ChiffresAffairesNet').val())
+                                      + Number($('#form_ProductionImmobilisee').val())
+                                      + Number($('#form_SubventionsExploitation').val())
+                                      + Number($('#form_RepriseDepreciationProvisionsTransfertCharges').val())
+                                      + Number($('#form_AutresProduits').val()));
 
-        $('#form_ProduitsExploitation').val(Number($('#form_ChiffresAffairesNet').val())
-                                          + Number($('#form_ProductionImmobilisee').val())
-                                          + Number($('#form_SubventionsExploitation').val())
-                                          + Number($('#form_RepriseDepreciationProvisionsTransfertCharges').val())
-                                          + Number($('#form_AutresProduits').val()));
+    $('#form_ChargesExploitation').val(Number($('#form_AchatsDeMarchandises').val())
+                                     + Number($('#form_AchatMatierePremiereAutreAppro').val())
+                                     + Number($('#form_AutresAchatEtChargesExternes').val())
+                                     + Number($('#form_ImpotTaxesEtVersementsAssimiles').val())
+                                     + Number($('#form_SalairesEtTraitements').val())
+                                     + Number($('#form_ChargesSociales').val())
+                                     + Number($('#form_DotationAmortissementImmobilisations').val())
+                                     + Number($('#form_DotationDepreciationImmobilisations').val())
+                                     + Number($('#form_DotationDepreciationActifCirculant').val())
+                                     + Number($('#form_DotationProvisions').val())
+                                     + Number($('#form_AutresCharges').val()));
 
-        $('#form_ChargesExploitation').val(Number($('#form_AchatsDeMarchandises').val())
-                                         + Number($('#form_AchatMatierePremiereAutreAppro').val())
-                                         + Number($('#form_AutresAchatEtChargesExternes').val())
-                                         + Number($('#form_ImpotTaxesEtVersementsAssimiles').val())
-                                         + Number($('#form_SalairesEtTraitements').val())
-                                         + Number($('#form_ChargesSociales').val())
-                                         + Number($('#form_DotationAmortissementImmobilisations').val())
-                                         + Number($('#form_DotationDepreciationImmobilisations').val())
-                                         + Number($('#form_DotationDepreciationActifCirculant').val())
-                                         + Number($('#form_DotationProvisions').val())
-                                         + Number($('#form_AutresCharges').val()));
+     $('#form_ResultatExploitation').val(Number($('#form_ProduitsExploitation').val())
+                                       - Number($('#form_ChargesExploitation').val()));
 
-         $('#form_ResultatExploitation').val(Number($('#form_ProduitsExploitation').val())
-                                           - Number($('#form_ChargesExploitation').val()));
+     $('#form_ProduitsFinanciers').val(Number($('#form_ProduitsFinanciersParticipations').val())
+                                     + Number($('#form_ProduitsAutresValeursMobiliereEtCreancesActifImmobilise').val())
+                                     + Number($('#form_AutreInteretEtProduitAssimile').val())
+                                     + Number($('#form_RepriseDepreciationEtProvisionTransfertsCharges').val())
+                                     + Number($('#form_DifferencesPositivesChange').val()));
 
-         $('#form_ProduitsFinanciers').val(Number($('#form_ProduitsFinanciersParticipations').val())
-                                         + Number($('#form_ProduitsAutresValeursMobiliereEtCreancesActifImmobilise').val())
-                                         + Number($('#form_AutreInteretEtProduitAssimile').val())
-                                         + Number($('#form_RepriseDepreciationEtProvisionTransfertsCharges').val())
-                                         + Number($('#form_DifferencesPositivesChange').val()));
+     $('#form_ChargesFinancieres').val(Number($('#form_DotationsFinancieresAmortissementDepreciationProvision').val())
+                                     + Number($('#form_InteretEtChargeAssimilees').val())
+                                     + Number($('#form_DifferenceNegativeChange').val())
+                                     + Number($('#form_ChargesNetteCessionValeurMobiliereDePlacement').val()));
 
-         $('#form_ChargesFinancieres').val(Number($('#form_DotationsFinancieresAmortissementDepreciationProvision').val())
-                                         + Number($('#form_InteretEtChargeAssimilees').val())
-                                         + Number($('#form_DifferenceNegativeChange').val())
-                                         + Number($('#form_ChargesNetteCessionValeurMobiliereDePlacement').val()));
+     $('#form_ResultatFinancier').val(Number($('#form_ProduitsFinanciers').val())
+                                    - Number($('#form_ChargesFinancieres').val()));
 
-         $('#form_ResultatFinancier').val(Number($('#form_ProduitsFinanciers').val())
-                                        - Number($('#form_ChargesFinancieres').val()));
+     $('#form_ResultatExceptionnel').val(Number($('#form_ProduitExceptionnelOperationGestion').val())
+                                       + Number($('#form_ProduitExceptionnelOperationCapital').val())
+                                       + Number($('#form_RepriseDepreciationProvisionTransfertCharge').val())
+                                       - Number($('#form_ChargesExceptionnelleOperationGestion').val())
+                                       - Number($('#form_ChargesExceptionnelleOperationCapital').val())
+                                       - Number($('#form_DotationExceptionnelleAmortissementDepreciationProvision').val()));
 
-         $('#form_ResultatExceptionnel').val(Number($('#form_ProduitExceptionnelOperationGestion').val())
-                                           + Number($('#form_ProduitExceptionnelOperationCapital').val())
-                                           + Number($('#form_RepriseDepreciationProvisionTransfertCharge').val())
-                                           - Number($('#form_ChargesExceptionnelleOperationGestion').val())
-                                           - Number($('#form_ChargesExceptionnelleOperationCapital').val())
-                                           - Number($('#form_DotationExceptionnelleAmortissementDepreciationProvision').val()));
-
-          $('#form_Benefice').val(Number($('#form_ResultatExploitation').val())
-                                + Number($('#form_ResultatFinancier').val())
-                                + Number($('#form_ResultatExceptionnel').val())
-                                - Number($('#form_ParticipationSalariesAuxResultats').val())
-                                - Number($('#form_ImpotsSurLesBenefices').val()));
-      });
-    </script>
-</div>
+      $('#form_Benefice').val(Number($('#form_ResultatExploitation').val())
+                            + Number($('#form_ResultatFinancier').val())
+                            + Number($('#form_ResultatExceptionnel').val())
+                            - Number($('#form_ParticipationSalariesAuxResultats').val())
+                            - Number($('#form_ImpotsSurLesBenefices').val()));
+  });
+</script>
 {% endblock %}
