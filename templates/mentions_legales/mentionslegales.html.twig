@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+<link href="{{ asset('css/mentions_legales.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
+<div class="body">
 <div class="mentionsLegales">
     <h1>Mentions légales</h1>
 
-    <p>Ce site est géré par l’association <strong>Code for France</strong> (loi 1901) déclarée auprès de la préfecture de police de Paris sous le numéro W751238992 et publiée au journal officiel le 15/09/2018.</p>
+    <p>Ce site est géré par l’association <a href="https://codefor.fr/?locale=fr" style="color: #cc4c4c"><strong>Code for France</strong></a> (loi 1901) déclarée auprès de la préfecture de police de Paris sous le numéro W751238992 et publiée au journal officiel le 15/09/2018.</p>
 
     <p><strong>Siège Social :</strong></p>
 
@@ -19,15 +22,18 @@
     </p>
 
     <p><strong>Contact :</strong></p>
-    <p><a href="mailto:contact@codefor.fr">contact@codefor.fr</a></p>
+    <p><a href="mailto:contact@codefor.fr" style="color: #cc4c4c">contact@codefor.fr</a></p>
 </div>
 
+<hr>
+    
 <div class="licences">
     <h1>Licences</h1>
 
-    <p>Sauf mention explicite, l’ensemble du contenu textuel de ce site est sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">Creative Commons – Attribution – Partage dans les Mêmes Conditions (CC BY-SA 4.0)</a>.</p>
+    <p>Sauf mention explicite, l’ensemble du contenu textuel de ce site est sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" style="color: #cc4c4c">Creative Commons – Attribution – Partage dans les Mêmes Conditions (CC BY-SA 4.0)</a>.</p>
 
-    <p>Le <a href="https://github.com/leonarf/OpenCorporateFacts">code hébergé sur Github</a> est sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a>.</p>
+    <p>Le <a href="https://github.com/leonarf/OpenCorporateFacts" style="color: #cc4c4c">code hébergé sur Github</a> est sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" style="color: #cc4c4c">GPLv3</a>.</p>
+</div>
 </div>
 {% endblock %}
 

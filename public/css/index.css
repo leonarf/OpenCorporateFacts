@@ -1,0 +1,14 @@
+.block1 h1{
+    padding: 1em 0em 1em 0em;
+    display: block;
+}
+
+.block1 h2{
+    padding: 0em 0em 1em 0em;
+    display: block;
+}
+
+.block2 h2{
+    padding: 2em 0em 1em 0em;
+    display: block; 
+}

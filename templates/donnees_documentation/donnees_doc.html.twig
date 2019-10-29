@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+<link href="{{ asset('css/donnees_doc.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
-<h2>La base de données d’Open Corporate Facts (OCF)</h2>
+<div class="body">
+<h1>La base de données d’Open Corporate Facts (OCF)</h1>
 
-<p>Les données d’Open Corporate Facts (OCF) sont issues de deux jeux de données ouverts:</p>
+    <p>Les données d’Open Corporate Facts (OCF) sont issues de deux jeux de données ouverts:</p>
 
-<ul>
-    <li>Les <a href="https://www.inpi.fr/fr/licence-registre-national-du-commerce-et-des-societes-rncs">comptes de résultat des sociétés du Registre National du Commerce et des Sociétés (RNCS)</a> publiés par l’<a href="https://www.inpi.fr/fr/linpi-au-coeur-de-linnovation">Institut National de la Propriété Industrielle (INPI)</a> ;</li>
-    <li>Les données d’identité des entreprises provenant d'<a href="https://opencorporates.com/">Open Corporates</a> ;</li>
-</ul>
+    <ul>
+        <li>Les <a href="https://www.inpi.fr/fr/licence-registre-national-du-commerce-et-des-societes-rncs" style="color: #cc4c4c">comptes de résultat des sociétés du Registre National du Commerce et des Sociétés (RNCS)</a> publiés par l’<a href="https://www.inpi.fr/fr/linpi-au-coeur-de-linnovation" style="color: #cc4c4c">Institut National de la Propriété Industrielle (INPI)</a> ;</li>
+        <li>Les données d’identité des entreprises provenant d'<a href="https://opencorporates.com/" style="color: #cc4c4c">Open Corporates</a> ;</li>
+    </ul>
 
 <h3>1. Qu’est-ce que le Registre National du Commerce et des Sociétés (RNCS)?</h3>
 
@@ -18,45 +21,47 @@
 
 <p>Commerçant⋅es, sociétés, groupements d’intérêts économiques, micro-entrepreneur⋅ses, Établissements Publics à caractère Industriel et Commercial, etc.<sup>[1]</sup>, immatriculé⋅es en France, sont inscrit⋅es dans les Registres du Commerce et des Sociétés (RCS). Les RCS sont des répertoires locaux gérés par les tribunaux de commerce et les tribunaux civils à compétence commerciale. Ces RCS réunissent un ensemble de documents déposés au greffe par les personnes physiques (commerçant⋅es) et morales.</p>
 
-<h3>Le Registre National du Commerce et des Sociétés (RNCS)</h3>
+<h4>Le Registre National du Commerce et des Sociétés (RNCS)</h4>
 
 <p>Le Registre National du Commerce et des Sociétés (RNCS), tenu par l’INPI, centralise les données des RCS.</p>
 
 <p>Le RNCS réunit les informations suivantes :</p>
 
 <ul>
-    <li>les inscriptions : immatriculations, modifications et radiations (IMR) ;</li>
-    <li>les dépôts d’actes et les comptes de résultat pour les personnes morales.</li>
+    <li>Les inscriptions : immatriculations, modifications et radiations (IMR) ;</li>
+    <li>Les dépôts d’actes et les comptes de résultat pour les personnes morales.</li>
 </ul>
 
-<h3>L’ouverture des données du RNCS</h3>
+<h4>L’ouverture des données du RNCS</h4>
 
 <p>Dans le cadre de la politique d’ouverture des données publiques, l’INPI rend accessible une partie des données du RNCS dans un format ouvert (XML)<sup>[2]</sup>.</p>
 
-<p>Les entreprises déposent leurs comptes de résultat et leurs données IMR aux greffes des tribunaux de commerce, des tribunaux d’instance pour les départements du Bas-Rhin, du Haut-Rhin et de la Moselle, et des tribunaux mixtes de commerce pour les départements et régions d’outre-mer. L’INPI publie ces informations lorsqu'elles ont été déposé après le 1er janvier 2017. Notons toutefois que certaines données sont assorties d’une <a href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/actualites/confidentialite-du-depot-des-comptes">déclaration de confidentialité</a>, et ne sont donc pas publiées.</p>
+<p>Les entreprises déposent leurs comptes de résultat et leurs données IMR aux greffes des tribunaux de commerce, des tribunaux d’instance pour les départements du Bas-Rhin, du Haut-Rhin et de la Moselle, et des tribunaux mixtes de commerce pour les départements et régions d’outre-mer. L’INPI publie ces informations lorsqu'elles ont été déposé après le 1er janvier 2017. Notons toutefois que certaines données sont assorties d’une <a href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/actualites/confidentialite-du-depot-des-comptes" style="color: #cc4c4c">déclaration de confidentialité</a>, et ne sont donc pas publiées.</p>
 
 <h3>2. Qu’est-ce que le compte de résultat d’une entreprise ?</h3>
 
 <p>Élément difficile d’accès pour les non-initié⋅es, le compte de résultat ou compte annuel d’une entreprise est un document comptable de synthèse qui contient les informations financières de l’entreprise. Il donne à voir l’ensemble des produits et des charges d’une société sur une période de temps donnée appelée exercice comptable (généralement 12 mois).</p>
 
-<p>Avec le bilan comptable et les annexes, le compte de résultat fait partie des <a href="https://fr.wikipedia.org/wiki/%C3%89tats_financiers">états financiers</a> d’une entreprise.</p>
+<p>Avec le bilan comptable et les annexes, le compte de résultat fait partie des <a href="https://fr.wikipedia.org/wiki/%C3%89tats_financiers" style="color: #cc4c4c">états financiers</a> d’une entreprise.</p>
 
 <p>Pour comprendre plus en détail la structure et le contenu d’un compte de résultat, consultez notre documentation.</p>
 
 <h3>3. Licence et réutilisation des données de la base d’Open Corporate Facts</h3>
 
-<p>Pour avoir un aperçu complet des licences du projet Open Corporate Facts, rendez-vous sur les pages <a href="{{ url('mentions_legales') }}">Mentions légales</a>.</p>
+<p>Pour avoir un aperçu complet des licences du projet Open Corporate Facts, rendez-vous sur les pages <a href="{{ url('mentions_legales') }}" style="color: #cc4c4c">Mentions légales</a>.</p>
 
-<h3>Téléchargement des données</h3>
+<h4>Téléchargement des données</h4>
 
-<p>Les données de la base de données d’Open Corporate Facts sont téléchargeables via l’<a href="http://opencorporatefacts.fr/api">API</a> ou sous forme de fichiers <a href="{{ url('csv') }}">csv</a>.</p>
+<p>Les données de la base de données d’Open Corporate Facts sont téléchargeables via l’<a href="http://opencorporatefacts.fr/api" style="color: #cc4c4c">API</a> ou sous forme de fichiers <a href="{{ url('csv') }}" style="color: #cc4c4c">csv</a>.</p>
 
+<hr>
+    
 <div class="notes">
-<p><sup>[1]</sup><a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;?idArticle=LEGIARTI000006219283&cidTexte=LEGITEXT000005634379">Voir l'article L123-1 du Code du commerce</a>.</p>
+    <p><sup>[1] </sup>Voir <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do;?idArticle=LEGIARTI000006219283&cidTexte=LEGITEXT000005634379" style="color: #cc4c4c">l'article L123-1 du Code du commerce</a>.</p>
 
-<p><sup>[2]</sup><a href="https://www.inpi.fr/sites/default/files/doc_tech_comptes_annuels_avril_2019_v1.7_0.pdf">Voir la description des fichiers XML ouverts par l’INPI</a>.</p>
+    <p><sup>[2] </sup>Voir la <a href="https://www.inpi.fr/sites/default/files/doc_tech_comptes_annuels_avril_2019_v1.7_0.pdf" style="color: #cc4c4c">description des fichiers XML ouverts par l’INPI</a>.</p>
 </div>
-
+</div>
 {% endblock %}
 
 {% block javascripts %}

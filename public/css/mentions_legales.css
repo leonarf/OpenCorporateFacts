@@ -1,0 +1,38 @@
+.body{ 
+    line-height: 180%;
+    text-align: justify;
+}
+
+.mentionsLegales h1{
+    padding: 1em 0em 5px 0em;
+    line-height: 160%;
+}
+
+.licences h1{
+    padding: 5px 0em 5px 0em;
+    line-height: 160%;
+}
+
+.body ul{
+    list-style: none;
+}
+
+.body li{
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.body li:before{
+    content: '✓';
+    position: absolute;
+    left: 0;
+}
+
+p{
+    padding: 2px 0em 2px 0em;
+}
+
+
+.body a:hover{
+    color:  #851313!important;
+}
