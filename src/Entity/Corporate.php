@@ -19,7 +19,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Entity(repositoryClass="App\Repository\CorporateRepository")
  * @UniqueEntity("CompanyNumber")
  * @ApiResource
- * @ApiFilter(SearchFilter::class, properties={"id": "exact", "Name": "partial"})
+ * @ApiFilter(SearchFilter::class, properties={"id": "exact", "Name": "partial", "CompanyNumber": "exact"})
  */
 class Corporate
 {

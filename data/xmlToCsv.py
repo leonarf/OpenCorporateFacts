@@ -18,6 +18,7 @@ csvGenerated = 0
 confidentiality2Count = 0
 detailMissing = 0
 requestHeaders = {'content-type': 'application/json'}
+defaultValueForMissingData = "Missing Value"
 
 dictionaryCodeMotifToHumanReadable = {
 '0':'0 Comptes annuels saisis sans anomalie',
@@ -209,7 +210,6 @@ def parseDetail(detail, compteType):
         # Select only "Compte de résultat" and "Effectifs" and "Dividendes" pages
         if page.attrib['numero'] in ['02', '03', '04', '16', '5', '11'] :
             for liasse in page:
-#                print(compteType + " page " + page.attrib['numero'])
                 # code details is ['description' 'colonnes remplies']
                 try:
                     codeDetails = dictionaryAdministrationToHuman[compteType][page.attrib['numero']][liasse.attrib['code']]
@@ -218,6 +218,7 @@ def parseDetail(detail, compteType):
                     return dictionaryDetail;
                 liasseValues = []
                 for digit in ['1', '2', '3' , '4']:
+                    # Fill 'liasseValues' with value found in xml file from expected attribute (m1, m2, m3 or m4)
                     if digit in codeDetails[1]:
                         try:
                             attributeName = 'm' + digit
@@ -225,10 +226,10 @@ def parseDetail(detail, compteType):
                         except ValueError:
                             print ("Not a number for attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
                         except KeyError:
-                            #print ("Missing attribute " + attributeName + " in :", codeDetails[0], liasse.attrib)
-                            liasseValues.append("Missing Value")
-                if codeDetails[0] in dictionaryDetail:
-                    raise Exception('Key conflict. the following key is not unique : "' + codeDetails[0] + '". Context :code ' + liasse.attrib['code'] + " in page " + page.attrib['numero'] + " for compte type " + compteType)
+                            liasseValues.append(defaultValueForMissingData)
+                if codeDetails[0] in dictionaryDetail and dictionaryDetail[codeDetails[0]] != liasseValues :
+                    print ('ERROR! Two codes (second one is ' + liasse.attrib['code'] + " in page " + page.attrib['numero'] + " for compte type " + compteType + ') with same meaning (' + codeDetails[0] + ') found in xml file, and with differents values! First values:' , dictionaryDetail[codeDetails[0]], "Second values:", liasseValues)
+                    return None
                 dictionaryDetail[codeDetails[0]] = liasseValues
         else:
             print("page number not interesting :", page.attrib['numero'])
@@ -272,7 +273,7 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
     # Try to get already existing bilan comptable
     response = requests.get(URLToFill + "api/compte_de_resultats?Corporate=" + corporateIRI + "&year=" + str(year), headers=requestHeaders)
     if response.ok and response.json()['hydra:totalItems'] == 1:
-        print('There is already a compte for year', year, " for company " + corporateIRI)
+        print('There is already a compte for year', year, "for company " + corporateIRI)
         return True
     else:
         postCompteDeResultatDict = getNewCompteDeResultatToPost()
@@ -286,9 +287,14 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
             if csvKey in dictionaryColumnNameToDatabaseFields:
                 try:
                     postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = financialValues[csvKey][dictionaryColumnNameToDatabaseFields[csvKey][1] + compteNumber]
+                    if postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] == defaultValueForMissingData:
+                        print("Cannot post compte", year, "for company", corporateIRI, "because at least value for", dictionaryColumnNameToDatabaseFields[csvKey][0], "is missing")
+                        return False
                 except IndexError:
                     print("Error when getting value from xml to database. csvKey=", csvKey, "compteNumber=", compteNumber, dictionaryColumnNameToDatabaseFields[csvKey], "Values got in xml:", financialValues[csvKey])
-                    postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = "Missing Value"
+                    postCompteDeResultatDict[dictionaryColumnNameToDatabaseFields[csvKey][0]] = defaultValueForMissingData
+                    print("Cannot post compte", year, "for company", corporateIRI, "because at least value for", dictionaryColumnNameToDatabaseFields[csvKey][0], "is missing")
+                    return False
 
         jsonData = json.dumps(postCompteDeResultatDict)
         response = requests.post(URLToFill + "api/compte_de_resultats", data=jsonData, headers=requestHeaders)
@@ -297,13 +303,17 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
             return True
         elif response.status_code == 500:
             if 'uniqueComptesPerYearPerCorporate' in response.json()['hydra:description']:
-                print('There is already a compte for year', postCompteDeResultatDict['year'], " for company " + corporateIdentity['denomination'] + " that was not found before")
+                print('There is already a compte for year', postCompteDeResultatDict['year'], "for company " + corporateIdentity['denomination'] + " that was not found before")
                 return True
         elif response.status_code == 400:
             print("Bilan comptable with error or missing values : " + response.json()['hydra:description'])
         else:
-            print(response.reason)
-            print(response.status_code)
+            print("Serveur error on post request. Details :")
+            print("Response reason:", response.reason)
+            print("Response status code:", response.status_code)
+            print("URL: " + URLToFill + "api/compte_de_resultats")
+            print("Data : " + jsonData)
+            print("Headers :", requestHeaders)
             print(response.json()['hydra:description'])
             print("response.json() : ", response.json())
             return False
@@ -372,11 +382,12 @@ def parseAndConvertXMLFile(xmlFilePath):
             typeCompte = "Assurance"
         detailDict = parseDetail(detail, typeCompte)
 
-        if not postToDatabase(identiteDict, detailDict):
+        if detailDict != None and not postToDatabase(identiteDict, detailDict):
             writeCSV(identiteDict, detailDict)
             csvGenerated += 1
 
 def processOneCompanyZippedFile(zipFilePath):
+    print("Processing xml file ", zipFilePath)
     myzipfile = zipfile.ZipFile(zipFilePath)
     for zippedFile in myzipfile.namelist():
         if zippedFile.endswith(".xml"):
@@ -384,15 +395,15 @@ def processOneCompanyZippedFile(zipFilePath):
             parseAndConvertXMLFile(myXmlFile)
             print("Global csv generation results : csvGenerated=", csvGenerated, "databaseCompteAdding=", databaseCompteAdding, "databaseCompanyAdding=", databaseCompanyAdding, "confidentiality2Count=", confidentiality2Count, "detailMissing=", detailMissing)
 
-def processOneDayZippedFile(zipFilePath):
+def processOneDayZippedFile(oneDayZipFilePath):
     try:
-        myzipfile = zipfile.ZipFile(zipFilePath)
-        for zippedFile in myzipfile.namelist():
-            if zippedFile.endswith(".zip"):
-                myXmlFile = myzipfile.open(zippedFile)
+        oneDayZip = zipfile.ZipFile(oneDayZipFilePath)
+        for zippedFileName in oneDayZip.namelist():
+            if zippedFileName.endswith(".zip"):
+                myXmlFile = oneDayZip.open(zippedFileName)
                 processOneCompanyZippedFile(myXmlFile)
     except zipfile.BadZipFile:
-        print("file " + zipFilePath + " cannot be handled by python zipfile :-(")
+        print("file " + oneDayZipFilePath + " cannot be handled by python zipfile :-(")
 
 def exploreAndProcessFTPFolder(folderToExplore):
     ftp = FTP_TLS('opendata-rncs.inpi.fr')
@@ -490,7 +501,7 @@ if xmlFile:
     parseAndConvertXMLFile(xmlFile)
 # Get data from FTP if ftp option is given
 elif importFromFTP:
-    folderToExplore = "public/Bilans_Donnees_Saisies/historique"
+    folderToExplore = "public/Bilans_Donnees_Saisies/"
     dailyFileFound = exploreAndProcessFTPFolder(folderToExplore)
 # Parse the given folder if option is given
 else:
