@@ -1,0 +1,25 @@
+.body{ 
+    line-height: 180%;
+    text-align: justify;
+}
+
+h1{
+    padding: 1em 0em 5px 0em;
+    line-height: 120%;
+}
+
+
+h3, h4{
+    font-weight: bold!important;
+    line-height: 160%;
+    padding: 5px 0em 5px 0em;
+}
+
+p{
+    padding: 5px 0em 5px 0em;
+}
+
+
+.body a:hover{
+    color:  #851313!important;
+}
