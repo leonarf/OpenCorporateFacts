@@ -149,273 +149,273 @@ class CompteDeResultat
 
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $VenteMarchandises;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ProductionVendueDeServices;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupTest")
      * @Groups("groupImportant")
      */
     private $ChiffresAffairesNet;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProductionImmobilisee;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $SubventionsExploitation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $RepriseDepreciationProvisionsTransfertCharges;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $AutresProduits;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ProduitsExploitation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $AchatsDeMarchandises;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $AchatMatierePremiereAutreAppro;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $AutresAchatEtChargesExternes;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ImpotTaxesEtVersementsAssimiles;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $SalairesEtTraitements;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ChargesSociales;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DotationAmortissementImmobilisations;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DotationDepreciationImmobilisations;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DotationDepreciationActifCirculant;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DotationProvisions;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $AutresCharges;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ChargesExploitation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ResultatExploitation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProduitsFinanciersParticipations;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProduitsAutresValeursMobiliereEtCreancesActifImmobilise;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $AutreInteretEtProduitAssimile;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $RepriseDepreciationEtProvisionTransfertsCharges;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DifferencesPositivesChange;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ProduitsFinanciers;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DotationsFinancieresAmortissementDepreciationProvision;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $InteretEtChargeAssimilees;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DifferenceNegativeChange;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ChargesNetteCessionValeurMobiliereDePlacement;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ChargesFinancieres;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ResultatFinancier;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProduitExceptionnelOperationGestion;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProduitExceptionnelOperationCapital;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $RepriseDepreciationProvisionTransfertCharge;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ChargesExceptionnelleOperationGestion;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ChargesExceptionnelleOperationCapital;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $DotationExceptionnelleAmortissementDepreciationProvision;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ResultatExceptionnel;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ParticipationSalariesAuxResultats;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $ImpotsSurLesBenefices;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      * @Groups("groupImportant")
      */
     private $Benefice;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $VariationStockMarchandise;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProduitsNetsCessionsValeursMobilesPlacement;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProductionVendueDeBiens;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $ProductionStocked;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $VariationStockMatierePremiereEtAppro;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="bigint", nullable=true)
      * @Groups("groupImportant")
      */
     private $EffectifsMoyens;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="bigint", nullable=true)
      * @Groups("groupImportant")
      */
     private $Dividende;
