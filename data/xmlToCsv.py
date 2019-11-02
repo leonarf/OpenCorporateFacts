@@ -258,7 +258,7 @@ def postOrGetCompanyInDatabase(corporateIdentity):
         elif response.status_code == 400:
             print(response.json()['hydra:description'])
             if response.json()['hydra:description'] == 'CompanyNumber: This value is already used.':
-                print("CompanyNumber exists already, retrieving it")
+                print("ERROR : CompanyNumber exists already, you should retrieve it")
             else:
                 print("response.json() : ", response.json())
                 print(response.json()['violations'])
@@ -338,7 +338,10 @@ def writeCSV(corporateIdentity, financialValues):
     if outputFile:
         csvFilePath = outputFile
     else:
-        csvFilePath = corporateIdentity['code_type_bilan'] + '_' + corporateIdentity['code_activite'] + '_' + corporateIdentity['adresse'].replace('/', 'sur') + '_' + corporateIdentity['siren'] + '_' + corporateIdentity['date_cloture_exercice'] + '.csv'
+        csvFilePath = corporateIdentity['code_type_bilan'] + '_' + corporateIdentity['code_activite'] + '_'
+        if corporateIdentity['adresse'] != None :
+            csvFilePath += corporateIdentity['adresse'].replace('/', 'sur') + '_'
+        csvFilePath += corporateIdentity['siren'] + '_' + corporateIdentity['date_cloture_exercice'] + '.csv'
 
     with open(csvFilePath, 'w', newline='') as csvfile:
         csvWriter = csv.writer(csvfile, delimiter=';',
@@ -508,5 +511,5 @@ else:
     for root, dirs, files in os.walk(folder):
         for name in files:
             if name.endswith(".zip"):
-                filePath = root + name
+                filePath = root + '/' + name
                 processOneCompanyZippedFile(filePath)
