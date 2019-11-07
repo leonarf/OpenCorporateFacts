@@ -1,19 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block title %}OCF: {{ corporate }}!{% endblock %}
 
-
 {% block body %}
 <div class="example-wrapper">
-    <h1>Here are the information about {{ corporate.Name }}</h1>
-    <a href="{{ url('homepage') }}">Retour à l'accueil</a>
-    <ul>
-      <li> Company Number : {{ corporate.CompanyNumber }}</li>
-      <li> Name : {{ corporate.Name }}</li>
-      <li> link on OpenCorporates.com : <a href="{{ corporate.OpenCorporateURL }}">{{ corporate.OpenCorporateURL }}</a></li>
-    </ul>
+    <h1>Entreprise {{ corporate.Name }} (SIREN : {{ corporate.CompanyNumber }})</h1>
 
+<!-- Display data from OpenCorporate.com -->
     {{ include('corporate/OpenCorporateDataVisualization.html.twig') }}
 
+<!-- Display shareholdings data -->
     {% if corporate.shareholdings is not empty or corporate.CorporateShareholders is not empty %}
       {{ include('corporate/CorporationsGraph.html.twig', { 'corporate': corporate }) }}
     {% endif %}
@@ -26,6 +21,7 @@
 {% elseif corporate.documentDeReferences is not empty %}
   {{ include('corporate/DocumentDeReferenceGraphic.html.twig', { 'corporate': corporate }) }}
 {% endif %}
+<h5><a href="{{ url('csv', {'corporateId': corporate.Id}) }}">Télécharger les données en csv</a></h5>
 
 </div>
 {% endblock %}

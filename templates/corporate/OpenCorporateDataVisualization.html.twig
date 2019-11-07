@@ -7,23 +7,23 @@ $(document).ready(function(){
 
   $.get(apiURL,
         function(serverData, status){
+          $("#DataFromOpenCorporateFacts").append("<h2>Données récupérées sur <a href=\"{{ corporate.OpenCorporateURL }}\">OpenCorporates.com</a></h2>");
           openCorporationData = serverData.results.company;
-          $("#DataFromOpenCorporateFacts").append("<h2>Data retrieved from <a href=\"https://opencorporates.com\">OpenCorporates.com</a></h2>");
-          $("#DataFromOpenCorporateFacts").append(
-          "<ul><li>Name : " + openCorporationData.name + "</li>"
-          + "<li>Jurisdiction Code : " + openCorporationData.jurisdiction_code + "</li>"
-          + "<li>Incorporation date : " + openCorporationData.incorporation_date + "</li>"
-          + "<li>Company Type : " + openCorporationData.company_type + "</li>"
-          + "<li>Number of employees: " + openCorporationData.number_of_employees + "</li>"
-          + "<li>Registered address: " + openCorporationData.registered_address_in_full + "</li>"
-          + "<li>Industry codes :<ul>");
+          htmlData = "<ul><li>Name : " + openCorporationData.name + "</li>"
+                    + "<li>Jurisdiction Code : " + openCorporationData.jurisdiction_code + "</li>"
+                    + "<li>Incorporation date : " + openCorporationData.incorporation_date + "</li>"
+                    + "<li>Company Type : " + openCorporationData.company_type + "</li>"
+                    + "<li>Number of employees: " + openCorporationData.number_of_employees + "</li>"
+                    + "<li>Registered address: " + openCorporationData.registered_address_in_full + "</li>"
+                    + "<li>Industry codes (code APE) :<ul>"
 
-          var industryCodesLength = openCorporationData.industry_codes.length;
-          for (var i = 0; i < industryCodesLength; i++) {
+          for (var i = 0; i < openCorporationData.industry_codes.length; i++) {
              var industryCode = openCorporationData.industry_codes[i].industry_code;
-             $("#DataFromOpenCorporateFacts").append("<li>" + industryCode.description + "(" + industryCode.code + ")</li>");
+             htmlData += "<li>" + industryCode.description + "(" + industryCode.code + ")</li>";
           }
-          $("#DataFromOpenCorporateFacts").append("</ul></li></ul>");
+          htmlData += "</ul></li></ul>";
+
+          $("#DataFromOpenCorporateFacts").append(htmlData);
           console.log(serverData);
         },
         "json");

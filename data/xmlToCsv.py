@@ -296,7 +296,14 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
                     print("Cannot post compte", year, "for company", corporateIRI, "because at least value for", dictionaryColumnNameToDatabaseFields[csvKey][0], "is missing")
                     return False
 
-        jsonData = json.dumps(postCompteDeResultatDict)
+        # Conversion of all 'bigint' number to string since platform API seems to want them as string :-(
+        stringCompteDeResultatDict = {}
+        for key, value in postCompteDeResultatDict.items():
+            if key == 'year':
+                stringCompteDeResultatDict[key] = value
+            else:
+                stringCompteDeResultatDict[key] = str(value)
+        jsonData = json.dumps(stringCompteDeResultatDict)
         response = requests.post(URLToFill + "api/compte_de_resultats", data=jsonData, headers=requestHeaders)
         if response.ok:
             print('Compte for year', year, " for company " + corporateIRI + "succesfully added :-D")
@@ -308,7 +315,7 @@ def postCompteDeResultatToDatabase(year, corporateIRI, financialValues, compteNu
         elif response.status_code == 400:
             print("Bilan comptable with error or missing values : " + response.json()['hydra:description'])
         else:
-            print("Serveur error on post request. Details :")
+            print("Serveur error on compte_de_resultats post request. Details :")
             print("Response reason:", response.reason)
             print("Response status code:", response.status_code)
             print("URL: " + URLToFill + "api/compte_de_resultats")

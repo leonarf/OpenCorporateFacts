@@ -1,8 +1,16 @@
 {% block body %}
-    Voici le graphique de répartition du chiffre d'affaire
+    <hr>
+    <h3>Voici le graphique de répartition du chiffre d'affaire</h3>
     <canvas id="GraphCA"></canvas>
-    Voici le graphique de répartition du résultat d'exploitation
+    <hr>
+    <h3>Voici le graphique de répartition du résultat d'exploitation</h3>
     <canvas id="GraphPartageRichesse"></canvas>
+    <p>La somme de toutes les barres correspond au résultat d'exploitation.</p>
+    <p>La participation indique combien les salarié⋅es ont touché globalement en
+      "<a href="https://www.service-public.fr/particuliers/vosdroits/F2141">prime de participation aux bénéfices de l'entreprise</a>"</p>
+    <p>Les impôts indiquent combien l'entreprise a payé d'<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F23575">Impôt sur les bénéfices des sociétés. Un impôt négatid veut dire que l'entreprise à une créance de l'État, probablement grace au multiple niches fiscale sous forme de crédit d'impôt</a></p>
+    <p>Le résultat financier et exceptionnel est la somme des pertes et gains financiers (intérêt payé et dividende perçu par exemple), et la somme des pertes et gains exceptionnels. Il faut regarder les détails du compte de résultat pour vraiment interpréter l'origine de ces résultats, mais il peut globalement être interpréter comme suit : si c'est positif, cela veut dire que l'entreprise à perdu de l'argent vis à vis du système financier/ses créanciers/à la spéculation, si c'est négatif, c'est qu'elle en a gagné.<p>
+    <p>Le résultat pour les propriétaires de l'entreprise correspond à l'argent qui reste pour l'entreprise à la fin de son année d'exploitation. L'entreprise appartenant à ses propriétaire, cet argent leur appartient. Si ce résultat est négatif,
     {% block javascripts %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <script>
@@ -67,6 +75,29 @@
 
       var autreCharges = [];
       var taxesMoinsSubventions = [];
+
+      var factorCA = 1;
+      var unitCA = '€';
+      if (CA[0] > 10000000){
+        var factorCA = 1000000;
+        var unitCA = 'millions d\'€';
+      }
+      else if (CA[0] > 100000) {
+        var factorCA = 1000;
+        var unitCA = 'milliers d\'€';
+      }
+
+      var factor = 1;
+      var unit = '€';
+      if (resultatExploitation[0] > 3000000 || resultatExploitation[0] < -3000000){
+        var factor = 1000000;
+        var unit = 'millions d\'€';
+      }
+      else if (resultatExploitation[0] > 100000 || resultatExploitation[0] < -100000) {
+        var factor = 1000;
+        var unit = 'milliers d\'€';
+      }
+
       for(var i = 0; i < xLabels.length; i++){
           // Mise en forme des données du graphe sur le CA
           taxesMoinsSubventions.push(taxes[i] - subventions[i])
@@ -76,19 +107,17 @@
           resultatPourProprietaire.push(resultatExploitation[i] + resultatFinancier[i] + resultatExceptionnel[i] - Participation[i] - ImpotsSurLesSocietes[i]);
           resultatExceptionnelEtFinancier.push(-resultatFinancier[i] - resultatExceptionnel[i]);
 
-          var factor = 1000000
           Participation[i] = Math.round(1000 * Participation[i] / factor) / 1000;
           ImpotsSurLesSocietes[i] = Math.round(1000 * ImpotsSurLesSocietes[i] / factor) / 1000;
           resultatPourProprietaire[i] = Math.round(1000 * resultatPourProprietaire[i] / factor) / 1000;
           resultatExceptionnelEtFinancier[i] = Math.round(1000 * resultatExceptionnelEtFinancier[i] / factor) / 1000;
 
-          // Compute to percentage (%)
-          salaires[i] = Math.round(100 * salaires[i] * 100 / CA[i])/100;
-          cotisationSociale[i] = Math.round(100 * cotisationSociale[i] * 100 / CA[i])/100;
-          taxesMoinsSubventions[i] = Math.round(100 * taxesMoinsSubventions[i] * 100 / CA[i])/100;
-          achatMarchandises[i] = Math.round(100 * achatMarchandises[i] * 100 / CA[i])/100;
-          autreCharges[i] = Math.round(100 * autreCharges[i] * 100 / CA[i])/100;
-          resultatExploitation[i] = Math.round(100 * resultatExploitation[i] * 100 / CA[i])/100;
+          salaires[i] = Math.round(1000 * salaires[i] / factorCA) / 1000;
+          cotisationSociale[i] = Math.round(1000 * cotisationSociale[i] / factorCA) / 1000;
+          taxesMoinsSubventions[i] = Math.round(1000 * taxesMoinsSubventions[i] / factorCA) / 1000;
+          achatMarchandises[i] = Math.round(1000 * achatMarchandises[i] / factorCA) / 1000;
+          autreCharges[i] = Math.round(1000 * autreCharges[i] / factorCA) / 1000;
+          resultatExploitation[i] = Math.round(1000 * resultatExploitation[i] / factorCA) / 1000;
       }
 
       var CAChartData = {
@@ -144,12 +173,8 @@
       			yAxes: [{
       		        scaleLabel:{
       		            display:true,
-      		            labelString: '% du CA'
+      		            labelString: unitCA
       		        },
-      			    ticks: {
-      			        max: 100,
-      			        min: 0
-      			    },
       				stacked: true
       			}]
       		}
@@ -201,7 +226,7 @@
       			yAxes: [{
       			    scaleLabel:{
       	                display:true,
-      	                labelString: 'millions d\'euros'
+      	                labelString: unit
       	            },
       				stacked: false
       			}]

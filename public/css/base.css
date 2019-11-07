@@ -1,7 +1,7 @@
-.example-wrapper { 
-    margin : 1em auto; 
-    max-width : 1000px; 
-    width : 95%; 
+.example-wrapper {
+    margin : 1em auto;
+    max-width : 1000px;
+    width : 95%;
     font : 18px/1.5 sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
@@ -11,7 +11,7 @@
         body {
             background : #F5F5F5;
         }
-        a {
+        nav a {
             text-decoration : none;
         }
 
@@ -61,6 +61,11 @@
     position: absolute;
     left: 0;
     }
+
+.contactbox a {
+        text-decoration : none;
+      }
+      
         .rocketchat{
             grid-column: 1;
             grid-row: 2;
@@ -75,12 +80,12 @@
             display: block;
             padding: 1rem;
         }
-        
-        .rocketchatlien a:hover{                       
+
+        .rocketchatlien a:hover{
             background-color:  rgba(255, 255, 255, .3);
             transition-duration : .3s;
         }
-        
+
         .github{
             grid-column: 2;
             grid-row: 2;
@@ -90,7 +95,7 @@
             border-right-color : #940e0e;
             text-align: center;
         }
-            
+
         .githublien a{
             display: block;
             padding: 1rem;
@@ -99,7 +104,7 @@
             background-color:  rgba(255, 255, 255, .3);
             transition-duration : .3s;
         }
-        
+
         .api{
             grid-column: 3;
             grid-row: 2;

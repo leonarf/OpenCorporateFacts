@@ -62,19 +62,20 @@ class HomepageController extends AbstractController
     }
 
     /**
-     * @Route("/csv", name="csv")
+     * @Route("/csv/{corporateId}", name="csv")
      */
-    public function allInOneCsv(Request $request)
+    public function allInOneCsv($corporateId)
     {
       $entityManager = $this->getDoctrine()->getManager();
-      $repoCompteDeResultat = $entityManager->getRepository(CompteDeResultat::class);
+      $repoCorporate = $entityManager->getRepository(Corporate::class);
+
+      $lotsOfCompteDeResultats = $repoCorporate->find($corporateId)->getComptesDeResultats();
 
       $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
       $normalizer = new ObjectNormalizer($classMetadataFactory);
 
       $encoders = [new CsvEncoder()];
       $serializer = new Serializer([$normalizer], $encoders);
-      $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(1000000);
       $csvContent = $serializer->serialize($lotsOfCompteDeResultats, 'csv', ['groups' => ['groupImportant']]);
 
       $response = new Response($csvContent);
