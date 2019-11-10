@@ -14,24 +14,26 @@
     {% block javascripts %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <script>
-      var colors = ['#EAB543',
-                    '#25CCF7',
-                    '#82589F',
-                    '#55E6C1',
-                    '#2C3A47',
-                    '#B33771',
-                    '#3B3B98',
-                    '#F97F51',
-                    '#CAD3C8'];
+      var colors = ["#4d4040",
+                    "#c36c40",
+                    "#95c15a",
+                    "#90b6b7",
+                    "#7c50ba",
+                    "#c35d90"];
 
       var xLabels = [];
 
       var CA = [];
+      var subventions = [];
       var achatMarchandises = [];
+      var variationStockMarchandises = [];
+      var achatMatierePremiereAutreAppro = [];
+      var variationStockMatierePremiereAutreAppro = [];
+      var autresAchatEtChargesExterne = [];
+      var taxes = [];
       var salaires = [];
       var cotisationSociale = [];
-      var taxes = [];
-      var subventions = [];
+      var autreCharges = [];
 
       var resultatExploitation = [];
       var resultatFinancier = [];
@@ -45,24 +47,20 @@
 
       {% for comptesDeResultat in corporate.ComptesDeResultats %}
         xLabels.push({{ comptesDeResultat.year }});
-        if ({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }} > {{ comptesDeResultat.SubventionsExploitation }})
-        {
-          taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
-          subventions.push({{ comptesDeResultat.SubventionsExploitation }});
-          CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
-        }
-        else // Inventer un graphique pertinent pour les entreprises qui touchent plus de subventions qu'elles ne payent d'impôte
-        {
-          taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
-          subventions.push({{ comptesDeResultat.SubventionsExploitation }});
-          CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
-        }
 
-        salaires.push({{ comptesDeResultat.SalairesEtTraitements}});
-        cotisationSociale.push({{ comptesDeResultat.ChargesSociales}});
-        resultatExploitation.push({{ comptesDeResultat.ProduitsExploitation - comptesDeResultat.ChargesExploitation}});
+        CA.push({{ comptesDeResultat.ChiffresAffairesNet}});
+        subventions.push({{ comptesDeResultat.SubventionsExploitation }});
 
         achatMarchandises.push({{ comptesDeResultat.AchatsDeMarchandises }});
+        variationStockMarchandises.push({{ comptesDeResultat.VariationStockMarchandise}});
+        achatMatierePremiereAutreAppro.push({{ comptesDeResultat.AchatMatierePremiereAutreAppro}});
+        variationStockMatierePremiereAutreAppro.push({{ comptesDeResultat.VariationStockMatierePremiereEtAppro}});
+
+        taxes.push({{ comptesDeResultat.ImpotTaxesEtVersementsAssimiles }});
+        salaires.push({{ comptesDeResultat.SalairesEtTraitements}});
+        cotisationSociale.push({{ comptesDeResultat.ChargesSociales}});
+
+        resultatExploitation.push({{ comptesDeResultat.ResultatExploitation }});
 
         resultatFinancier.push({{ comptesDeResultat.ResultatFinancier }});
         resultatExceptionnel.push({{ comptesDeResultat.ResultatExceptionnel }});
@@ -72,9 +70,6 @@
       {% else %}
       <li> Pas de comptes de résultats trouvé</li>
       {% endfor %}
-
-      var autreCharges = [];
-      var taxesMoinsSubventions = [];
 
       var factorCA = 1;
       var unitCA = '€';
@@ -98,33 +93,39 @@
         var unit = 'milliers d\'€';
       }
 
+      var autreChargesMoinsAutresProduitsAffiches = [];
+      var taxesMoinsSubventions = [];
+      var marchandisesTotalAfficher = [];
       for(var i = 0; i < xLabels.length; i++){
           // Mise en forme des données du graphe sur le CA
-          taxesMoinsSubventions.push(taxes[i] - subventions[i])
-          autreCharges.push(CA[i] - salaires[i] - cotisationSociale[i] - taxesMoinsSubventions[i] - achatMarchandises[i] - resultatExploitation[i]);
+          taxesMoinsSubventions.push(taxes[i] - subventions[i]);
+          marchandisesTotalAfficher.push(achatMarchandises[i] + variationStockMarchandises[i] + achatMatierePremiereAutreAppro[i] + variationStockMatierePremiereAutreAppro[i]);
+          autreChargesMoinsAutresProduitsAffiches.push(CA[i] - salaires[i] - cotisationSociale[i] - taxesMoinsSubventions[i] - marchandisesTotalAfficher[i] - resultatExploitation[i]);
 
           // Mise en forme des données sur le graphe de la répartition du résultat d'exploitation
           resultatPourProprietaire.push(resultatExploitation[i] + resultatFinancier[i] + resultatExceptionnel[i] - Participation[i] - ImpotsSurLesSocietes[i]);
           resultatExceptionnelEtFinancier.push(-resultatFinancier[i] - resultatExceptionnel[i]);
 
+          // Application du ratio pour l'affichage du graphe sur le CA
+          salaires[i] = Math.round(1000 * salaires[i] / factorCA) / 1000;
+          cotisationSociale[i] = Math.round(1000 * cotisationSociale[i] / factorCA) / 1000;
+          taxesMoinsSubventions[i] = Math.round(1000 * taxesMoinsSubventions[i] / factorCA) / 1000;
+          marchandisesTotalAfficher[i] = Math.round(1000 * marchandisesTotalAfficher[i] / factorCA) / 1000;
+          autreChargesMoinsAutresProduitsAffiches[i] = Math.round(1000 * autreChargesMoinsAutresProduitsAffiches[i] / factorCA) / 1000;
+          resultatExploitation[i] = Math.round(1000 * resultatExploitation[i] / factorCA) / 1000;
+
+          // Application du ratio pour l'affichage du graphe sur le résultat d'exploitation
           Participation[i] = Math.round(1000 * Participation[i] / factor) / 1000;
           ImpotsSurLesSocietes[i] = Math.round(1000 * ImpotsSurLesSocietes[i] / factor) / 1000;
           resultatPourProprietaire[i] = Math.round(1000 * resultatPourProprietaire[i] / factor) / 1000;
           resultatExceptionnelEtFinancier[i] = Math.round(1000 * resultatExceptionnelEtFinancier[i] / factor) / 1000;
-
-          salaires[i] = Math.round(1000 * salaires[i] / factorCA) / 1000;
-          cotisationSociale[i] = Math.round(1000 * cotisationSociale[i] / factorCA) / 1000;
-          taxesMoinsSubventions[i] = Math.round(1000 * taxesMoinsSubventions[i] / factorCA) / 1000;
-          achatMarchandises[i] = Math.round(1000 * achatMarchandises[i] / factorCA) / 1000;
-          autreCharges[i] = Math.round(1000 * autreCharges[i] / factorCA) / 1000;
-          resultatExploitation[i] = Math.round(1000 * resultatExploitation[i] / factorCA) / 1000;
       }
 
       var CAChartData = {
       	labels: xLabels,
       	datasets: [{
       		label: 'Salaires Bruts',
-      		backgroundColor: colors[6],
+      		backgroundColor: colors[5],
       		data: salaires
       	}, {
       		label: 'Cotisations Sociales',
@@ -132,19 +133,19 @@
       		data: cotisationSociale
       	}, {
       		label: 'Taxes diverses retranchées des subventions',
-      		backgroundColor: colors[3],
+      		backgroundColor: colors[2],
       		data: taxesMoinsSubventions
       	}, {
-      		label: 'Achat de marchandises pour projet',
+      		label: 'Achat de marchandises, matières premières et autre approvisionnement',
       		backgroundColor: colors[0],
-      		data: achatMarchandises
+      		data: marchandisesTotalAfficher
       	}, {
-      		label: 'Autre Charges',
+      		label: 'Autres charges retranchées des autres produits',
+      		backgroundColor: colors[3],
+      		data: autreChargesMoinsAutresProduitsAffiches
+      	}, {
+      		label: 'Résultat d\'exploitation (marge de l\'entreprise)',
       		backgroundColor: colors[4],
-      		data: autreCharges
-      	}, {
-      		label: 'Résultat d\'exploitation',
-      		backgroundColor: colors[5],
       		data: resultatExploitation
       	}]
       };
@@ -185,19 +186,19 @@
       	labels: xLabels,
       	datasets: [{
       		label: 'Participation',
-      		backgroundColor: colors[1],
+      		backgroundColor: colors[5],
       		data: Participation
       	}, {
       		label: 'Impôts',
-      		backgroundColor: colors[0],
+      		backgroundColor: colors[2],
       		data: ImpotsSurLesSocietes
       	},{
       		label: 'Résultat pour les propriétaires de l\'entreprise',
-      		backgroundColor: colors[5],
+      		backgroundColor: colors[4],
       		data: resultatPourProprietaire
       	}, {
       		label: 'Résultat financier et exceptionnel',
-      		backgroundColor: colors[7],
+      		backgroundColor: colors[3],
       		data: resultatExceptionnelEtFinancier
       	}]
       };
