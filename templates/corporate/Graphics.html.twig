@@ -8,9 +8,9 @@
     <p>La somme de toutes les barres correspond au résultat d'exploitation.</p>
     <p>La participation indique combien les salarié⋅es ont touché globalement en
       "<a href="https://www.service-public.fr/particuliers/vosdroits/F2141">prime de participation aux bénéfices de l'entreprise</a>"</p>
-    <p>Les impôts indiquent combien l'entreprise a payé d'<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F23575">Impôt sur les bénéfices des sociétés. Un impôt négatid veut dire que l'entreprise à une créance de l'État, probablement grace au multiple niches fiscale sous forme de crédit d'impôt</a></p>
-    <p>Le résultat financier et exceptionnel est la somme des pertes et gains financiers (intérêt payé et dividende perçu par exemple), et la somme des pertes et gains exceptionnels. Il faut regarder les détails du compte de résultat pour vraiment interpréter l'origine de ces résultats, mais il peut globalement être interpréter comme suit : si c'est positif, cela veut dire que l'entreprise à perdu de l'argent vis à vis du système financier/ses créanciers/à la spéculation, si c'est négatif, c'est qu'elle en a gagné.<p>
-    <p>Le résultat pour les propriétaires de l'entreprise correspond à l'argent qui reste pour l'entreprise à la fin de son année d'exploitation. L'entreprise appartenant à ses propriétaire, cet argent leur appartient. Si ce résultat est négatif,
+    <p>Les impôts indiquent combien l'entreprise a payé d'<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F23575">Impôt sur les bénéfices des sociétés</a>. Un impôt négatif signifie que l'entreprise à une créance sur l'État, probablement grace aux multiples niches fiscales sous forme de crédit d'impôt</p>
+    <p>Le 'résultat financier et exceptionnel' est la somme des pertes et gains financiers (intérêts payés et dividendes perçus par exemple), additionée à la somme des pertes et gains exceptionnels. Il faut regarder les détails du 'compte de résultat' pour vraiment en comprendre l'origine, mais il peut globalement être interprété comme suit : s'il est positif, cela veut dire que l'entreprise a perdu de l'argent vis à vis du système financier, et/ou de ses créanciers et/ou en spéculant. S'il est négatif, c'est qu'elle en a gagné.<p>
+    <p>Le résultat pour les propriétaires de l'entreprise correspond à l'argent qui reste pour l'entreprise à la fin de son année d'exploitation. L'entreprise appartenant à ses propriétaires, cet argent leur appartient.</p>
     {% block javascripts %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <script>
@@ -82,7 +82,7 @@
         var factorCA = 1000000;
         var unitCA = 'millions d\'€';
       }
-      else if (CA[0] > 100000) {
+      else if (CA[0] > 30000) {
         var factorCA = 1000;
         var unitCA = 'milliers d\'€';
       }
@@ -93,7 +93,7 @@
         var factor = 1000000;
         var unit = 'millions d\'€';
       }
-      else if (resultatExploitation[0] > 100000 || resultatExploitation[0] < -100000) {
+      else if (resultatExploitation[0] > 30000 || resultatExploitation[0] < -100000) {
         var factor = 1000;
         var unit = 'milliers d\'€';
       }
