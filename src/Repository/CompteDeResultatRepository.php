@@ -31,4 +31,19 @@ class CompteDeResultatRepository extends ServiceEntityRepository
 
     return $qb->execute();
   }
+
+  /**
+   * Return all CompteDeResultat that are from a company matching the APECode given as argument 
+   * @return CompteDeResultat[] Returns an array of CompteDeResultat objects
+   */
+  public function findAllFromAPECode($APECode)
+  {
+    $qb = $this->createQueryBuilder('compte')
+        ->innerJoin('compte.Corporate', 'corpo', 'WITH', 'corpo.IndustryCode = :APECode')
+        ->setParameter('APECode', $APECode)
+        ->orderBy('compte.year', 'DESC')
+        ->getQuery();
+
+    return $qb->execute();
+  }
 }

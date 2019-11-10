@@ -21,7 +21,8 @@
 {% elseif corporate.documentDeReferences is not empty %}
   {{ include('corporate/DocumentDeReferenceGraphic.html.twig', { 'corporate': corporate }) }}
 {% endif %}
-<h5><a href="{{ url('csv', {'corporateId': corporate.Id}) }}">Télécharger les données en csv</a></h5>
 
+<a href="{{ url('csv', {'corporateId': corporate.Id}) }}"><input type=button value="Télécharger les données de l'entreprise en csv"></a>
+<a href="{{ url('ape', {'APECode': corporate.IndustryCode}) }}"><input type=button value="Télécharger les données des entreprises du même secteur"></a>
 </div>
 {% endblock %}

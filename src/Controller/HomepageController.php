@@ -83,4 +83,28 @@ class HomepageController extends AbstractController
 
       return $response;
     }
+
+    /**
+     * Return a csv file containing data from all companies with the corresponding industry code (APE code)
+     * @Route("/ape{APECode}", name="ape")
+     */
+    public function apeToCsv($APECode)
+    {
+      $entityManager = $this->getDoctrine()->getManager();
+      $repoCompte = $entityManager->getRepository(CompteDeResultat::class);
+
+      $lotsOfCompteDeResultats = $repoCompte->findAllFromAPECode($APECode);
+
+      $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+      $normalizer = new ObjectNormalizer($classMetadataFactory);
+
+      $encoders = [new CsvEncoder()];
+      $serializer = new Serializer([$normalizer], $encoders);
+      $csvContent = $serializer->serialize($lotsOfCompteDeResultats, 'csv', ['groups' => ['groupImportant']]);
+
+      $response = new Response($csvContent);
+      $response->headers->set('Content-Disposition', 'attachment; filename="allDataFrom'.$APECode.'.csv"');
+
+      return $response;
+    }
 }
