@@ -27,37 +27,23 @@
     <th onclick="sortTable(6)" style="cursor:pointer">Effectifs (-1 = non fourni)</th>
   </tr>
 
-{% if comptes|length > 100 %}
-  {% for i in 0..99 %}
-    <tr class="item">
-      <td><a href="{{ url('corporate_show', {'id': comptes[i].Corporate.Id}) }}">{{ comptes[i].Corporate }}</a></td>
-      <td>{{ comptes[i].year }}</td>
-      <td>{{ comptes[i].ChiffresAffairesNet}}</td>
-      <td>{{ comptes[i].Benefice}}</td>
-      <td>{{ comptes[i].ImpotsSurLesBenefices }}</td>
-      <td>{{ comptes[i].ParticipationSalariesAuxResultats }}</td>
-      <td>{{ comptes[i].EffectifsMoyens }}</td>
-    </tr>
-  {% endfor %}
-{% else %}
-  {% for compte in comptes %}
-    <tr class="item">
-      <td><a href="{{ url('corporate_show', {'id': compte.Corporate.Id}) }}">{{ compte.Corporate }}</a></td>
-      <td>{{ compte.year }}</td>
-      <td>{{ compte.ChiffresAffairesNet}}</td>
-      <td>{{ compte.Benefice}}</td>
-      <td>{{ compte.ImpotsSurLesBenefices }}</td>
-      <td>{{ compte.ParticipationSalariesAuxResultats }}</td>
-      <td>{{ compte.EffectifsMoyens }}</td>
-    </tr>
-  {% else %}
+{% for compte in comptes %}
   <tr class="item">
-    <td>Pas trouvé :'-(</td>
-    <td>Pas trouvé :'-(</td>
-    <td>Pas trouvé :'-(</td>
+    <td><a href="{{ url('corporate_show', {'id': compte.Corporate.Id}) }}">{{ compte.Corporate }}</a></td>
+    <td>{{ compte.year }}</td>
+    <td>{{ compte.ChiffresAffairesNet|number_format(0, ',', '⋅') }}</td>
+    <td>{{ compte.Benefice|number_format(0, ',', '⋅')  }}</td>
+    <td>{{ compte.ImpotsSurLesBenefices|number_format(0, ',', '⋅') }}</td>
+    <td>{{ compte.ParticipationSalariesAuxResultats|number_format(0, ',', '⋅') }}</td>
+    <td>{{ compte.EffectifsMoyens|number_format(0, ',', '⋅') }}</td>
   </tr>
-  {% endfor %}
-{% endif %}
+{% else %}
+<tr class="item">
+  <td>Pas trouvé :'-(</td>
+  <td>Pas trouvé :'-(</td>
+  <td>Pas trouvé :'-(</td>
+</tr>
+{% endfor %}
 </table>
 
 <script>

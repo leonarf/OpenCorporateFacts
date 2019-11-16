@@ -22,7 +22,12 @@
   {{ include('corporate/DocumentDeReferenceGraphic.html.twig', { 'corporate': corporate }) }}
 {% endif %}
 
-<a href="{{ url('csv', {'corporateId': corporate.Id}) }}"><input type=button value="Télécharger les données de l'entreprise en csv"></a>
-<a href="{{ url('ape', {'APECode': corporate.IndustryCode}) }}"><input type=button value="Télécharger les données des entreprises du même secteur"></a>
+{% if corporate.ComptesDeResultats is not empty %}
+  <a href="{{ url('csv', {'corporateId': corporate.Id}) }}"><input type=button value="Télécharger les données de l'entreprise en csv"></a>
+{% endif %}
+{% if corporate.IndustryCode %}
+  <a href="{{ url('ape', {'APECode': corporate.IndustryCode}) }}"><input type=button value="Télécharger les données des entreprises du même secteur"></a>
+{% endif %}
+
 </div>
 {% endblock %}
