@@ -22,10 +22,11 @@ class CompteDeResultatRepository extends ServiceEntityRepository
   /**
    * @return CompteDeResultat[] Returns an array of CompteDeResultat objects
    */
-  public function findAllUpTo($maxResults)
+  public function findTops($maxResults, $orderByProperty)
   {
     $qb = $this->createQueryBuilder('compte')
-        ->orderBy('compte.ChiffresAffairesNet', 'DESC')
+        ->orderBy('compte.'.$orderByProperty, 'DESC')
+        ->groupby('compte.Corporate')
         ->setMaxResults($maxResults)
         ->getQuery();
 
@@ -33,7 +34,7 @@ class CompteDeResultatRepository extends ServiceEntityRepository
   }
 
   /**
-   * Return all CompteDeResultat that are from a company matching the APECode given as argument 
+   * Return all CompteDeResultat that are from a company matching the APECode given as argument
    * @return CompteDeResultat[] Returns an array of CompteDeResultat objects
    */
   public function findAllFromAPECode($APECode)

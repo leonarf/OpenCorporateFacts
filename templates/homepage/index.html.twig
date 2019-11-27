@@ -29,7 +29,7 @@
 
 {% for compte in comptes %}
   <tr class="item">
-    <td><a href="{{ url('corporate_show', {'id': compte.Corporate.Id}) }}">{{ compte.Corporate }}</a></td>
+    <td><a href="{{ url('corporate_show', {'siren': compte.Corporate.CompanyNumber}) }}">{{ compte.Corporate }}</a></td>
     <td>{{ compte.year }}</td>
     <td>{{ compte.ChiffresAffairesNet|number_format(0, ',', '⋅') }}</td>
     <td>{{ compte.Benefice|number_format(0, ',', '⋅')  }}</td>

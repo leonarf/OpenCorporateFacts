@@ -47,7 +47,7 @@ export default {
             this.totalResult = response.data["hydra:totalItems"];
             this.nextPage = response.data["hydra:view"]["hydra:next"];
             for (var company of this.companiesMatching) {
-              company['url'] = Routing.generate('corporate_show', { 'id': company.id});
+              company['url'] = Routing.generate('corporate_show', { 'siren': company.CompanyNumber});
             }
             });
     },
@@ -57,7 +57,7 @@ export default {
             this.nextPage = response.data["hydra:view"]["hydra:next"];
             this.previousPage = response.data["hydra:view"]["hydra:previous"];
             for (var company of this.companiesMatching) {
-              company['url'] = Routing.generate('corporate_show', { 'id': company.id});
+              company['url'] = Routing.generate('corporate_show', { 'siren': company.CompanyNumber});
             }
             this.currentPageNumber++;
             });
@@ -68,7 +68,7 @@ export default {
             this.nextPage = response.data["hydra:view"]["hydra:next"];
             this.previousPage = response.data["hydra:view"]["hydra:previous"];
             for (var company of this.companiesMatching) {
-              company['url'] = Routing.generate('corporate_show', { 'id': company.id});
+              company['url'] = Routing.generate('corporate_show', { 'siren': company.CompanyNumber});
             }
             this.currentPageNumber--;
             });

@@ -107,17 +107,17 @@ class CorporateController extends AbstractController
     }
 
     /**
-     * @Route("/corporate/{id}", options={"expose"=true}, name="corporate_show")
+     * @Route("/corporate/{siren}", options={"expose"=true}, name="corporate_show")
      */
-    public function show($id)
+    public function show($siren)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $askedCorporate = $entityManager->getRepository(Corporate::class)
-            ->findOneBy(['id' => $id]);
+            ->findOneBy(['CompanyNumber' => $siren]);
 
         if (!$askedCorporate) {
             throw $this->createNotFoundException(
-                'No corporate found for id '.$id
+                'No corporate found with siren = '.$siren
             );
         }
         return $this->render('corporate/show.html.twig', ['corporate' => $askedCorporate]);

@@ -44,7 +44,7 @@ class HomepageController extends AbstractController
     {
       $entityManager = $this->getDoctrine()->getManager();
       $repoCompteDeResultat = $entityManager->getRepository(CompteDeResultat::class);
-      $lotsOfCompteDeResultats = $repoCompteDeResultat->findAllUpTo(100);
+      $lotsOfCompteDeResultats = $repoCompteDeResultat->findTops(100, 'ChiffresAffairesNet');
       $bilanComptableCount = $repoCompteDeResultat->createQueryBuilder('compte')
           ->select('count(compte.id)')
           ->getQuery()
